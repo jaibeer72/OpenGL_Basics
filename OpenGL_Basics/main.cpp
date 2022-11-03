@@ -5,16 +5,25 @@
 //  Created by Jaibeer Dugal on 31/10/2022.
 //
 
-#include <iostream>
-
-#include <glad/glad.h>
-#include <glfw/glfw3.h>
+#include "Application.hpp"
 
 
+int main(int argc, const char * argv[])
+{
+    std::map<std::string,IRenderableObject> *renderableObjectsMap = new std::map<std::string, IRenderableObject>();
+    
+    const char* appname = "trial name";
+    Application* app = new Application(appname,300,300, *renderableObjectsMap);
+    try {
+        app->run();
+    } catch (const std::exception& ex) {
+        std::cerr << ex.what() << std::endl;
+        return EXIT_FAILURE;
+    }
+    
 
-
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+    return EXIT_SUCCESS;
+    
 }
+
+
