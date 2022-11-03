@@ -6,11 +6,14 @@
 //
 
 #include "Application.hpp"
+#include "Triangle.hpp"
 
 
 int main(int argc, const char * argv[])
 {
-    std::map<std::string,IRenderableObject> *renderableObjectsMap = new std::map<std::string, IRenderableObject>();
+    std::map<std::string,std::unique_ptr<IRenderableObject>> *renderableObjectsMap = new std::map<std::string, std::unique_ptr<IRenderableObject>>();
+    
+    renderableObjectsMap->insert({"triangle", std::unique_ptr<IRenderableObject>(new Triangle())});
     
     const char* appname = "trial name";
     Application* app = new Application(appname,300,300, *renderableObjectsMap);

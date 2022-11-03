@@ -8,10 +8,8 @@
 #pragma once
 #ifndef RenderableObjectsBase_hpp
 #define RenderableObjectsBase_hpp
-#endif /* RenderableObjectsBase_hpp */
 
-
-#include "Application.hpp" // getting things from here itself.
+#include "GLSLShader.hpp"
 
 
 class IRenderableObject
@@ -28,9 +26,8 @@ public:
     virtual void FillVertexBuffer(GLfloat* pBuffer) = 0;
     virtual void FillColorBuffer(GLfloat* pBuffer) = 0;
     virtual void FillIndexBuffer(GLuint* pBuffer) = 0;
-
-    virtual void SetCustomUniforms() {}
-
+    
+    virtual void SetCustomUniforms();
     void Init();
     void Destroy();
 
@@ -39,7 +36,8 @@ protected:
     GLuint vboVerticesID;
     GLuint vboIndicesID;
     
-
+    GLSLShader shader;
     GLenum primType;
     int totalVertices, totalIndices;
 };
+#endif /* RenderableObjectsBase_hpp */

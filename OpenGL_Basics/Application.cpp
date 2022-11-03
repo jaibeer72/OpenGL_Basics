@@ -7,12 +7,11 @@
 
 #include "Application.hpp"
 
-Application::Application(const char *AppName, int Width, int Height, std::map<std::string, IRenderableObject> &RenderableObjects) {
-    m_RenderableObjects = RenderableObjects;
+Application::Application(const char *AppName, int Width, int Height, std::map<std::string, std::unique_ptr<IRenderableObject>> &RenderableObjects) {
+    m_RenderableObjects(*RenderableObjects);
     appName = AppName;
     width = Width;
-    height = Height; 
-    
+    height = Height;
 }
 
 
@@ -34,11 +33,6 @@ void Application::run() {
         glClear(GL_COLOR_BUFFER_BIT);
         
         
-        for(auto obj : m_RenderableObjects)
-        {
-            obj.second.Render(4.3f);
-        }
-
         
         glfwSwapBuffers(m_Window);
         glfwPollEvents();
@@ -74,13 +68,13 @@ void Application::initWindow(int width, int height) {
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         std::cout << "Failed to initialize GLAD" << std::endl;
-        throw std::runtime_error("Glad failed to load"); 
+        throw std::runtime_error("Glad failed to load");
     }
 }
 
 
 
-void Application::cleanup() { 
+void Application::cleanup() {
     glfwTerminate();
 }
 

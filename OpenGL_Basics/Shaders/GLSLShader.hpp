@@ -8,9 +8,19 @@
 #pragma once
 #ifndef GLSLSHADER_H
 #define GLSLSHADER_H
-#endif
 
-#include "Application.hpp"
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
+#include <iostream>
+#include <stdexcept>
+#include <map>
+#include <string>
+
+//GLM
+#include <glm/glm.hpp>
+#include<glm/gtc/matrix_transform.hpp>
+#include<glm/gtc/type_ptr.hpp>
 
 class GLSLShader
 {
@@ -36,4 +46,5 @@ private:
     std::map<std::string, GLuint> _attributeList;
     std::map<std::string, GLuint> _uniformLocationList;
 };
+#endif
 
