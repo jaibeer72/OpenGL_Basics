@@ -27,6 +27,9 @@ class Triangle : public IRenderableObject
     
     void FillIndexBuffer(GLuint *pBuffer) override;
     
+    void SetCustomUniforms() override ;
+    
+    
 };
 
 #endif /* Triangle_hpp */

@@ -101,6 +101,11 @@ void GLSLShader::DeleteShaderProgram() {
     glDeleteProgram(_program);
 }
 
+GLSLShader::~GLSLShader() { 
+
+}
+
+
 
 
 

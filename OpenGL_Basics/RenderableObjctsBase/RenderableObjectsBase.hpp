@@ -16,6 +16,7 @@ class IRenderableObject
 {
 public:
     IRenderableObject(void);
+    IRenderableObject* ReturnRenderObject(){ return this;}
     virtual ~IRenderableObject(void);
     void Render(const float* MVP);
 
@@ -27,7 +28,7 @@ public:
     virtual void FillColorBuffer(GLfloat* pBuffer) = 0;
     virtual void FillIndexBuffer(GLuint* pBuffer) = 0;
     
-    virtual void SetCustomUniforms();
+    virtual void SetCustomUniforms() = 0;
     void Init();
     void Destroy();
 

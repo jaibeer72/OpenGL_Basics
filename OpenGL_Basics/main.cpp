@@ -13,11 +13,14 @@ int main(int argc, const char * argv[])
 {
     std::map<std::string,std::unique_ptr<IRenderableObject>> *renderableObjectsMap = new std::map<std::string, std::unique_ptr<IRenderableObject>>();
     
+    
     renderableObjectsMap->insert({"triangle", std::unique_ptr<IRenderableObject>(new Triangle())});
     
     const char* appname = "trial name";
-    Application* app = new Application(appname,300,300, *renderableObjectsMap);
+
+    Application* app = new Application(appname,300,300);
     try {
+        app->setRenderPool(*renderableObjectsMap);
         app->run();
     } catch (const std::exception& ex) {
         std::cerr << ex.what() << std::endl;

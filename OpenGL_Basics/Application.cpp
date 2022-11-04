@@ -2,25 +2,15 @@
 //  Application.cpp
 //  OpenGL_Basics
 //
-//  Created by Jaibeer Dugal on 31/10/2022.
+//  Created by Jaibeer Dugal on 03/11/2022.
 //
 
 #include "Application.hpp"
 
-Application::Application(const char *AppName, int Width, int Height, std::map<std::string, std::unique_ptr<IRenderableObject>> &RenderableObjects) {
-    m_RenderableObjects(*RenderableObjects);
-    appName = AppName;
-    width = Width;
-    height = Height;
+
+Application::Application(const char *AppName, int Width, int Height): width(Width), height(Height)
+{
 }
-
-
-void framebuffer_size_callback1(GLFWwindow *window, int width, int height) {
-    // make sure the viewport matches the new window dimensions; note that width and
-    // height will be significantly larger than specified on retina displays.
-    glViewport(0, 0, width, height);
-}
-
 
 void Application::run() {
     initWindow(width, height);
@@ -31,7 +21,6 @@ void Application::run() {
         
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
-        
         
         
         glfwSwapBuffers(m_Window);
@@ -90,11 +79,19 @@ void Application::OnKeyCallback(int keycode) {
         glfwSetWindowShouldClose(m_Window, true);
 }
 
-
-
-
-
-
+void Application::SetRenderPool(std::map<std::string, std::unique_ptr<IRenderableObject>> &renderPool)
+{
+    auto begin = renderPool.begin();
+    auto end = renderPool.end();
+    for (auto iter = begin; iter != end ; ++iter )
+    {
+        std::cout<< iter->first;
+        
+        RenderPool->insert({iter->first, std::unique_ptr<IRenderableObject>(iter->second->ReturnRenderObject())
+        });
+    }
+    
+}
 
 
 

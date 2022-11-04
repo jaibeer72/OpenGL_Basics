@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC2E36EE2913FCFC00C31DBD /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2E36EC2913FCFC00C31DBD /* Application.cpp */; };
 		ECCCD2022913E5AF000D4BED /* libglfw.3.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = ECD16D8A290FE417009F5F6C /* libglfw.3.3.dylib */; };
 		ECCCD2042913E5B1000D4BED /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD16D88290FE3F6009F5F6C /* OpenGL.framework */; };
 		ECCCD2052913E5B1000D4BED /* OpenGL.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = ECD16D88290FE3F6009F5F6C /* OpenGL.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -14,7 +15,6 @@
 		ECD16D81290FE3C6009F5F6C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D80290FE3C6009F5F6C /* main.cpp */; };
 		ECD16D8B290FE417009F5F6C /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD16D8A290FE417009F5F6C /* libglfw.3.3.dylib */; };
 		ECD16D8D290FEC16009F5F6C /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D8C290FEC16009F5F6C /* glad.c */; };
-		ECD16D91290FEC96009F5F6C /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D8F290FEC96009F5F6C /* Application.cpp */; };
 		ECD16D952911B05F009F5F6C /* RenderableObjectsBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D932911B05F009F5F6C /* RenderableObjectsBase.cpp */; };
 		ECD16D992912BD8B009F5F6C /* GLSLShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D972912BD8B009F5F6C /* GLSLShader.cpp */; };
 /* End PBXBuildFile section */
@@ -44,6 +44,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EC2E36EC2913FCFC00C31DBD /* Application.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
+		EC2E36ED2913FCFC00C31DBD /* Application.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Application.hpp; sourceTree = "<group>"; };
 		ECCCD2072913EA78000D4BED /* Triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
 		ECCCD2082913EA78000D4BED /* Triangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Triangle.hpp; sourceTree = "<group>"; };
 		ECD16D7D290FE3C6009F5F6C /* OpenGL_Basics */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGL_Basics; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,8 +53,6 @@
 		ECD16D88290FE3F6009F5F6C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		ECD16D8A290FE417009F5F6C /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../../../opt/homebrew/Cellar/glfw/3.3.8/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		ECD16D8C290FEC16009F5F6C /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = Externals/glad/src/glad.c; sourceTree = "<group>"; };
-		ECD16D8F290FEC96009F5F6C /* Application.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
-		ECD16D90290FEC96009F5F6C /* Application.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Application.hpp; sourceTree = "<group>"; };
 		ECD16D932911B05F009F5F6C /* RenderableObjectsBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RenderableObjectsBase.cpp; sourceTree = "<group>"; };
 		ECD16D942911B05F009F5F6C /* RenderableObjectsBase.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RenderableObjectsBase.hpp; sourceTree = "<group>"; };
 		ECD16D972912BD8B009F5F6C /* GLSLShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLSLShader.cpp; sourceTree = "<group>"; };
@@ -105,8 +105,8 @@
 				ECD16D962912BD6B009F5F6C /* Shaders */,
 				ECD16D922911B00E009F5F6C /* RenderableObjctsBase */,
 				ECD16D80290FE3C6009F5F6C /* main.cpp */,
-				ECD16D8F290FEC96009F5F6C /* Application.cpp */,
-				ECD16D90290FEC96009F5F6C /* Application.hpp */,
+				EC2E36EC2913FCFC00C31DBD /* Application.cpp */,
+				EC2E36ED2913FCFC00C31DBD /* Application.hpp */,
 			);
 			path = OpenGL_Basics;
 			sourceTree = "<group>";
@@ -200,8 +200,8 @@
 			files = (
 				ECD16D81290FE3C6009F5F6C /* main.cpp in Sources */,
 				ECCCD2092913EA78000D4BED /* Triangle.cpp in Sources */,
+				EC2E36EE2913FCFC00C31DBD /* Application.cpp in Sources */,
 				ECD16D8D290FEC16009F5F6C /* glad.c in Sources */,
-				ECD16D91290FEC96009F5F6C /* Application.cpp in Sources */,
 				ECD16D952911B05F009F5F6C /* RenderableObjectsBase.cpp in Sources */,
 				ECD16D992912BD8B009F5F6C /* GLSLShader.cpp in Sources */,
 			);

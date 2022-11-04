@@ -16,17 +16,22 @@
 #include <stdexcept>
 #include <map>
 #include <string>
+#include <iterator>
+
+// file systems
+#include<fstream>
+#include<algorithm>
 
 //GLM
 #include <glm/glm.hpp>
-#include<glm/gtc/matrix_transform.hpp>
-#include<glm/gtc/type_ptr.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 class GLSLShader
 {
 public:
-    GLSLShader(void);
-    ~GLSLShader(void);
+    GLSLShader();
+    ~GLSLShader();
     void LoadFromString(GLenum whichShader, const std::string& source);
     void LoadFromFile(GLenum whichShader, const std::string& filename);
     void CreateAndLinkProgram();
