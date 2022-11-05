@@ -43,27 +43,27 @@ void GLSLShader::LoadFromFile(GLenum type, const std::string &source) {
 }
 
 void GLSLShader::CreateAndLinkProgram() { 
-    _program = glCreateProgram();
+    m_Program = glCreateProgram();
     if (_shaders[VERTEX_SHADER] != 0) {
-        glAttachShader(_program, _shaders[VERTEX_SHADER]);
+        glAttachShader(m_Program, _shaders[VERTEX_SHADER]);
     }
     if (_shaders[FRAGMENT_SHADER] != 0) {
-        glAttachShader(_program, _shaders[FRAGMENT_SHADER]);
+        glAttachShader(m_Program, _shaders[FRAGMENT_SHADER]);
     }
     if (_shaders[GEOMETRY_SHADER] != 0) {
-        glAttachShader(_program, _shaders[GEOMETRY_SHADER]);
+        glAttachShader(m_Program, _shaders[GEOMETRY_SHADER]);
     }
 
     //link and check whether the program links fine
     GLint status;
-    glLinkProgram(_program);
-    glGetProgramiv(_program, GL_LINK_STATUS, &status);
+    glLinkProgram(m_Program);
+    glGetProgramiv(m_Program, GL_LINK_STATUS, &status);
     if (status == GL_FALSE) {
         GLint infoLogLength;
 
-        glGetProgramiv(_program, GL_INFO_LOG_LENGTH, &infoLogLength);
+        glGetProgramiv(m_Program, GL_INFO_LOG_LENGTH, &infoLogLength);
         GLchar *infoLog = new GLchar[infoLogLength];
-        glGetProgramInfoLog(_program, infoLogLength, NULL, infoLog);
+        glGetProgramInfoLog(m_Program, infoLogLength, NULL, infoLog);
         std::cerr << "Link log: " << infoLog << std::endl;
         delete[] infoLog;
     }
@@ -74,7 +74,7 @@ void GLSLShader::CreateAndLinkProgram() {
 }
 
 void GLSLShader::Use() { 
-    glUseProgram(_program);
+    glUseProgram(m_Program);
 }
 
 void GLSLShader::UnUse() { 
@@ -82,11 +82,11 @@ void GLSLShader::UnUse() {
 }
 
 void GLSLShader::AddAttribute(const std::string &attribute) { 
-    _attributeList[attribute] = glGetAttribLocation(_program, attribute.c_str());
+    _attributeList[attribute] = glGetAttribLocation(m_Program, attribute.c_str());
 }
 
 void GLSLShader::AddUniform(const std::string &uniform) { 
-    _uniformLocationList[uniform] = glGetUniformLocation(_program, uniform.c_str());
+    _uniformLocationList[uniform] = glGetUniformLocation(m_Program, uniform.c_str());
 }
 
 GLuint GLSLShader::operator[](const std::string &attribute) { 
@@ -98,7 +98,7 @@ GLuint GLSLShader::operator()(const std::string &uniform) {
 }
 
 void GLSLShader::DeleteShaderProgram() { 
-    glDeleteProgram(_program);
+    glDeleteProgram(m_Program);
 }
 
 GLSLShader::~GLSLShader() { 

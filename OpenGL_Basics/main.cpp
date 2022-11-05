@@ -6,6 +6,7 @@
 //
 
 #include "Application.hpp"
+
 #include "Triangle.hpp"
 
 
@@ -19,8 +20,9 @@ int main(int argc, const char * argv[])
     const char* appname = "trial name";
 
     Application* app = new Application(appname,300,300);
+    
     try {
-        app->setRenderPool(*renderableObjectsMap);
+        app->SetRenderPool(*renderableObjectsMap);
         app->run();
     } catch (const std::exception& ex) {
         std::cerr << ex.what() << std::endl;

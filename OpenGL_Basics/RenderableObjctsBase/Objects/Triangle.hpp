@@ -9,7 +9,6 @@
 #ifndef Triangle_hpp
 #define Triangle_hpp
 
-#include <stdio.h>
 #include "RenderableObjectsBase.hpp"
 
 class Triangle : public IRenderableObject
@@ -28,7 +27,6 @@ class Triangle : public IRenderableObject
     void FillIndexBuffer(GLuint *pBuffer) override;
     
     void SetCustomUniforms() override ;
-    
     
 };
 

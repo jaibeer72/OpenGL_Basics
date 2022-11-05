@@ -32,8 +32,8 @@ class GLSLShader
 public:
     GLSLShader();
     ~GLSLShader();
-    void LoadFromString(GLenum whichShader, const std::string& source);
-    void LoadFromFile(GLenum whichShader, const std::string& filename);
+    void LoadFromString(GLenum ShaderType, const std::string& source);
+    void LoadFromFile(GLenum ShaderType, const std::string& filename);
     void CreateAndLinkProgram();
     void Use();
     void UnUse();
@@ -45,7 +45,7 @@ public:
 
 private:
     enum ShaderType { VERTEX_SHADER, FRAGMENT_SHADER, GEOMETRY_SHADER };
-    GLuint  _program;
+    GLuint  m_Program;
     int _totalShaders;
     GLuint _shaders[3];
     std::map<std::string, GLuint> _attributeList;
