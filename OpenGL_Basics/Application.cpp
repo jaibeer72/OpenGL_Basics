@@ -13,15 +13,33 @@ Application::Application(const char *AppName, int Width, int Height): width(Widt
 }
 
 void Application::run() {
-    initWindow(width, height);
+    
+    auto begin = RenderPool->begin();
+    auto end = RenderPool->end();
+    for (auto iter = begin; iter != end ; ++iter )
+    {
+        iter->second->Init();
+        std::cout<< "Initalized----" << iter->first << std::endl;
+    }
+    
     // reder loop
     while(!glfwWindowShouldClose(m_Window))
     {
         OnKeyCallback(0);
         
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glm::mat4 MV    = MainCamera.GetViewMatrix();
+        glm::mat4 P     = MainCamera.GetProjectionMatrix();
+        glm::mat4 MVP    = P*MV;
         
+
+        //clear color buffer and depth buffer
+        glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+        glClearColor(1.0f,1.0f,1.0f,1.0f);
+        
+        for (auto iter = begin; iter != end ; ++iter )
+        {
+            iter->second->Render(glm::value_ptr(MVP));
+        }
         
         glfwSwapBuffers(m_Window);
         glfwPollEvents();
@@ -67,10 +85,15 @@ void Application::cleanup() {
     glfwTerminate();
 }
 
+// This has to always be static hence it works
 void Application::framebuffer_size_callback(GLFWwindow *window, int width, int height) {
-    // make sure the viewport matches the new window dimensions; note that width and
-    // height will be significantly larger than specified on retina displays.
-    glViewport(0, 0, width, height);
+   
+    //set the viewport
+    glViewport (0, 0, (GLsizei) width, (GLsizei) height);
+    
+    //setup the camera projection matrix
+    MainCamera.SetupProjection(45, (GLfloat)width/height);
+    
 }
 
 void Application::OnKeyCallback(int keycode) {
@@ -92,6 +115,23 @@ void Application::SetRenderPool(std::map<std::string, std::unique_ptr<IRenderabl
     }
     
 }
+
+void Application::init() {
+    //setup camera
+    //setup the camera position and look direction
+    
+    glm::vec3 p = glm::vec3(5);
+    MainCamera.SetPosition(p);
+    glm::vec3 look =  glm::normalize(p);
+    
+    //rotate the camera for proper orientation
+    float yaw = glm::degrees(float(atan2(look.z, look.x)+M_PI));
+    float pitch = glm::degrees(asin(look.y));
+    MainCamera.Rotate(yaw, pitch, 0);
+    
+    initWindow(width, height);
+}
+
 
 
 

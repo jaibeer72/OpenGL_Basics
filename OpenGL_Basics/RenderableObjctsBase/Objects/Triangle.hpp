@@ -13,6 +13,8 @@
 
 class Triangle : public IRenderableObject
 {
+public:
+    Triangle();
     
     int GetTotalVertices() override;
     

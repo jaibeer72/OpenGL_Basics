@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		EC2E36EE2913FCFC00C31DBD /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2E36EC2913FCFC00C31DBD /* Application.cpp */; };
+		EC2E36F02916D58C00C31DBD /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD16D88290FE3F6009F5F6C /* OpenGL.framework */; };
+		EC2E36F8291BC5D500C31DBD /* ICamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2E36F6291BC5D500C31DBD /* ICamera.cpp */; };
+		EC2E36FC291BEFCC00C31DBD /* FPlane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2E36FA291BEFCC00C31DBD /* FPlane.cpp */; };
+		EC2E36FF291C319A00C31DBD /* FreeCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2E36FD291C319A00C31DBD /* FreeCamera.cpp */; };
 		ECCCD2022913E5AF000D4BED /* libglfw.3.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = ECD16D8A290FE417009F5F6C /* libglfw.3.3.dylib */; };
-		ECCCD2042913E5B1000D4BED /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD16D88290FE3F6009F5F6C /* OpenGL.framework */; };
-		ECCCD2052913E5B1000D4BED /* OpenGL.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = ECD16D88290FE3F6009F5F6C /* OpenGL.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ECCCD2092913EA78000D4BED /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCCD2072913EA78000D4BED /* Triangle.cpp */; };
 		ECD16D81290FE3C6009F5F6C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D80290FE3C6009F5F6C /* main.cpp */; };
 		ECD16D8B290FE417009F5F6C /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD16D8A290FE417009F5F6C /* libglfw.3.3.dylib */; };
@@ -27,7 +29,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				ECCCD2022913E5AF000D4BED /* libglfw.3.3.dylib in Embed Libraries */,
-				ECCCD2052913E5B1000D4BED /* OpenGL.framework in Embed Libraries */,
 			);
 			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +47,14 @@
 /* Begin PBXFileReference section */
 		EC2E36EC2913FCFC00C31DBD /* Application.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
 		EC2E36ED2913FCFC00C31DBD /* Application.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Application.hpp; sourceTree = "<group>"; };
+		EC2E36F32917CDEB00C31DBD /* Triangle.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Triangle.vert; sourceTree = "<group>"; };
+		EC2E36F42917CE2A00C31DBD /* Triangle.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Triangle.frag; sourceTree = "<group>"; };
+		EC2E36F6291BC5D500C31DBD /* ICamera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ICamera.cpp; sourceTree = "<group>"; };
+		EC2E36F7291BC5D500C31DBD /* ICamera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ICamera.hpp; sourceTree = "<group>"; };
+		EC2E36FA291BEFCC00C31DBD /* FPlane.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FPlane.cpp; sourceTree = "<group>"; };
+		EC2E36FB291BEFCC00C31DBD /* FPlane.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FPlane.hpp; sourceTree = "<group>"; };
+		EC2E36FD291C319A00C31DBD /* FreeCamera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FreeCamera.cpp; sourceTree = "<group>"; };
+		EC2E36FE291C319A00C31DBD /* FreeCamera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FreeCamera.hpp; sourceTree = "<group>"; };
 		ECCCD2072913EA78000D4BED /* Triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
 		ECCCD2082913EA78000D4BED /* Triangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Triangle.hpp; sourceTree = "<group>"; };
 		ECD16D7D290FE3C6009F5F6C /* OpenGL_Basics */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGL_Basics; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,13 +74,51 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECD16D8B290FE417009F5F6C /* libglfw.3.3.dylib in Frameworks */,
-				ECCCD2042913E5B1000D4BED /* OpenGL.framework in Frameworks */,
+				EC2E36F02916D58C00C31DBD /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC2E36F12917CDBD00C31DBD /* ObjectShaders */ = {
+			isa = PBXGroup;
+			children = (
+				EC2E36F22917CDCD00C31DBD /* Triangle */,
+			);
+			path = ObjectShaders;
+			sourceTree = "<group>";
+		};
+		EC2E36F22917CDCD00C31DBD /* Triangle */ = {
+			isa = PBXGroup;
+			children = (
+				EC2E36F32917CDEB00C31DBD /* Triangle.vert */,
+				EC2E36F42917CE2A00C31DBD /* Triangle.frag */,
+			);
+			path = Triangle;
+			sourceTree = "<group>";
+		};
+		EC2E36F5291BC5BD00C31DBD /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				EC2E36F9291BEFA300C31DBD /* Fustrum */,
+				EC2E36F6291BC5D500C31DBD /* ICamera.cpp */,
+				EC2E36F7291BC5D500C31DBD /* ICamera.hpp */,
+				EC2E36FD291C319A00C31DBD /* FreeCamera.cpp */,
+				EC2E36FE291C319A00C31DBD /* FreeCamera.hpp */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		EC2E36F9291BEFA300C31DBD /* Fustrum */ = {
+			isa = PBXGroup;
+			children = (
+				EC2E36FA291BEFCC00C31DBD /* FPlane.cpp */,
+				EC2E36FB291BEFCC00C31DBD /* FPlane.hpp */,
+			);
+			path = Fustrum;
+			sourceTree = "<group>";
+		};
 		ECCCD2062913EA62000D4BED /* Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +170,7 @@
 		ECD16D922911B00E009F5F6C /* RenderableObjctsBase */ = {
 			isa = PBXGroup;
 			children = (
+				EC2E36F5291BC5BD00C31DBD /* Camera */,
 				ECCCD2062913EA62000D4BED /* Objects */,
 				ECD16D932911B05F009F5F6C /* RenderableObjectsBase.cpp */,
 				ECD16D942911B05F009F5F6C /* RenderableObjectsBase.hpp */,
@@ -133,6 +181,7 @@
 		ECD16D962912BD6B009F5F6C /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				EC2E36F12917CDBD00C31DBD /* ObjectShaders */,
 				ECD16D972912BD8B009F5F6C /* GLSLShader.cpp */,
 				ECD16D982912BD8B009F5F6C /* GLSLShader.hpp */,
 			);
@@ -198,10 +247,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2E36FF291C319A00C31DBD /* FreeCamera.cpp in Sources */,
 				ECD16D81290FE3C6009F5F6C /* main.cpp in Sources */,
+				EC2E36FC291BEFCC00C31DBD /* FPlane.cpp in Sources */,
 				ECCCD2092913EA78000D4BED /* Triangle.cpp in Sources */,
 				EC2E36EE2913FCFC00C31DBD /* Application.cpp in Sources */,
 				ECD16D8D290FEC16009F5F6C /* glad.c in Sources */,
+				EC2E36F8291BC5D500C31DBD /* ICamera.cpp in Sources */,
 				ECD16D952911B05F009F5F6C /* RenderableObjectsBase.cpp in Sources */,
 				ECD16D992912BD8B009F5F6C /* GLSLShader.cpp in Sources */,
 			);

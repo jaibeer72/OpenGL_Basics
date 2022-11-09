@@ -16,17 +16,13 @@ GLSLShader::GLSLShader() {
     _uniformLocationList.clear();
 }
 
-void GLSLShader::LoadFromString(GLenum whichShader, const std::string &source) { 
-    _attributeList.clear();
-    _uniformLocationList.clear();
-}
-
-void GLSLShader::LoadFromFile(GLenum type, const std::string &source) {
+void GLSLShader::LoadFromString(GLenum type, const std::string &source) {
     GLuint shader = glCreateShader(type);
 
     const char * ptmp = source.c_str();
+    
+    glShaderSource(shader,1,&ptmp,NULL); 
         
-
     //check whether the shader loads fine
     GLint status;
     glCompileShader(shader);
@@ -40,6 +36,23 @@ void GLSLShader::LoadFromFile(GLenum type, const std::string &source) {
         delete[] infoLog;
     }
     _shaders[_totalShaders++] = shader;
+}
+
+void GLSLShader::LoadFromFile(GLenum type, const std::string &filename) {
+    std::ifstream fp;
+    fp.open(filename.c_str(), std::ios_base::in);
+    if (fp) {
+        std::string line, buffer;
+        while (getline(fp, line)) {
+            buffer.append(line);
+            buffer.append("\r\n");
+        }
+        //copy to source
+        LoadFromString(type, buffer);
+    }
+    else {
+        std::cerr << "Error loading shader: " << filename << std::endl;
+    }
 }
 
 void GLSLShader::CreateAndLinkProgram() { 
