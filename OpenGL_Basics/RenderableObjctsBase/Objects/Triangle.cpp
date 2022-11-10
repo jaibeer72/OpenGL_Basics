@@ -22,9 +22,9 @@ void Triangle::FillColorBuffer(GLfloat *pCBuffer) {
     
     glm::vec3* vertices = (glm::vec3*)(pCBuffer);
 
-    vertices[0] = { -0.5f, -0.5f, 0.0f};
-    vertices[1] = { 0.5f, -0.5f, 0.0f};
-    vertices[2] = { 0.0f,  0.5f, 0.0f};
+    vertices[0] = { 1.0f, 0.0f, 0.0f};
+    vertices[1] = { 1.0f, 1.0f, 0.0f};
+    vertices[2] = { 0.0f,  1.0f, 0.0f};
 }
 
 int Triangle::GetTotalIndices() { 

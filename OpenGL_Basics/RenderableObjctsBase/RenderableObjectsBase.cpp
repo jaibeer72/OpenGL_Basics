@@ -60,10 +60,6 @@ void IRenderableObject::IRenderableObject::Init() {
 
         glEnableVertexAttribArray(shader["vVertex"]);
         glVertexAttribPointer(shader["vVertex"], 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-    
-    // TODO : fix this later 
-//        glEnableVertexAttribArray(shader["vColor"]);
-//        glVertexAttribPointer(shader["vColor"], 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)offsetof(Vertex, pCBuffer));
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboIndicesID);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, totalIndices * sizeof(GLuint), 0, GL_STATIC_DRAW);

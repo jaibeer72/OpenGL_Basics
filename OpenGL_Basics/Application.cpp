@@ -34,7 +34,6 @@ void Application::run() {
 
         //clear color buffer and depth buffer
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-        glClearColor(1.0f,1.0f,1.0f,1.0f);
         
         for (auto iter = begin; iter != end ; ++iter )
         {
@@ -120,16 +119,19 @@ void Application::init() {
     //setup camera
     //setup the camera position and look direction
     
-    glm::vec3 p = glm::vec3(5);
+    glm::vec3 p = glm::vec3(1);
     MainCamera.SetPosition(p);
     glm::vec3 look =  glm::normalize(p);
     
     //rotate the camera for proper orientation
     float yaw = glm::degrees(float(atan2(look.z, look.x)+M_PI));
     float pitch = glm::degrees(asin(look.y));
-    MainCamera.Rotate(yaw, pitch, 0);
+    MainCamera.Rotate(yaw , pitch, 90.0f);
     
     initWindow(width, height);
+    
+    //setup the camera projection matrix
+    MainCamera.SetupProjection(45, (GLfloat)width/height);
 }
 
 
