@@ -155,5 +155,10 @@ void ICamera::Rotate(const float y, const float p, const float r) {
 ICamera::~ICamera() { 
 }
 
+const glm::vec3 ICamera::GetRotation() const { 
+    return glm::vec3(yaw,pitch,roll);
+}
+
+
 
 

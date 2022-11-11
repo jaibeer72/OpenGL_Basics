@@ -31,7 +31,7 @@ public:
 
 protected:
     
-    float speed;            //move speed of camera in m/s
+    float speed =0.5;            //move speed of camera in m/s
     glm::vec3 translation;
 };
 

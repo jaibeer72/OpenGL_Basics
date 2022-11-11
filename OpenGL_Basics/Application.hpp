@@ -12,6 +12,9 @@
 #include "FreeCamera.hpp"
 #include "RenderableObjectsBase.hpp"
 
+// input system
+#include "Input.hpp"
+
 class Application {
     
     GLFWwindow* m_Window;
@@ -26,14 +29,15 @@ public:
     int height;
     inline static CFreeCamera MainCamera;
     
-    void OnKeyCallback(int keycode);
-    
     Application(const char* AppName, int Width, int Height);
     
     void SetRenderPool(std::map<std::string,std::unique_ptr<IRenderableObject>> &renderPool);
     
     void init();
     void run();
+    
+    // input system
+    static Input m_input;
     
 };
 
