@@ -21,11 +21,18 @@ CFreeCamera::~CFreeCamera(void)
 }
  
 void CFreeCamera::Update() {
+    
+    if (pitch > 89.0f)
+          pitch = 89.0f;
+    if (pitch < -89.0f)
+          pitch = -89.0f;
+    
     glm::mat4 R = glm::yawPitchRoll(yaw,pitch,roll);
     Postion+=translation;
 
     //set this when no movement decay is needed
-    //translation=glm::vec3(0);
+    translation=glm::vec3(0);
+    
 
     look = glm::vec3(R*glm::vec4(0,0,1,0));
     up   = glm::vec3(R*glm::vec4(0,1,0,0));

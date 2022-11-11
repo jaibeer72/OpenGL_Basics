@@ -28,6 +28,8 @@ public:
 
     void SetPosition(const glm::vec3& v);
     const glm::vec3 GetPosition() const;
+    
+    const glm::vec3 GetRotation()const; 
      
 
     void SetFOV(const float fov);

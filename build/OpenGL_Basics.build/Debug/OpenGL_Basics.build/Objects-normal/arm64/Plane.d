@@ -1,9 +1,11 @@
 dependencies: \
-  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/main.cpp \
-  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Application.hpp \
-  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/Camera/FreeCamera.hpp \
-  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/Camera/ICamera.hpp \
-  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/Camera/Fustrum/FPlane.hpp \
+  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/Objects/Plane.cpp \
+  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/Objects/Plane.hpp \
+  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/RenderableObjectsBase.hpp \
+  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/GLSLShader.hpp \
+  Externals/glad/include/glad/glad.h \
+  Externals/glad/include/KHR/khrplatform.h \
+  /opt/homebrew/Cellar/glfw/3.3.8/include/GLFW/glfw3.h \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/glm.hpp \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/detail/_fixes.hpp \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/detail/setup.hpp \
@@ -176,11 +178,6 @@ dependencies: \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../geometric.hpp \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../trigonometric.hpp \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../matrix.hpp \
-  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/RenderableObjectsBase.hpp \
-  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/GLSLShader.hpp \
-  Externals/glad/include/glad/glad.h \
-  Externals/glad/include/KHR/khrplatform.h \
-  /opt/homebrew/Cellar/glfw/3.3.8/include/GLFW/glfw3.h \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/type_ptr.hpp \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../gtc/quaternion.hpp \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../gtc/constants.hpp \
@@ -256,7 +253,4 @@ dependencies: \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../mat3x4.hpp \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../mat4x2.hpp \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../mat4x3.hpp \
-  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/type_ptr.inl \
-  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Input/Input.hpp \
-  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/Objects/Triangle.hpp \
-  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/Objects/Plane.hpp
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/type_ptr.inl

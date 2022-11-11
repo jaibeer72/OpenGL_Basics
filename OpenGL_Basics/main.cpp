@@ -8,13 +8,13 @@
 #include "Application.hpp"
 
 #include "Triangle.hpp"
-
+#include "Plane.hpp"
 
 int main(int argc, const char * argv[])
 {
     const char* appname = "trial name";
 
-    Application* app = new Application(appname,300,300);
+    Application* app = new Application(appname,1280,960);
     
     app->init();
     
@@ -22,6 +22,7 @@ int main(int argc, const char * argv[])
     
     
     renderableObjectsMap->insert({"triangle", std::unique_ptr<IRenderableObject>(new Triangle())});
+    renderableObjectsMap->insert({"textured Plane", std::unique_ptr<IRenderableObject>(new CTexturedPlane())});
     
     try {
         app->SetRenderPool(*renderableObjectsMap);
