@@ -12,17 +12,17 @@ struct Vertex {
     GLfloat* pCBuffer;
 };
 
-IRenderableObject::IRenderableObject() { 
-    
+IRenderableObject::IRenderableObject() {
 }
 
 IRenderableObject::~IRenderableObject() { 
     Destroy();
 }
 
-void IRenderableObject::IRenderableObject::Render(const float *MVP) {
+void IRenderableObject::IRenderableObject::Render(const float *VP) {
     shader.Use();
-    glUniformMatrix4fv(shader("MVP"), 1, GL_FALSE, MVP);
+    glUniformMatrix4fv(shader("VP"), 1, GL_FALSE, VP);
+    glUniformMatrix4fv(shader("vModel"),1,GL_FALSE,&model[0][0]);
     SetCustomUniforms();
     glBindVertexArray(vaoID);
     glDrawElements(primType, totalIndices, GL_UNSIGNED_INT, 0);

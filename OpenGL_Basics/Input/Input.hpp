@@ -22,6 +22,10 @@ public:
     // Check move scroll
     static void setMouseCallback(GLFWwindow* window);
     static glm::vec2 GetmousePos();
+    
+    static Input GetInstance(){
+        return m_Input;
+    }
 protected:
     static void mouse_callback(GLFWwindow* window, double xpos, double ypos);
     //static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
@@ -41,6 +45,7 @@ private:
     static void SetMousePos(double xoffset, double yoffset);
     inline static float Mouse_XPos ,Mouse_YPos ;
     Input();
+    static Input m_Input;
 };
 
 #endif /* Input_hpp */

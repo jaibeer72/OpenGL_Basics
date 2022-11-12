@@ -25,9 +25,9 @@ void Application::run() {
     while(!glfwWindowShouldClose(m_Window))
     {
         
-        glm::mat4 MV    = MainCamera.GetViewMatrix();
+        glm::mat4 V    = MainCamera.GetViewMatrix();
         glm::mat4 P     = MainCamera.GetProjectionMatrix();
-        glm::mat4 MVP    = P*MV;
+        glm::mat4 VP    = P*V;
         
 
         //clear color buffer and depth buffer
@@ -35,19 +35,19 @@ void Application::run() {
         
         for (auto iter = begin; iter != end ; ++iter )
         {
-            iter->second->Render(glm::value_ptr(MVP));
+            iter->second->Render(glm::value_ptr(VP));
         }
         
-        MainCamera.Rotate(m_input.GetmousePos().x, m_input.GetmousePos().y,0);
+        MainCamera.Rotate(Input::GetInstance().GetmousePos().x, Input::GetInstance().GetmousePos().y,0);
         
         std::cout<<"x :" << MainCamera.GetRotation().x<< "y : "<<MainCamera.GetRotation().y << "z : "<<MainCamera.GetRotation().z << std::endl;
         
-        if(m_input.IsKeyDown(GLFW_KEY_W))
+        if(Input::GetInstance().IsKeyDown(GLFW_KEY_W))
         {
             MainCamera.Walk(1.0f);
         }
         
-        if(m_input.IsKeyDown(GLFW_KEY_ESCAPE))
+        if(Input::GetInstance().IsKeyDown(GLFW_KEY_ESCAPE))
         {
             glfwSetWindowShouldClose(m_Window, true);
         }
@@ -80,8 +80,8 @@ void Application::initWindow(int width, int height) {
         throw std::runtime_error("GLFW init failed");
     }
     glfwMakeContextCurrent(m_Window);
-    m_input.setKeyCallback(m_Window);
-    m_input.setMouseCallback(m_Window);
+    Input::GetInstance().setKeyCallback(m_Window);
+    Input::GetInstance().setMouseCallback(m_Window);
     
     // glad: load all OpenGL function pointers
     // ---------------------------------------
@@ -101,8 +101,9 @@ void Application::cleanup() {
 // This has to always be static hence it works
 void Application::framebuffer_size_callback(GLFWwindow *window, int width, int height) {
    
-    //set the viewport
-    glViewport (0, 0, (GLsizei) width, (GLsizei) height);
+    glViewport(0, 0, width, height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
     
     //setup the camera projection matrix
     MainCamera.SetupProjection(45, (GLfloat)width/height);
@@ -135,9 +136,7 @@ void Application::init() {
     initWindow(width, height);
     
     //rotate the camera for proper orientation
-    float yaw = glm::degrees(float(atan2(look.z, look.x)+M_PI));
-    float pitch = glm::degrees(asin(look.y));
-    MainCamera.Rotate(yaw , pitch, 90.0f);
+    MainCamera.Rotate(0.0f, 0.0f, 0.0f);
     
     //setup the camera projection matrix
     MainCamera.SetupProjection(45, (GLfloat)width/height);

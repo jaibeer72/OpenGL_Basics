@@ -36,9 +36,6 @@ public:
     void init();
     void run();
     
-    // input system
-    static Input m_input;
-    
 };
 
 #endif /* Application_hpp */

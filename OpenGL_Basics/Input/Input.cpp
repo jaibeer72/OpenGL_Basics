@@ -47,16 +47,18 @@ void Input::setMouseCallback(GLFWwindow *window) {
 }
 
 void Input::SetMousePos(double xoffset, double yoffset) {
-    Mouse_XPos = static_cast<float>(xoffset);
+    
+    Mouse_XPos = static_cast<float>(-xoffset);
     Mouse_YPos = static_cast<float>(yoffset);
 }
 
-void Input::mouse_callback(GLFWwindow *window, double xpos, double ypos) { 
+void Input::mouse_callback(GLFWwindow *window, double xpos, double ypos) {
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     SetMousePos(xpos, ypos);
 }
 
 glm::vec2 Input::GetmousePos() {
-    return  glm::vec2(Mouse_XPos,Mouse_YPos);
+    return  glm::vec2(Mouse_XPos * 0.5f,Mouse_YPos * 0.5f);
 }
 
 

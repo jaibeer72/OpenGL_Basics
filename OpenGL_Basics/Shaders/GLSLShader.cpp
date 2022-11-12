@@ -40,6 +40,8 @@ void GLSLShader::LoadFromString(GLenum type, const std::string &source) {
 
 void GLSLShader::LoadFromFile(GLenum type, const std::string &filename) {
     std::ifstream fp;
+    
+    
     fp.open(filename.c_str(), std::ios_base::in);
     if (fp) {
         std::string line, buffer;

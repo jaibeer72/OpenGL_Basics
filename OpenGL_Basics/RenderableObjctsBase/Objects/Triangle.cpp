@@ -35,6 +35,7 @@ void Triangle::FillVertexBuffer(GLfloat *pBuffer) {
     
     glm::vec3* vertices = (glm::vec3*)(pBuffer);
     
+    float scale = 100.0f;
     vertices[0] = { -0.5f, -0.5f, 0.0f};
     vertices[1] = { 0.5f, -0.5f, 0.0f};
     vertices[2] = { 0.0f,  0.5f, 0.0f};

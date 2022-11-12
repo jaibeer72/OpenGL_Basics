@@ -20,13 +20,18 @@ CTexturedPlane::CTexturedPlane(const int w, const int d)
     shader.CreateAndLinkProgram();
     shader.Use();
         shader.AddAttribute("vVertex");
-        shader.AddUniform("MVP");
+        shader.AddUniform("VP");
         shader.AddUniform("textureMap");
+        shader.AddUniform("vModel");
         glUniform1i(shader("textureMap"), 0);
     shader.UnUse();
     
- 
-    Init();
+    //generate the checker texture
+    for(int j=0;j<128;j++) {
+        for(int i=0;i<128;i++) {
+            data[i][j]=((i<=64 && j<=64) || (i>64 && j>64) )?255:0;
+        }
+    }
 }
 
 
@@ -68,13 +73,6 @@ void CTexturedPlane::FillIndexBuffer(GLuint* pBuffer) {
 }
 
 void CTexturedPlane::SetCustomUniforms(){
-    //generate the checker texture
-    GLubyte data[128][128]={0};
-    for(int j=0;j<128;j++) {
-        for(int i=0;i<128;i++) {
-            data[i][j]=((i<=64 && j<=64) || (i>64 && j>64) )?255:0;
-        }
-    }
     
     //generate texture object
     glGenTextures(1, &checkerTextureID);

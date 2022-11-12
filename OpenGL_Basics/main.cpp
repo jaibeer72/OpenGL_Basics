@@ -9,6 +9,7 @@
 
 #include "Triangle.hpp"
 #include "Plane.hpp"
+#include "UnitCube.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -23,6 +24,7 @@ int main(int argc, const char * argv[])
     
     renderableObjectsMap->insert({"triangle", std::unique_ptr<IRenderableObject>(new Triangle())});
     renderableObjectsMap->insert({"textured Plane", std::unique_ptr<IRenderableObject>(new CTexturedPlane())});
+    renderableObjectsMap->insert({"cube", std::unique_ptr<IRenderableObject>(new UnitCube())});
     
     try {
         app->SetRenderPool(*renderableObjectsMap);

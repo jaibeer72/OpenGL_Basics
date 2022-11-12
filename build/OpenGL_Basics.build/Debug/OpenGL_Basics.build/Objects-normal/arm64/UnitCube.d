@@ -1,5 +1,6 @@
 dependencies: \
-  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/RenderableObjectsBase.cpp \
+  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/Objects/UnitCube.cpp \
+  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/Objects/UnitCube.hpp \
   /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/RenderableObjectsBase.hpp \
   /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/GLSLShader.hpp \
   Externals/glad/include/glad/glad.h \

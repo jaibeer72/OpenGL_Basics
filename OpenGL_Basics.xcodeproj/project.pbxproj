@@ -14,6 +14,8 @@
 		EC2E36FF291C319A00C31DBD /* FreeCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2E36FD291C319A00C31DBD /* FreeCamera.cpp */; };
 		EC2E3702291CF8DF00C31DBD /* Plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2E3700291CF8DF00C31DBD /* Plane.cpp */; };
 		EC2E370A291D7FA800C31DBD /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2E3708291D7FA800C31DBD /* Input.cpp */; };
+		EC2E370D291E5DB400C31DBD /* UnitCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2E370B291E5DB400C31DBD /* UnitCube.cpp */; };
+		EC2E3713291EAE5F00C31DBD /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2E3711291EAE5F00C31DBD /* Transform.cpp */; };
 		ECCCD2022913E5AF000D4BED /* libglfw.3.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = ECD16D8A290FE417009F5F6C /* libglfw.3.3.dylib */; };
 		ECCCD2092913EA78000D4BED /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCCD2072913EA78000D4BED /* Triangle.cpp */; };
 		ECD16D81290FE3C6009F5F6C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D80290FE3C6009F5F6C /* main.cpp */; };
@@ -63,6 +65,12 @@
 		EC2E3706291CFFDC00C31DBD /* checkeredPlane.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = checkeredPlane.frag; sourceTree = "<group>"; };
 		EC2E3708291D7FA800C31DBD /* Input.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
 		EC2E3709291D7FA800C31DBD /* Input.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Input.hpp; sourceTree = "<group>"; };
+		EC2E370B291E5DB400C31DBD /* UnitCube.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UnitCube.cpp; sourceTree = "<group>"; };
+		EC2E370C291E5DB400C31DBD /* UnitCube.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UnitCube.hpp; sourceTree = "<group>"; };
+		EC2E370F291E5F6000C31DBD /* UnitCube.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = UnitCube.vert; sourceTree = "<group>"; };
+		EC2E3710291E5F7500C31DBD /* UnitCube.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = UnitCube.frag; sourceTree = "<group>"; };
+		EC2E3711291EAE5F00C31DBD /* Transform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Transform.cpp; sourceTree = "<group>"; };
+		EC2E3712291EAE5F00C31DBD /* Transform.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Transform.hpp; sourceTree = "<group>"; };
 		ECCCD2072913EA78000D4BED /* Triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
 		ECCCD2082913EA78000D4BED /* Triangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Triangle.hpp; sourceTree = "<group>"; };
 		ECD16D7D290FE3C6009F5F6C /* OpenGL_Basics */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGL_Basics; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +100,7 @@
 		EC2E36F12917CDBD00C31DBD /* ObjectShaders */ = {
 			isa = PBXGroup;
 			children = (
+				EC2E370E291E5F3200C31DBD /* UnitCube */,
 				EC2E3703291CFF4C00C31DBD /* TexturedPlane */,
 				EC2E36F22917CDCD00C31DBD /* Triangle */,
 			);
@@ -146,6 +155,15 @@
 			path = Input;
 			sourceTree = "<group>";
 		};
+		EC2E370E291E5F3200C31DBD /* UnitCube */ = {
+			isa = PBXGroup;
+			children = (
+				EC2E370F291E5F6000C31DBD /* UnitCube.vert */,
+				EC2E3710291E5F7500C31DBD /* UnitCube.frag */,
+			);
+			path = UnitCube;
+			sourceTree = "<group>";
+		};
 		ECCCD2062913EA62000D4BED /* Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +171,8 @@
 				ECCCD2082913EA78000D4BED /* Triangle.hpp */,
 				EC2E3700291CF8DF00C31DBD /* Plane.cpp */,
 				EC2E3701291CF8DF00C31DBD /* Plane.hpp */,
+				EC2E370B291E5DB400C31DBD /* UnitCube.cpp */,
+				EC2E370C291E5DB400C31DBD /* UnitCube.hpp */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -200,6 +220,8 @@
 		ECD16D922911B00E009F5F6C /* RenderableObjctsBase */ = {
 			isa = PBXGroup;
 			children = (
+				EC2E3711291EAE5F00C31DBD /* Transform.cpp */,
+				EC2E3712291EAE5F00C31DBD /* Transform.hpp */,
 				EC2E36F5291BC5BD00C31DBD /* Camera */,
 				ECCCD2062913EA62000D4BED /* Objects */,
 				ECD16D932911B05F009F5F6C /* RenderableObjectsBase.cpp */,
@@ -277,11 +299,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2E370D291E5DB400C31DBD /* UnitCube.cpp in Sources */,
 				EC2E36FF291C319A00C31DBD /* FreeCamera.cpp in Sources */,
 				ECD16D81290FE3C6009F5F6C /* main.cpp in Sources */,
 				EC2E3702291CF8DF00C31DBD /* Plane.cpp in Sources */,
 				EC2E370A291D7FA800C31DBD /* Input.cpp in Sources */,
 				EC2E36FC291BEFCC00C31DBD /* FPlane.cpp in Sources */,
+				EC2E3713291EAE5F00C31DBD /* Transform.cpp in Sources */,
 				ECCCD2092913EA78000D4BED /* Triangle.cpp in Sources */,
 				EC2E36EE2913FCFC00C31DBD /* Application.cpp in Sources */,
 				ECD16D8D290FEC16009F5F6C /* glad.c in Sources */,

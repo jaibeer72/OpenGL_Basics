@@ -10,9 +10,10 @@
 #define RenderableObjectsBase_hpp
 
 #include "GLSLShader.hpp"
+#include "Transform.hpp"
 
 
-class IRenderableObject
+class IRenderableObject: public Transform
 {
 public:
     IRenderableObject(void);
