@@ -12,6 +12,14 @@
 
 class Transform
 {
+    float yaw, pitch, roll;
+    glm::vec3 Postion = glm::vec3(0.0f,0.0f,0.0f);
+    glm::vec3 Scale = glm::vec3(1.0f,1.0f,1.0f);
+    glm::vec3 translation;
+    
+    glm::vec3 look;
+    glm::vec3 up;
+    glm::vec3 right;
 public:
     Transform();
     void Walk(const float dt);
@@ -27,22 +35,14 @@ public:
     void SetPosition(const glm::vec3& v);
     void Rotate(const float yaw, const float pitch, const float roll);
     
+    void scale(const float x, const float y , const float z);
+    
     const glm::vec3 GetPosition() const;
     
     const glm::vec3 GetRotation() const;
     
     void Update(); 
     
-    
-    
-    float yaw, pitch, roll;
-    glm::vec3 Postion = glm::vec3(0.0f,0.0f,0.0f);
-    glm::vec3 Scale = glm::vec3(1.0f,1.0f,1.0f);
-    glm::vec3 translation;
-    
-    glm::vec3 look;
-    glm::vec3 up;
-    glm::vec3 right;
     
 protected:
     // model matrix

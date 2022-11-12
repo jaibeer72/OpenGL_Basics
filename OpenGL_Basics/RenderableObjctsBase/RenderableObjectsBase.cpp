@@ -7,10 +7,6 @@
 
 #include "RenderableObjectsBase.hpp"
 
-struct Vertex {
-    GLfloat* pBuffer;
-    GLfloat* pCBuffer;
-};
 
 IRenderableObject::IRenderableObject() {
 }
@@ -22,7 +18,7 @@ IRenderableObject::~IRenderableObject() {
 void IRenderableObject::IRenderableObject::Render(const float *VP) {
     shader.Use();
     glUniformMatrix4fv(shader("VP"), 1, GL_FALSE, VP);
-    glUniformMatrix4fv(shader("vModel"),1,GL_FALSE,&model[0][0]);
+    glUniformMatrix4fv(shader("vModel"),1,GL_FALSE,glm::value_ptr(model));
     SetCustomUniforms();
     glBindVertexArray(vaoID);
     glDrawElements(primType, totalIndices, GL_UNSIGNED_INT, 0);
@@ -32,7 +28,6 @@ void IRenderableObject::IRenderableObject::Render(const float *VP) {
 
 void IRenderableObject::IRenderableObject::Init() {
         
-        Vertex v;
         //setup vao and vbo stuff
         glGenVertexArrays(1, &vaoID);
         glGenBuffers(1, &vboVerticesID);
@@ -47,19 +42,15 @@ void IRenderableObject::IRenderableObject::Init() {
         glBindVertexArray(vaoID);
 
         glBindBuffer(GL_ARRAY_BUFFER, vboVerticesID);
-        glBufferData(GL_ARRAY_BUFFER, totalVertices * sizeof(glm::vec3*), 0, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, totalVertices * sizeof(glm::vec3), 0, GL_STATIC_DRAW);
 
-        v.pBuffer = static_cast<GLfloat*>(glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY));
-        FillVertexBuffer(v.pBuffer);
-    // TODO fix this later
-//    std::cout<<v.pBuffer;
-//        v.pCBuffer = static_cast<GLfloat*>(glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY));
-//       FillColorBuffer(v.pCBuffer);
+        GLfloat* pBuffer = static_cast<GLfloat*>(glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY));
+        FillVertexBuffer(pBuffer);
     
         glUnmapBuffer(GL_ARRAY_BUFFER);
 
         glEnableVertexAttribArray(shader["vVertex"]);
-        glVertexAttribPointer(shader["vVertex"], 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+        glVertexAttribPointer(shader["vVertex"], 3, GL_FLOAT, GL_FALSE, 0, 0);
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboIndicesID);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, totalIndices * sizeof(GLuint), 0, GL_STATIC_DRAW);

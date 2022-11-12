@@ -32,47 +32,6 @@ CTexturedPlane::CTexturedPlane(const int w, const int d)
             data[i][j]=((i<=64 && j<=64) || (i>64 && j>64) )?255:0;
         }
     }
-}
-
-
-int CTexturedPlane::GetTotalVertices() {
-    return 4;
-}
-
-int CTexturedPlane::GetTotalIndices() {
-    return 6;
-}
-
-GLenum CTexturedPlane::GetPrimitiveType() {
-    return GL_TRIANGLES;
-}
-
-void CTexturedPlane::FillVertexBuffer(GLfloat* pBuffer) {
-    glm::vec3* vertices = (glm::vec3*)(pBuffer);
-    
-    int width_2 = width/2;
-    int depth_2 = depth/2;
-     
-    vertices[0] = glm::vec3( -width_2, 0,-depth_2);
-    vertices[1] = glm::vec3( width_2,0, -depth_2);
-
-    vertices[2] = glm::vec3( width_2,0,depth_2);
-    vertices[3] = glm::vec3( -width_2,0,depth_2);
-}
-
-void CTexturedPlane::FillIndexBuffer(GLuint* pBuffer) {
-    
-    //fill indices array
-    GLuint* id=pBuffer;
-    *id++ = 0;
-    *id++ = 1;
-    *id++ = 2;
-    *id++ = 0;
-    *id++ = 2;
-    *id++ = 3;
-}
-
-void CTexturedPlane::SetCustomUniforms(){
     
     //generate texture object
     glGenTextures(1, &checkerTextureID);
@@ -98,6 +57,47 @@ void CTexturedPlane::SetCustomUniforms(){
 
     //generate mipmaps
     glGenerateMipmap(GL_TEXTURE_2D);
+}
+
+
+int CTexturedPlane::GetTotalVertices() {
+    return 4;
+}
+
+int CTexturedPlane::GetTotalIndices() {
+    return 6;
+}
+
+GLenum CTexturedPlane::GetPrimitiveType() {
+    return GL_TRIANGLES;
+}
+
+void CTexturedPlane::FillVertexBuffer(GLfloat* pBuffer) {
+    glm::vec3* vertices = (glm::vec3*)(pBuffer);
+    
+    float width_2 = width/2;
+    float depth_2 = depth/2;
+     
+    vertices[0] = glm::vec3( -width_2, 0,-depth_2);
+    vertices[1] = glm::vec3( width_2,0, -depth_2);
+
+    vertices[2] = glm::vec3( width_2,0,depth_2);
+    vertices[3] = glm::vec3( -width_2,0,depth_2);
+}
+
+void CTexturedPlane::FillIndexBuffer(GLuint* pBuffer) {
+    
+    //fill indices array
+    GLuint* id=pBuffer;
+    *id++ = 0;
+    *id++ = 1;
+    *id++ = 2;
+    *id++ = 0;
+    *id++ = 2;
+    *id++ = 3;
+}
+
+void CTexturedPlane::SetCustomUniforms(){
     
 }
 

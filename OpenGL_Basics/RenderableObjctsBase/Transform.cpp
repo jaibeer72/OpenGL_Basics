@@ -50,9 +50,9 @@ void Transform::SetPosition(const glm::vec3 &v) {
 }
 
 void Transform::Rotate(const float Yaw, const float Pitch, const float Roll) {
-    yaw = glm::radians(Yaw);
-    pitch = glm::radians(Pitch);
-    roll = glm::radians(Roll);
+    yaw += glm::radians(Yaw);
+    pitch += glm::radians(Pitch);
+    roll += glm::radians(Roll);
     Update();
 }
 
@@ -77,6 +77,14 @@ void Transform::Update() {
     model = glm::rotate(model, glm::radians(pitch), glm::vec3(0.0f, 1.0f, 0.0f));
     model = glm::rotate(model, glm::radians(roll), glm::vec3(0.0f, 0.0f, 1.0f));
 }
+
+void Transform::scale(const float x, const float y, const float z) { 
+    Scale.x += x;
+    Scale.y += y;
+    Scale.z += z;
+    Update();
+}
+
 
 
 

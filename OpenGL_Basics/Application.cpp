@@ -40,7 +40,7 @@ void Application::run() {
         
         MainCamera.Rotate(Input::GetInstance().GetmousePos().x, Input::GetInstance().GetmousePos().y,0);
         
-        std::cout<<"x :" << MainCamera.GetRotation().x<< "y : "<<MainCamera.GetRotation().y << "z : "<<MainCamera.GetRotation().z << std::endl;
+        //std::cout<<"x :" << MainCamera.GetRotation().x<< "y : "<<MainCamera.GetRotation().y << "z : "<<MainCamera.GetRotation().z << std::endl;
         
         if(Input::GetInstance().IsKeyDown(GLFW_KEY_W))
         {

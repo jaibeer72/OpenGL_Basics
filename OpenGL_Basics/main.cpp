@@ -22,9 +22,10 @@ int main(int argc, const char * argv[])
     std::map<std::string,std::unique_ptr<IRenderableObject>> *renderableObjectsMap = new std::map<std::string, std::unique_ptr<IRenderableObject>>();
     
     
-    renderableObjectsMap->insert({"triangle", std::unique_ptr<IRenderableObject>(new Triangle())});
+    //renderableObjectsMap->insert({"triangle", std::unique_ptr<IRenderableObject>(new Triangle())});
     renderableObjectsMap->insert({"textured Plane", std::unique_ptr<IRenderableObject>(new CTexturedPlane())});
     renderableObjectsMap->insert({"cube", std::unique_ptr<IRenderableObject>(new UnitCube())});
+    
     
     try {
         app->SetRenderPool(*renderableObjectsMap);

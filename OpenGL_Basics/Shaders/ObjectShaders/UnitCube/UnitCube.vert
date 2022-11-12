@@ -8,5 +8,6 @@ uniform mat4 vModel;
 void main()
 {
     //get clipspace position
-    gl_Position = vModel*VP*vec4(vVertex.xyz,1);
+    gl_Position = VP*vModel*vec4(vVertex.xyz,1);
 }
+

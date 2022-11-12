@@ -6,7 +6,7 @@
 //
 
 #include "UnitCube.hpp"
-
+#include "Input.hpp"
 
 
 int UnitCube::GetTotalVertices() { 
@@ -27,12 +27,20 @@ UnitCube::UnitCube(const glm::vec3 &col) {
             shader.AddUniform("vModel");
             glUniform3fv(shader("vColor"),1, glm::value_ptr(color));
         shader.UnUse();
-         
-        Init();
 }
 
 void UnitCube::SetCustomUniforms() { 
     glUniform3fv(shader("vColor"),1, glm::value_ptr(color));
+    
+    if(Input::GetInstance().IsKeyDown(GLFW_KEY_E))
+    {
+        Walk(5.0f);
+    }
+    if(Input::GetInstance().IsKeyDown(GLFW_KEY_Q))
+    {
+        Rotate(5, 6, 5);
+        scale(1, 1, 1); 
+    }
 }
 
 
