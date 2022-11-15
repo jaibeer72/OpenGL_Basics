@@ -21,8 +21,8 @@ UnitCube::UnitCube(const glm::vec3 &col) {
         shader.LoadFromFile(GL_FRAGMENT_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/ObjectShaders/UnitCube/UnitCube.frag");
         shader.CreateAndLinkProgram();
         shader.Use();
-            shader.AddAttribute("vVertex");
-            shader.AddAttribute("vNormal");
+            shader.AddAttribute("vVertex",0);
+            shader.AddAttribute("vNormal",1);
             shader.AddUniform("VP");
             shader.AddUniform("vColor");
             shader.AddUniform("vModel");

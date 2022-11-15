@@ -59,8 +59,8 @@ Triangle::Triangle() {
     shader.CreateAndLinkProgram();
     std::cout << "Link sucessful";
     shader.Use();
-    shader.AddAttribute("vVertex");
-    shader.AddAttribute("vColor");
+    shader.AddAttribute("vVertex",0);
+    shader.AddAttribute("vColor",1);
     shader.UnUse();
 }
 

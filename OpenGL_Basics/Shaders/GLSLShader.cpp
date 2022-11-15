@@ -96,8 +96,9 @@ void GLSLShader::UnUse() {
     glUseProgram(0);
 }
 
-void GLSLShader::AddAttribute(const std::string &attribute) { 
-    _attributeList[attribute] = glGetAttribLocation(m_Program, attribute.c_str());
+void GLSLShader::AddAttribute(const std::string &attribute, GLuint location) {
+    glBindAttribLocation(m_Program, location , attribute.c_str());
+    _attributeList[attribute] = location; 
 }
 
 void GLSLShader::AddUniform(const std::string &uniform) { 

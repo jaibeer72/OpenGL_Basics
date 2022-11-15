@@ -19,7 +19,7 @@ CTexturedPlane::CTexturedPlane(const int w, const int d)
     shader.LoadFromFile(GL_FRAGMENT_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/ObjectShaders/TexturedPlane/checkeredPlane.frag");
     shader.CreateAndLinkProgram();
     shader.Use();
-        shader.AddAttribute("vVertex");
+        shader.AddAttribute("vVertex",0);
         shader.AddUniform("VP");
         shader.AddUniform("textureMap");
         shader.AddUniform("vModel");

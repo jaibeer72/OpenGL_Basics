@@ -38,7 +38,7 @@ public:
     void CreateAndLinkProgram();
     void Use();
     void UnUse();
-    void AddAttribute(const std::string& attribute);
+    void AddAttribute(const std::string& attribute, GLuint location);
     void AddUniform(const std::string& uniform);
     GLuint operator[](const std::string& attribute);
     GLuint operator()(const std::string& uniform);
