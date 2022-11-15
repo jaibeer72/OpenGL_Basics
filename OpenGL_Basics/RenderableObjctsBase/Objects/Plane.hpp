@@ -26,6 +26,16 @@ public:
     
     void SetCustomUniforms() override;
     
+    void FillNormalBuffer(GLfloat *pBuffer) override {
+        
+    }
+    
+    int GetTotalNormal() override {
+        return 0;
+    }
+    
+    
+    
     
     //floor checker texture ID
     GLuint checkerTextureID;

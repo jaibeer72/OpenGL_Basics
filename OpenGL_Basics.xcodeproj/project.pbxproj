@@ -23,6 +23,7 @@
 		ECD16D8D290FEC16009F5F6C /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D8C290FEC16009F5F6C /* glad.c */; };
 		ECD16D952911B05F009F5F6C /* RenderableObjectsBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D932911B05F009F5F6C /* RenderableObjectsBase.cpp */; };
 		ECD16D992912BD8B009F5F6C /* GLSLShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D972912BD8B009F5F6C /* GLSLShader.cpp */; };
+		ECEA06402922AEA00055DD24 /* ILight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECEA063E2922AEA00055DD24 /* ILight.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,7 +41,7 @@
 		ECD16D7B290FE3C6009F5F6C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			dstPath = /usr/share/man/man1;
 			dstSubfolderSpec = 0;
 			files = (
 			);
@@ -51,7 +52,7 @@
 /* Begin PBXFileReference section */
 		EC2E36EC2913FCFC00C31DBD /* Application.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
 		EC2E36ED2913FCFC00C31DBD /* Application.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Application.hpp; sourceTree = "<group>"; };
-		EC2E36F32917CDEB00C31DBD /* Triangle.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Triangle.vert; sourceTree = "<group>"; };
+		EC2E36F32917CDEB00C31DBD /* Triangle.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Triangle.vert; path = ../../../OpenGL_Basics/Shaders/ObjectShaders/Triangle/Triangle.vert; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2E36F42917CE2A00C31DBD /* Triangle.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Triangle.frag; sourceTree = "<group>"; };
 		EC2E36F6291BC5D500C31DBD /* ICamera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ICamera.cpp; sourceTree = "<group>"; };
 		EC2E36F7291BC5D500C31DBD /* ICamera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ICamera.hpp; sourceTree = "<group>"; };
@@ -82,6 +83,10 @@
 		ECD16D942911B05F009F5F6C /* RenderableObjectsBase.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RenderableObjectsBase.hpp; sourceTree = "<group>"; };
 		ECD16D972912BD8B009F5F6C /* GLSLShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLSLShader.cpp; sourceTree = "<group>"; };
 		ECD16D982912BD8B009F5F6C /* GLSLShader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLSLShader.hpp; sourceTree = "<group>"; };
+		ECEA063B2922A06C0055DD24 /* DirectionalLighting.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = DirectionalLighting.vert; sourceTree = "<group>"; };
+		ECEA063C2922A0CE0055DD24 /* DirectionalLighting.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = DirectionalLighting.frag; sourceTree = "<group>"; };
+		ECEA063E2922AEA00055DD24 /* ILight.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ILight.cpp; sourceTree = "<group>"; };
+		ECEA063F2922AEA00055DD24 /* ILight.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ILight.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +109,9 @@
 				EC2E3703291CFF4C00C31DBD /* TexturedPlane */,
 				EC2E36F22917CDCD00C31DBD /* Triangle */,
 			);
-			path = ObjectShaders;
-			sourceTree = "<group>";
+			name = ObjectShaders;
+			path = OpenGL_Basics/Shaders/ObjectShaders;
+			sourceTree = SOURCE_ROOT;
 		};
 		EC2E36F22917CDCD00C31DBD /* Triangle */ = {
 			isa = PBXGroup;
@@ -220,6 +226,7 @@
 		ECD16D922911B00E009F5F6C /* RenderableObjctsBase */ = {
 			isa = PBXGroup;
 			children = (
+				ECEA063D2922A1090055DD24 /* Lighting */,
 				EC2E3711291EAE5F00C31DBD /* Transform.cpp */,
 				EC2E3712291EAE5F00C31DBD /* Transform.hpp */,
 				EC2E36F5291BC5BD00C31DBD /* Camera */,
@@ -233,6 +240,7 @@
 		ECD16D962912BD6B009F5F6C /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				ECEA063A2922A0410055DD24 /* LightingShaders */,
 				EC2E36F12917CDBD00C31DBD /* ObjectShaders */,
 				ECD16D972912BD8B009F5F6C /* GLSLShader.cpp */,
 				ECD16D982912BD8B009F5F6C /* GLSLShader.hpp */,
@@ -240,6 +248,24 @@
 			name = Shaders;
 			path = OpenGL_Basics/Shaders;
 			sourceTree = SOURCE_ROOT;
+		};
+		ECEA063A2922A0410055DD24 /* LightingShaders */ = {
+			isa = PBXGroup;
+			children = (
+				ECEA063B2922A06C0055DD24 /* DirectionalLighting.vert */,
+				ECEA063C2922A0CE0055DD24 /* DirectionalLighting.frag */,
+			);
+			path = LightingShaders;
+			sourceTree = "<group>";
+		};
+		ECEA063D2922A1090055DD24 /* Lighting */ = {
+			isa = PBXGroup;
+			children = (
+				ECEA063E2922AEA00055DD24 /* ILight.cpp */,
+				ECEA063F2922AEA00055DD24 /* ILight.hpp */,
+			);
+			path = Lighting;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -307,6 +333,7 @@
 				EC2E36FC291BEFCC00C31DBD /* FPlane.cpp in Sources */,
 				EC2E3713291EAE5F00C31DBD /* Transform.cpp in Sources */,
 				ECCCD2092913EA78000D4BED /* Triangle.cpp in Sources */,
+				ECEA06402922AEA00055DD24 /* ILight.cpp in Sources */,
 				EC2E36EE2913FCFC00C31DBD /* Application.cpp in Sources */,
 				ECD16D8D290FEC16009F5F6C /* glad.c in Sources */,
 				EC2E36F8291BC5D500C31DBD /* ICamera.cpp in Sources */,

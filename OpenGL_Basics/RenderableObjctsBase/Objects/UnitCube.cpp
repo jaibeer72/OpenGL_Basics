@@ -22,6 +22,7 @@ UnitCube::UnitCube(const glm::vec3 &col) {
         shader.CreateAndLinkProgram();
         shader.Use();
             shader.AddAttribute("vVertex");
+            shader.AddAttribute("vNormal");
             shader.AddUniform("VP");
             shader.AddUniform("vColor");
             shader.AddUniform("vModel");
@@ -34,11 +35,10 @@ void UnitCube::SetCustomUniforms() {
     
     if(Input::GetInstance().IsKeyDown(GLFW_KEY_E))
     {
-        Walk(5.0f);
+        Rotate(10, 10, 10);
     }
     if(Input::GetInstance().IsKeyDown(GLFW_KEY_Q))
     {
-        Rotate(5, 6, 5);
         scale(1, 1, 1); 
     }
 }
@@ -75,7 +75,18 @@ void UnitCube::FillIndexBuffer(GLuint *pBuffer) {
 
 void UnitCube::FillColorBuffer(GLfloat *pBuffer) { 
     
+}
 
+void UnitCube::FillNormalBuffer(GLfloat *pBuffer)
+{
+    glm::vec3* normals = (glm::vec3*)(pBuffer);
+    
+    normals[0]=glm::vec3(-1.0,0.0,0.0);
+    normals[1]=glm::vec3(1.0,0.0,0.0);
+    normals[2]=glm::vec3(0.0,1.0,0.0);
+    normals[3]=glm::vec3(0.0,-1.0,0.0);
+    normals[4]=glm::vec3(0.0,0.0,1.0);
+    normals[5]=glm::vec3(0.0,0.0,-1.0);
 }
 
 
@@ -100,4 +111,9 @@ GLenum UnitCube::GetPrimitiveType() {
 int UnitCube::GetTotalIndices() { 
     return 6*2*3;
 }
+
+int UnitCube::GetTotalNormal() {
+    return 6;
+}
+
 

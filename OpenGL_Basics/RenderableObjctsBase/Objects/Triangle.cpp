@@ -35,7 +35,6 @@ void Triangle::FillVertexBuffer(GLfloat *pBuffer) {
     
     glm::vec3* vertices = (glm::vec3*)(pBuffer);
     
-    float scale = 100.0f;
     vertices[0] = { -0.5f, -0.5f, 0.0f};
     vertices[1] = { 0.5f, -0.5f, 0.0f};
     vertices[2] = { 0.0f,  0.5f, 0.0f};
@@ -54,7 +53,7 @@ void Triangle::SetCustomUniforms() {
 }
 
 Triangle::Triangle() {
-    shader.LoadFromFile(GL_VERTEX_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/ObjectShaders/Triangle/Triangle.vert");
+    shader.LoadFromFile(GL_VERTEX_SHADER, "../../../OpenGL_Basics/Shaders/ObjectShaders/Triangle/Triangle.vert");
     shader.LoadFromFile(GL_FRAGMENT_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/ObjectShaders/Triangle/Triangle.frag");
     std::cout << "Load Sucessful";
     shader.CreateAndLinkProgram();

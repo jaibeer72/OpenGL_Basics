@@ -57,6 +57,9 @@ CTexturedPlane::CTexturedPlane(const int w, const int d)
 
     //generate mipmaps
     glGenerateMipmap(GL_TEXTURE_2D);
+    
+    SetPosition(glm::vec3(0,0,0)) ;
+    Update();
 }
 
 

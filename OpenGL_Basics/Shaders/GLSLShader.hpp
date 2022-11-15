@@ -17,6 +17,7 @@
 #include <map>
 #include <string>
 #include <iterator>
+#include <vector>
 
 // file systems
 #include<fstream>

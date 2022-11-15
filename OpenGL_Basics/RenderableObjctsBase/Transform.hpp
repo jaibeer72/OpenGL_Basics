@@ -13,13 +13,14 @@
 class Transform
 {
     float yaw, pitch, roll;
-    glm::vec3 Postion = glm::vec3(0.0f,0.0f,0.0f);
+    glm::vec3 Postion = glm::vec3(1.0f,2.0f,5.0f);
     glm::vec3 Scale = glm::vec3(1.0f,1.0f,1.0f);
     glm::vec3 translation;
     
     glm::vec3 look;
     glm::vec3 up;
     glm::vec3 right;
+    
 public:
     Transform();
     void Walk(const float dt);
@@ -41,12 +42,13 @@ public:
     
     const glm::vec3 GetRotation() const;
     
-    void Update(); 
+    void Update();
+    
+    // model matrix
+    glm::mat4 model;
     
     
 protected:
-    // model matrix
-    glm::mat4 model;
     float speed = 0.5f;
 };
 

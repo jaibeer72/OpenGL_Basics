@@ -22,11 +22,6 @@ CFreeCamera::~CFreeCamera(void)
  
 void CFreeCamera::Update() {
     
-    if (pitch > 89.0f)
-          pitch = 89.0f;
-    if (pitch < -89.0f)
-          pitch = -89.0f;
-    
     glm::mat4 R = glm::yawPitchRoll(yaw,pitch,roll);
     Postion+=translation;
 
@@ -41,8 +36,6 @@ void CFreeCamera::Update() {
     glm::vec3 tgt  = Postion+look;
     V = glm::lookAt(Postion, tgt, up);
 }
-
-
 
 
 void CFreeCamera::Walk(const float dt) {

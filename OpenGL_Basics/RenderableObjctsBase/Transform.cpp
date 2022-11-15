@@ -8,7 +8,7 @@
 #include "Transform.hpp"
 
 Transform::Transform() {
-    translation =glm::vec3(0);
+    translation = Postion;
     speed = 0.5f; // 0.5 m/s
     Update();
 }

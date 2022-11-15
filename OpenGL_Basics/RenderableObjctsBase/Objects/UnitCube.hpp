@@ -28,6 +28,11 @@ public:
     void FillIndexBuffer(GLuint *pBuffer) override;
     
     void SetCustomUniforms() override;
+    
+    void FillNormalBuffer(GLfloat *pBuffer) override ;
+    
+    int GetTotalNormal() override;    
+    
     glm::vec3 color;
     
 };

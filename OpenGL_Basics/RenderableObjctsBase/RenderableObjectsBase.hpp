@@ -24,10 +24,12 @@ public:
     virtual int GetTotalVertices() = 0;
     virtual int GetTotalIndices() = 0;
     virtual GLenum GetPrimitiveType() = 0;
+    virtual int GetTotalNormal() =0;
 
     virtual void FillVertexBuffer(GLfloat* pBuffer) = 0;
     virtual void FillColorBuffer(GLfloat* pBuffer) = 0;
     virtual void FillIndexBuffer(GLuint* pBuffer) = 0;
+    virtual void FillNormalBuffer(GLfloat* pBuffer) = 0;
     
     virtual void SetCustomUniforms() = 0;
     void Init();
@@ -40,6 +42,6 @@ protected:
     
     GLSLShader shader;
     GLenum primType;
-    int totalVertices, totalIndices;
+    int totalVertices, totalIndices , totalNormals;
 };
 #endif /* RenderableObjectsBase_hpp */
