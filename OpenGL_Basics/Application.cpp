@@ -93,6 +93,7 @@ void Application::initWindow(int width, int height) {
         throw std::runtime_error("Glad failed to load");
     }
     
+    std::cout<<"\n" <<glGetString(GL_VERSION);
     // configure global opengl state
      // -----------------------------
      glEnable(GL_DEPTH_TEST);
@@ -130,13 +131,13 @@ void Application::SetRenderPool(std::map<std::string, std::unique_ptr<IRenderabl
     
 }
 
+
 void Application::init() {
     //setup camera
     //setup the camera position and look direction
     
     glm::vec3 p = glm::vec3(1);
     MainCamera.SetPosition(p);
-    glm::vec3 look =  glm::normalize(p);
     
     
     initWindow(width, height);
@@ -149,8 +150,8 @@ void Application::init() {
     
     Cube = new Lit_UnitCube(); 
     Cube->Init();
+    
 }
-
 
 
 

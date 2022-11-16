@@ -30,6 +30,15 @@ public:
     
     void SetCustomUniforms() override ;
     
+    int GetTotalNormal() override {
+        return 0;
+    }
+    
+    void FillNormalBuffer(GLfloat *pBuffer) override {
+        
+    }
+    
+    
 };
 
 #endif /* Triangle_hpp */

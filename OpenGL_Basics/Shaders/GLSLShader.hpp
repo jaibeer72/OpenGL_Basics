@@ -28,6 +28,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#define GL_CHECK_ERRORS assert(glGetError()== GL_NO_ERROR);
+
 class GLSLShader
 {
 public:

@@ -5,6 +5,7 @@
 //  Created by Jaibeer Dugal on 16/11/2022.
 //
 
+
 #include "Lit_UnitCube.hpp"
 
 
@@ -22,9 +23,14 @@ Lit_UnitCube::Lit_UnitCube() {
     
     shader.LoadFromFile(GL_VERTEX_SHADER, "../../../OpenGL_Basics/Shaders/LightingShaders/Lit_Cube/Lit_Cube.vert");
     shader.LoadFromFile(GL_FRAGMENT_SHADER, "../../../OpenGL_Basics/Shaders/LightingShaders/Lit_Cube/Lit_Cube.frag");
+    shader.CreateAndLinkProgram();
     shader.Use();
     shader.AddAttribute("vVertex", 0);
     shader.AddAttribute("vNormal", 1);
+    shader.AddUniform("VP");
+    
+    shader.AddUniform("vModel");
+    
     
     shader.AddUniform("viewPos");
     
@@ -38,8 +44,7 @@ Lit_UnitCube::Lit_UnitCube() {
     shader.AddUniform("light.ambient");
     shader.AddUniform("light.diffuse");
     shader.AddUniform("light.specular");
-    shader.AddUniform("vModel");
-    shader.AddUniform("VP");
+
     glUniform3fv(shader(Mat_Ambient),1,glm::value_ptr(mat.ambient));
     glUniform3fv(shader(Mat_Diffuse),1,glm::value_ptr(mat.diffuse));
     glUniform3fv(shader(Mat_Specular),1,glm::value_ptr(mat.specular));
@@ -50,7 +55,39 @@ Lit_UnitCube::Lit_UnitCube() {
     glUniform3fv(shader("light.diffuse"),1,glm::value_ptr(ldiffuse));
     glUniform3fv(shader("light.specular"),1,glm::value_ptr(lspecular));
     // Material uniform
+    GLenum err = glGetError();
+    std::cout<<err;
+    
+    switch (err) {
+        case GL_INVALID_ENUM:
+            std::cout<<"enuminvalid";
+            break;
+        case GL_INVALID_VALUE:
+            std::cout<<"enuminvalid";
+            break;
+        case GL_INVALID_OPERATION:
+            std::cout<<"enuminvalid";
+            break;
+        case GL_INVALID_FRAMEBUFFER_OPERATION:
+            std::cout<<"enuminvalid";
+            break;
+        case GL_OUT_OF_MEMORY:
+            std::cout<<"enuminvalid";
+            break;
+        case GL_STACK_UNDERFLOW:
+            std::cout<<"enuminvalid";
+            break;
+        case GL_STACK_OVERFLOW:
+            std::cout<<"enuminvalid";
+            break;
+            
+        default:
+            break;
+    }
     shader.UnUse();
+
+    
+    GL_CHECK_ERRORS;
 }
 
 void Lit_UnitCube::FillVertexNormals(std::vector<Vertex> &VertexNormals) { 
@@ -164,6 +201,7 @@ void Lit_UnitCube::SetCustomUniforms() {
     glUniform3fv(shader("light.ambient"),1,glm::value_ptr(lambient));
     glUniform3fv(shader("light.diffuse"),1,glm::value_ptr(ldiffuse));
     glUniform3fv(shader("light.specular"),1,glm::value_ptr(lspecular));
+    GL_CHECK_ERRORS; 
     
 }
 

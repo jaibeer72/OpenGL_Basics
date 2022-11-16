@@ -36,6 +36,7 @@ void GLSLShader::LoadFromString(GLenum type, const std::string &source) {
         delete[] infoLog;
     }
     _shaders[_totalShaders++] = shader;
+    GL_CHECK_ERRORS;
 }
 
 void GLSLShader::LoadFromFile(GLenum type, const std::string &filename) {
@@ -55,6 +56,7 @@ void GLSLShader::LoadFromFile(GLenum type, const std::string &filename) {
     else {
         std::cerr << "Error loading shader: " << filename << std::endl;
     }
+    GL_CHECK_ERRORS;
 }
 
 void GLSLShader::CreateAndLinkProgram() { 
@@ -82,18 +84,22 @@ void GLSLShader::CreateAndLinkProgram() {
         std::cerr << "Link log: " << infoLog << std::endl;
         delete[] infoLog;
     }
+    GL_CHECK_ERRORS;
 
     glDeleteShader(_shaders[VERTEX_SHADER]);
     glDeleteShader(_shaders[FRAGMENT_SHADER]);
     glDeleteShader(_shaders[GEOMETRY_SHADER]);
+    GL_CHECK_ERRORS;
 }
 
-void GLSLShader::Use() { 
+void GLSLShader::Use() {
+    GL_CHECK_ERRORS;
     glUseProgram(m_Program);
 }
 
 void GLSLShader::UnUse() { 
     glUseProgram(0);
+    GL_CHECK_ERRORS;
 }
 
 void GLSLShader::AddAttribute(const std::string &attribute, GLuint location) {
@@ -103,6 +109,7 @@ void GLSLShader::AddAttribute(const std::string &attribute, GLuint location) {
 
 void GLSLShader::AddUniform(const std::string &uniform) { 
     _uniformLocationList[uniform] = glGetUniformLocation(m_Program, uniform.c_str());
+    GL_CHECK_ERRORS;
 }
 
 GLuint GLSLShader::operator[](const std::string &attribute) { 
