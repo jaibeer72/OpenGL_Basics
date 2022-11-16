@@ -12,7 +12,6 @@
 #include "GLSLShader.hpp"
 #include "Transform.hpp"
 
-
 class IRenderableObject: public Transform
 {
 public:

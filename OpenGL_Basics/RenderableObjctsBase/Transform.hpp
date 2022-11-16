@@ -5,6 +5,7 @@
 //  Created by Jaibeer Dugal on 11/11/2022.
 //
 
+#pragma once
 #ifndef Transform_hpp
 #define Transform_hpp
 

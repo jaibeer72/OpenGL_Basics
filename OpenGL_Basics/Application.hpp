@@ -14,6 +14,7 @@
 
 // input system
 #include "Input.hpp"
+#include "Lit_UnitCube.hpp"
 
 class Application {
     
@@ -36,6 +37,7 @@ public:
     void init();
     void run();
     
+    Lit_UnitCube* Cube;
 };
 
 #endif /* Application_hpp */

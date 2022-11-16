@@ -24,6 +24,7 @@
 		ECD16D952911B05F009F5F6C /* RenderableObjectsBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D932911B05F009F5F6C /* RenderableObjectsBase.cpp */; };
 		ECD16D992912BD8B009F5F6C /* GLSLShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D972912BD8B009F5F6C /* GLSLShader.cpp */; };
 		ECEA06402922AEA00055DD24 /* ILight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECEA063E2922AEA00055DD24 /* ILight.cpp */; };
+		ECEA06442924E7FB0055DD24 /* Lit_UnitCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECEA06422924E7FB0055DD24 /* Lit_UnitCube.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,6 +88,10 @@
 		ECEA063C2922A0CE0055DD24 /* DirectionalLighting.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = DirectionalLighting.frag; sourceTree = "<group>"; };
 		ECEA063E2922AEA00055DD24 /* ILight.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ILight.cpp; sourceTree = "<group>"; };
 		ECEA063F2922AEA00055DD24 /* ILight.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ILight.hpp; sourceTree = "<group>"; };
+		ECEA06422924E7FB0055DD24 /* Lit_UnitCube.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Lit_UnitCube.cpp; sourceTree = "<group>"; };
+		ECEA06432924E7FB0055DD24 /* Lit_UnitCube.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Lit_UnitCube.hpp; sourceTree = "<group>"; };
+		ECEA06462924FFC40055DD24 /* Lit_Cube.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Lit_Cube.vert; path = ../../../OpenGL_Basics/Shaders/LightingShaders/Lit_Cube/Lit_Cube.vert; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECEA06472924FFDD0055DD24 /* Lit_Cube.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Lit_Cube.frag; path = ../../../OpenGL_Basics/Shaders/LightingShaders/Lit_Cube/Lit_Cube.frag; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +178,7 @@
 		ECCCD2062913EA62000D4BED /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				ECEA064129241E870055DD24 /* LitObjects */,
 				ECCCD2072913EA78000D4BED /* Triangle.cpp */,
 				ECCCD2082913EA78000D4BED /* Triangle.hpp */,
 				EC2E3700291CF8DF00C31DBD /* Plane.cpp */,
@@ -252,6 +258,7 @@
 		ECEA063A2922A0410055DD24 /* LightingShaders */ = {
 			isa = PBXGroup;
 			children = (
+				ECEA06452924FFA70055DD24 /* Lit_Cube */,
 				ECEA063B2922A06C0055DD24 /* DirectionalLighting.vert */,
 				ECEA063C2922A0CE0055DD24 /* DirectionalLighting.frag */,
 			);
@@ -265,6 +272,24 @@
 				ECEA063F2922AEA00055DD24 /* ILight.hpp */,
 			);
 			path = Lighting;
+			sourceTree = "<group>";
+		};
+		ECEA064129241E870055DD24 /* LitObjects */ = {
+			isa = PBXGroup;
+			children = (
+				ECEA06422924E7FB0055DD24 /* Lit_UnitCube.cpp */,
+				ECEA06432924E7FB0055DD24 /* Lit_UnitCube.hpp */,
+			);
+			path = LitObjects;
+			sourceTree = "<group>";
+		};
+		ECEA06452924FFA70055DD24 /* Lit_Cube */ = {
+			isa = PBXGroup;
+			children = (
+				ECEA06462924FFC40055DD24 /* Lit_Cube.vert */,
+				ECEA06472924FFDD0055DD24 /* Lit_Cube.frag */,
+			);
+			path = Lit_Cube;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +356,7 @@
 				EC2E3702291CF8DF00C31DBD /* Plane.cpp in Sources */,
 				EC2E370A291D7FA800C31DBD /* Input.cpp in Sources */,
 				EC2E36FC291BEFCC00C31DBD /* FPlane.cpp in Sources */,
+				ECEA06442924E7FB0055DD24 /* Lit_UnitCube.cpp in Sources */,
 				EC2E3713291EAE5F00C31DBD /* Transform.cpp in Sources */,
 				ECCCD2092913EA78000D4BED /* Triangle.cpp in Sources */,
 				ECEA06402922AEA00055DD24 /* ILight.cpp in Sources */,

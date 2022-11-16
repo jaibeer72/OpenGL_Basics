@@ -30,8 +30,10 @@ void Application::run() {
         glm::mat4 VP    = P*V;
         
 
-        //clear color buffer and depth buffer
-        glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        
+        Cube->Render(glm::value_ptr(VP), MainCamera.GetPosition());
         
         for (auto iter = begin; iter != end ; ++iter )
         {
@@ -90,6 +92,10 @@ void Application::initWindow(int width, int height) {
         std::cout << "Failed to initialize GLAD" << std::endl;
         throw std::runtime_error("Glad failed to load");
     }
+    
+    // configure global opengl state
+     // -----------------------------
+     glEnable(GL_DEPTH_TEST);
 }
 
 
@@ -140,6 +146,9 @@ void Application::init() {
     
     //setup the camera projection matrix
     MainCamera.SetupProjection(45, (GLfloat)width/height);
+    
+    Cube = new Lit_UnitCube(); 
+    Cube->Init();
 }
 
 

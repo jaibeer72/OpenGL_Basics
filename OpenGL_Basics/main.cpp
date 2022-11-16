@@ -23,8 +23,8 @@ int main(int argc, const char * argv[])
     
     
     //renderableObjectsMap->insert({"triangle", std::unique_ptr<IRenderableObject>(new Triangle())});
-    renderableObjectsMap->insert({"textured Plane", std::unique_ptr<IRenderableObject>(new CTexturedPlane(500,500))});
-    renderableObjectsMap->insert({"cube", std::unique_ptr<IRenderableObject>(new UnitCube())});
+    //renderableObjectsMap->insert({"textured Plane", std::unique_ptr<IRenderableObject>(new CTexturedPlane(500,500))});
+    //renderableObjectsMap->insert({"cube", std::unique_ptr<IRenderableObject>(new UnitCube())});
     
     
     try {
