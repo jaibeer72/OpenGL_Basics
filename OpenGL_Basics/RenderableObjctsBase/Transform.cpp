@@ -7,9 +7,11 @@
 
 #include "Transform.hpp"
 
+#include <glm/gtx/euler_angles.hpp>
+
 Transform::Transform() {
     translation = Postion;
-    speed = 0.5f; // 0.5 m/s
+    speed = 1.0f; // 0.5 m/s
     Update();
 }
 
@@ -19,7 +21,7 @@ void Transform::Walk(const float dt) {
 }
 
 void Transform::Strafe(const float dt) {
-    translation += (right*speed*dt);
+    translation += (right*dt);
     Update();
 }
 
@@ -66,16 +68,24 @@ const glm::vec3 Transform::GetRotation() const {
 
 void Transform::Update() {
     
+    glm::mat4 R = glm::yawPitchRoll(yaw,pitch,roll);
+    
     Postion+=translation;
     
     translation=glm::vec3(0);
     
     model = glm::mat4(1.0f);
     model = glm::translate(model, Postion);
+    
+    model = glm::rotate(model, yaw, glm::vec3(1.0f, 0.0f, 0.0f));
+    model = glm::rotate(model, pitch, glm::vec3(0.0f, 1.0f, 0.0f));
+    model = glm::rotate(model, roll, glm::vec3(0.0f, 0.0f, 1.0f));
     model = glm::scale(model, Scale);
-    model = glm::rotate(model, glm::radians(yaw), glm::vec3(1.0f, 0.0f, 0.0f));
-    model = glm::rotate(model, glm::radians(pitch), glm::vec3(0.0f, 1.0f, 0.0f));
-    model = glm::rotate(model, glm::radians(roll), glm::vec3(0.0f, 0.0f, 1.0f));
+    
+    look = glm::vec3(R*glm::vec4(0,0,1,0));
+    up   = glm::vec3(R*glm::vec4(0,1,0,0));
+    right = glm::cross(look, up);
+
 }
 
 void Transform::scale(const float x, const float y, const float z) { 
@@ -84,6 +94,11 @@ void Transform::scale(const float x, const float y, const float z) {
     Scale.z += z;
     Update();
 }
+
+const glm::vec3 Transform::GetScale() const { 
+    return Scale;
+}
+
 
 
 

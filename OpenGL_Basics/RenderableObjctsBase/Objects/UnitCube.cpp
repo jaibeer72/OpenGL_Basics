@@ -33,14 +33,6 @@ UnitCube::UnitCube(const glm::vec3 &col) {
 void UnitCube::SetCustomUniforms() { 
     glUniform3fv(shader("vColor"),1, glm::value_ptr(color));
     
-    if(Input::GetInstance().IsKeyDown(GLFW_KEY_E))
-    {
-        Rotate(10, 10, 10);
-    }
-    if(Input::GetInstance().IsKeyDown(GLFW_KEY_Q))
-    {
-        scale(1, 1, 1); 
-    }
 }
 
 

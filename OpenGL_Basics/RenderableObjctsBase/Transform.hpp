@@ -18,9 +18,9 @@ class Transform
     glm::vec3 Scale = glm::vec3(1.0f,1.0f,1.0f);
     glm::vec3 translation;
     
-    glm::vec3 look;
-    glm::vec3 up;
-    glm::vec3 right;
+    glm::vec3 look = glm::vec3(0,0,1); // forward
+    glm::vec3 up = glm::vec3(0,1,0);
+    glm::vec3 right = glm::vec3(1,0,0);
     
 public:
     Transform();
@@ -42,6 +42,7 @@ public:
     const glm::vec3 GetPosition() const;
     
     const glm::vec3 GetRotation() const;
+    const glm::vec3 GetScale() const;
     
     void Update();
     

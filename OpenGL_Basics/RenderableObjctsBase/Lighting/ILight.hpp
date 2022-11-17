@@ -25,6 +25,13 @@ struct Material
     float shininess;
 };
 
+struct Light{
+    glm::vec3 position;
+    glm::vec3 ambient;
+    glm::vec3 diffuse;
+    glm::vec3 specular;
+};
+
 class ILitObject : public Transform
 {
 public:
@@ -50,6 +57,11 @@ protected:
     const std::string Mat_Diffuse = "material.diffuse";
     const std::string Mat_Specular = "material.specular";
     const std::string Mat_Shininess = "material.shininess";
+    
+    const std::string Light_Position = "light.position";
+    const std::string Light_Ambient = "light.ambient";
+    const std::string Light_Diffuse = "light.diffuse";
+    const std::string Light_Specular = "light.specular";
     
 };
 

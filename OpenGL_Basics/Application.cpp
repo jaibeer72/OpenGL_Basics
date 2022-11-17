@@ -21,6 +21,7 @@ void Application::run() {
         iter->second->Init();
         std::cout<< "Initalized----" << iter->first << std::endl;
     }
+    glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
     // reder loop
     while(!glfwWindowShouldClose(m_Window))
     {
@@ -66,8 +67,8 @@ void Application::initWindow(int width, int height) {
     {
         std::cout<< "Failed to init GLFW";
     }
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,1);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 #ifdef __APPLE__
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
@@ -148,7 +149,7 @@ void Application::init() {
     //setup the camera projection matrix
     MainCamera.SetupProjection(45, (GLfloat)width/height);
     
-    Cube = new Lit_UnitCube(); 
+    Cube = new Lit_UnitCube(glm::vec3(2,2,2),glm::vec3(12,0.5,0.5),glm::vec3(0,0,0));
     Cube->Init();
     
 }

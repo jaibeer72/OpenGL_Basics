@@ -7,19 +7,23 @@
 
 
 #include "Lit_UnitCube.hpp"
+#include "Input.hpp"
 
-
-glm::vec3 lPos = glm::vec3(1.2f, 1.0f, 2.0f);
-glm::vec3 lambient = glm::vec3(1.0,1.0,1.0);
-glm::vec3 ldiffuse = glm::vec3(0.7,0.7,0.7);
+glm::vec3 lPos = glm::vec3(5, 5, 5);
+glm::vec3 lambient = glm::vec3(1.0,1.0,0.0);
+glm::vec3 ldiffuse = glm::vec3(1.7,0.7,0.7);
 glm::vec3 lspecular = glm::vec3(1,0.5,0.25);
 
-Lit_UnitCube::Lit_UnitCube() {
+Lit_UnitCube::Lit_UnitCube(glm::vec3 position , glm::vec3 S, glm::vec3 R) {
+    
+    SetPosition(position);
+    //scale(S.x,S.y,S.z);
+    Rotate(R.x, R.y, R.z);
     
     mat.ambient = glm::vec3(1,0.35,1);
     mat.diffuse = glm::vec3(1,0.5,1);
     mat.specular = glm::vec3(1,1,1);
-    mat.shininess = 50.0f;
+    mat.shininess = 35.0f;
     
     shader.LoadFromFile(GL_VERTEX_SHADER, "../../../OpenGL_Basics/Shaders/LightingShaders/Lit_Cube/Lit_Cube.vert");
     shader.LoadFromFile(GL_FRAGMENT_SHADER, "../../../OpenGL_Basics/Shaders/LightingShaders/Lit_Cube/Lit_Cube.frag");
@@ -56,38 +60,11 @@ Lit_UnitCube::Lit_UnitCube() {
     glUniform3fv(shader("light.specular"),1,glm::value_ptr(lspecular));
     // Material uniform
     GLenum err = glGetError();
-    std::cout<<err;
-    
-    switch (err) {
-        case GL_INVALID_ENUM:
-            std::cout<<"enuminvalid";
-            break;
-        case GL_INVALID_VALUE:
-            std::cout<<"enuminvalid";
-            break;
-        case GL_INVALID_OPERATION:
-            std::cout<<"enuminvalid";
-            break;
-        case GL_INVALID_FRAMEBUFFER_OPERATION:
-            std::cout<<"enuminvalid";
-            break;
-        case GL_OUT_OF_MEMORY:
-            std::cout<<"enuminvalid";
-            break;
-        case GL_STACK_UNDERFLOW:
-            std::cout<<"enuminvalid";
-            break;
-        case GL_STACK_OVERFLOW:
-            std::cout<<"enuminvalid";
-            break;
             
-        default:
-            break;
-    }
     shader.UnUse();
 
-    
     GL_CHECK_ERRORS;
+    std::cout<<"\n x : "<<GetPosition().x<<"y : "<<GetPosition().y<<"z : "<<GetPosition().z;
 }
 
 void Lit_UnitCube::FillVertexNormals(std::vector<Vertex> &VertexNormals) { 
@@ -99,30 +76,35 @@ void Lit_UnitCube::FillVertexNormals(std::vector<Vertex> &VertexNormals) {
         { 0.5f,  0.5f, -0.5f},
         {-0.5f,  0.5f, -0.5f},
         {-0.5f, -0.5f, -0.5f},
+        
         {-0.5f, -0.5f,  0.5f},
         { 0.5f, -0.5f,  0.5f},
         { 0.5f,  0.5f,  0.5f},
         { 0.5f,  0.5f,  0.5f},
         {-0.5f,  0.5f,  0.5f},
         {-0.5f, -0.5f,  0.5f},
+        
         {-0.5f,  0.5f,  0.5f},
         {-0.5f,  0.5f, -0.5f},
         {-0.5f, -0.5f, -0.5f},
         {-0.5f, -0.5f, -0.5f},
         {-0.5f, -0.5f,  0.5f},
         {-0.5f,  0.5f,  0.5f},
+        
         { 0.5f,  0.5f,  0.5f},
         { 0.5f,  0.5f, -0.5f},
         { 0.5f, -0.5f, -0.5f},
         { 0.5f, -0.5f, -0.5f},
         { 0.5f, -0.5f,  0.5f},
         { 0.5f,  0.5f,  0.5f},
+        
         {-0.5f, -0.5f, -0.5f},
         { 0.5f, -0.5f, -0.5f},
         { 0.5f, -0.5f,  0.5f},
         { 0.5f, -0.5f,  0.5f},
         {-0.5f, -0.5f,  0.5f},
         {-0.5f, -0.5f, -0.5f},
+        
         {-0.5f,  0.5f, -0.5f},
         { 0.5f,  0.5f, -0.5f},
         { 0.5f,  0.5f,  0.5f},
@@ -138,30 +120,35 @@ void Lit_UnitCube::FillVertexNormals(std::vector<Vertex> &VertexNormals) {
         {0.0f,  0.0f, -1.0f},
         {0.0f,  0.0f, -1.0f},
         {0.0f,  0.0f, -1.0f},
+        
         {0.0f,  0.0f,  1.0f},
         {0.0f,  0.0f,  1.0f},
         {0.0f,  0.0f,  1.0f},
         {0.0f,  0.0f,  1.0f},
         {0.0f,  0.0f,  1.0f},
         {0.0f,  0.0f,  1.0f},
+        
+        {-1.0f,  0.0f,  0.0f},
+        {-1.0f,  0.0f,  0.0f},
+        {-1.0f,  0.0f,  0.0f},
+        {-1.0f,  0.0f,  0.0f},
+        {-1.0f,  0.0f,  0.0f},
+        {-1.0f,  0.0f,  0.0f},
+        
         {1.0f,  0.0f,  0.0f},
         {1.0f,  0.0f,  0.0f},
         {1.0f,  0.0f,  0.0f},
         {1.0f,  0.0f,  0.0f},
         {1.0f,  0.0f,  0.0f},
         {1.0f,  0.0f,  0.0f},
-        {1.0f,  0.0f,  0.0f},
-        {1.0f,  0.0f,  0.0f},
-        {1.0f,  0.0f,  0.0f},
-        {1.0f,  0.0f,  0.0f},
-        {1.0f,  0.0f,  0.0f},
-        {1.0f,  0.0f,  0.0f},
+        
         {0.0f, -1.0f,  0.0f},
         {0.0f, -1.0f,  0.0f},
         {0.0f, -1.0f,  0.0f},
         {0.0f, -1.0f,  0.0f},
         {0.0f, -1.0f,  0.0f},
         {0.0f, -1.0f,  0.0f},
+        
         {0.0f,  1.0f,  0.0f},
         {0.0f,  1.0f,  0.0f},
         {0.0f,  1.0f,  0.0f},
@@ -201,7 +188,28 @@ void Lit_UnitCube::SetCustomUniforms() {
     glUniform3fv(shader("light.ambient"),1,glm::value_ptr(lambient));
     glUniform3fv(shader("light.diffuse"),1,glm::value_ptr(ldiffuse));
     glUniform3fv(shader("light.specular"),1,glm::value_ptr(lspecular));
-    GL_CHECK_ERRORS; 
+    GL_CHECK_ERRORS;
+    
+    if(Input::GetInstance().IsKeyDown(GLFW_KEY_A))
+    {
+        Rotate(10, 0, 0);
+    }
+    if(Input::GetInstance().IsKeyDown(GLFW_KEY_S))
+    {
+        Rotate(0, 10, 0);
+    } if(Input::GetInstance().IsKeyDown(GLFW_KEY_D))
+    {
+        Strafe(-GetScale().x/2);
+        std::cout<<"\n x : "<<GetPosition().x<<"y : "<<GetPosition().y<<"z : "<<GetPosition().z;
+        Rotate(0, 0, 10);
+        Strafe(GetScale().x/2);
+        std::cout<<"\n x : "<<GetPosition().x<<"y : "<<GetPosition().y<<"z : "<<GetPosition().z;
+     }
+    if(Input::GetInstance().IsKeyDown(GLFW_KEY_Q))
+    {
+        scale(1, 0, 0);
+        //std::cout<<"\n x : "<<GetScale().x<<"y : "<<GetScale().y<<"z : "<<GetScale().z;
+    }
     
 }
 
