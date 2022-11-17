@@ -34,12 +34,13 @@ void Application::run() {
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
-        Cube->Render(glm::value_ptr(VP), MainCamera.GetPosition());
         
         for (auto iter = begin; iter != end ; ++iter )
         {
             iter->second->Render(glm::value_ptr(VP));
         }
+        
+        clockScene->Update(glm::value_ptr(VP),MainCamera.GetPosition());
         
         MainCamera.Rotate(Input::GetInstance().GetmousePos().x, Input::GetInstance().GetmousePos().y,0);
         
@@ -149,11 +150,7 @@ void Application::init() {
     //setup the camera projection matrix
     MainCamera.SetupProjection(45, (GLfloat)width/height);
     
-    Cube = new Lit_UnitCube(glm::vec3(2,2,2),glm::vec3(12,0.5,0.5),glm::vec3(0,0,0));
-    Cube->Init();
+    clockScene = new ClockScene();
+    clockScene->Initialize();
     
 }
-
-
-
-

@@ -41,7 +41,6 @@ void ILitObject::Render(const float *VP, glm::vec3 camPos) {
     SetCustomUniforms();
     glUniformMatrix4fv(shader("vModel"),1,GL_FALSE,glm::value_ptr(model));
     
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     
     glBindVertexArray(vaoID);
     glDrawArrays(primType,0,totalVertices);

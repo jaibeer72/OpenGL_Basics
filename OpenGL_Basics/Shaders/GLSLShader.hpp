@@ -30,6 +30,7 @@
 
 #define GL_CHECK_ERRORS assert(glGetError()== GL_NO_ERROR);
 
+
 class GLSLShader
 {
 public:
@@ -54,5 +55,6 @@ private:
     std::map<std::string, GLuint> _attributeList;
     std::map<std::string, GLuint> _uniformLocationList;
 };
+
 #endif
 

@@ -7,6 +7,46 @@
 
 #include "GLSLShader.hpp"
 
+
+void PrintGLError()
+{
+    GLenum err = glGetError();
+    
+    switch (err) {
+        case GL_STACK_OVERFLOW:
+            std::cout<< "overflow";
+            throw std::runtime_error("Problem");
+            break;
+        case GL_INVALID_ENUM:
+            std::cout<< "invalidenum";
+            throw std::runtime_error("Problem");
+            break;
+        case GL_INVALID_VALUE:
+            std::cout<< "invalid value";
+            throw std::runtime_error("Problem");
+            break;
+        case GL_INVALID_OPERATION:
+            std::cout<< "clean";
+            throw std::runtime_error("Problem");
+            break;
+        case GL_INVALID_FRAMEBUFFER_OPERATION:
+            std::cout<< "clean";
+            throw std::runtime_error("Problem");
+            break;
+        case GL_OUT_OF_MEMORY:
+            std::cout<< "clean";
+            throw std::runtime_error("Problem");
+            break;
+        case GL_STACK_UNDERFLOW:
+            std::cout<< "clean";
+            throw std::runtime_error("Problem");
+            break;
+        default:
+            break;
+    }
+       
+}
+
 GLSLShader::GLSLShader() { 
     _totalShaders = 0;
     _shaders[VERTEX_SHADER] = 0;
@@ -99,6 +139,7 @@ void GLSLShader::Use() {
 
 void GLSLShader::UnUse() { 
     glUseProgram(0);
+    //PrintGLError();
     GL_CHECK_ERRORS;
 }
 

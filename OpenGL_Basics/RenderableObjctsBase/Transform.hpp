@@ -10,12 +10,13 @@
 #define Transform_hpp
 
 #include <glm/gtc/matrix_transform.hpp>
+#include <iostream>
 
 class Transform
 {
     float yaw, pitch, roll;
     glm::vec3 Postion = glm::vec3(1.0f,2.0f,5.0f);
-    glm::vec3 Scale = glm::vec3(1.0f,1.0f,1.0f);
+    glm::vec3 m_scale = glm::vec3(1.0f,1.0f,1.0f);
     glm::vec3 translation;
     
     glm::vec3 look = glm::vec3(0,0,1); // forward
@@ -37,12 +38,17 @@ public:
     void SetPosition(const glm::vec3& v);
     void Rotate(const float yaw, const float pitch, const float roll);
     
-    void scale(const float x, const float y , const float z);
+    void SetRotation(const float yaw, const float pitch, const float roll);
+    
+    void Scale(const float x, const float y , const float z);
+    void SetScale(const float x, const float y , const float z);
     
     const glm::vec3 GetPosition() const;
     
     const glm::vec3 GetRotation() const;
     const glm::vec3 GetScale() const;
+    
+    friend std::ostream& operator <<(std::ostream& os, const glm::vec3& dt);
     
     void Update();
     

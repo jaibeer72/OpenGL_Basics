@@ -80,7 +80,7 @@ void Transform::Update() {
     model = glm::rotate(model, yaw, glm::vec3(1.0f, 0.0f, 0.0f));
     model = glm::rotate(model, pitch, glm::vec3(0.0f, 1.0f, 0.0f));
     model = glm::rotate(model, roll, glm::vec3(0.0f, 0.0f, 1.0f));
-    model = glm::scale(model, Scale);
+    model = glm::scale(model, m_scale);
     
     look = glm::vec3(R*glm::vec4(0,0,1,0));
     up   = glm::vec3(R*glm::vec4(0,1,0,0));
@@ -88,15 +88,33 @@ void Transform::Update() {
 
 }
 
-void Transform::scale(const float x, const float y, const float z) { 
-    Scale.x += x;
-    Scale.y += y;
-    Scale.z += z;
+void Transform::Scale(const float x, const float y, const float z) {
+    m_scale.x += x;
+    m_scale.y += y;
+    m_scale.z += z;
     Update();
 }
 
 const glm::vec3 Transform::GetScale() const { 
-    return Scale;
+    return m_scale;
+}
+
+void Transform::SetScale(const float x, const float y, const float z) {
+    m_scale = glm::vec3(x,y,z);
+}
+
+void Transform::SetRotation(const float Yaw, const float Pitch, const float Roll) {
+    yaw = glm::radians(Yaw);
+    pitch = glm::radians(Pitch);
+    roll = glm::radians(Roll);
+}
+
+std::ostream& operator<<(std::ostream& os, const Transform& dt)
+{
+    os <<" Scale X :" <<dt.GetScale().x << "Y : " << dt.GetScale().y << "Z : " << dt.GetScale().z << std::endl;
+    os <<" Pos X :" <<dt.GetPosition().x << "Y : " << dt.GetPosition().y << "Z : " << dt.GetPosition().z << std::endl;
+    os <<" Rot X :" <<dt.GetRotation().x << "Y : " << dt.GetRotation().y << "Z : " << dt.GetRotation().z << std::endl;
+    return os;
 }
 
 

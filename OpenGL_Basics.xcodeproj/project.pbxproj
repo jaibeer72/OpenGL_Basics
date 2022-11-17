@@ -25,6 +25,8 @@
 		ECD16D992912BD8B009F5F6C /* GLSLShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D972912BD8B009F5F6C /* GLSLShader.cpp */; };
 		ECEA06402922AEA00055DD24 /* ILight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECEA063E2922AEA00055DD24 /* ILight.cpp */; };
 		ECEA06442924E7FB0055DD24 /* Lit_UnitCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECEA06422924E7FB0055DD24 /* Lit_UnitCube.cpp */; };
+		ECEA064B29269D130055DD24 /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECEA064929269D130055DD24 /* Time.cpp */; };
+		ECEA064F2926B3100055DD24 /* ClockScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECEA064D2926B3100055DD24 /* ClockScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -92,6 +94,10 @@
 		ECEA06432924E7FB0055DD24 /* Lit_UnitCube.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Lit_UnitCube.hpp; sourceTree = "<group>"; };
 		ECEA06462924FFC40055DD24 /* Lit_Cube.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Lit_Cube.vert; path = ../../../OpenGL_Basics/Shaders/LightingShaders/Lit_Cube/Lit_Cube.vert; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECEA06472924FFDD0055DD24 /* Lit_Cube.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Lit_Cube.frag; path = ../../../OpenGL_Basics/Shaders/LightingShaders/Lit_Cube/Lit_Cube.frag; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECEA064929269D130055DD24 /* Time.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Time.cpp; sourceTree = "<group>"; };
+		ECEA064A29269D130055DD24 /* Time.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Time.hpp; sourceTree = "<group>"; };
+		ECEA064D2926B3100055DD24 /* ClockScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ClockScene.cpp; sourceTree = "<group>"; };
+		ECEA064E2926B3100055DD24 /* ClockScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ClockScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +216,8 @@
 		ECD16D7F290FE3C6009F5F6C /* OpenGL_Basics */ = {
 			isa = PBXGroup;
 			children = (
+				ECEA064C2926B2FC0055DD24 /* Scenes */,
+				ECEA064829269CF10055DD24 /* Utils */,
 				EC2E3707291D7F9900C31DBD /* Input */,
 				ECD16D962912BD6B009F5F6C /* Shaders */,
 				ECD16D922911B00E009F5F6C /* RenderableObjctsBase */,
@@ -292,6 +300,24 @@
 			path = Lit_Cube;
 			sourceTree = "<group>";
 		};
+		ECEA064829269CF10055DD24 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ECEA064929269D130055DD24 /* Time.cpp */,
+				ECEA064A29269D130055DD24 /* Time.hpp */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		ECEA064C2926B2FC0055DD24 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				ECEA064D2926B3100055DD24 /* ClockScene.cpp */,
+				ECEA064E2926B3100055DD24 /* ClockScene.hpp */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -358,6 +384,8 @@
 				EC2E36FC291BEFCC00C31DBD /* FPlane.cpp in Sources */,
 				ECEA06442924E7FB0055DD24 /* Lit_UnitCube.cpp in Sources */,
 				EC2E3713291EAE5F00C31DBD /* Transform.cpp in Sources */,
+				ECEA064B29269D130055DD24 /* Time.cpp in Sources */,
+				ECEA064F2926B3100055DD24 /* ClockScene.cpp in Sources */,
 				ECCCD2092913EA78000D4BED /* Triangle.cpp in Sources */,
 				ECEA06402922AEA00055DD24 /* ILight.cpp in Sources */,
 				EC2E36EE2913FCFC00C31DBD /* Application.cpp in Sources */,
