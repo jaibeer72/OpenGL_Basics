@@ -26,10 +26,10 @@ struct Material
 };
 
 struct Light{
-    glm::vec3 position;
-    glm::vec3 ambient;
-    glm::vec3 diffuse;
-    glm::vec3 specular;
+    glm::vec3 position = glm::vec3(10,10,10);
+    glm::vec3 ambient = glm::vec3(1.0,1.0,0.0);
+    glm::vec3 diffuse = glm::vec3(1.0,1.0,0.7);
+    glm::vec3 specular = glm::vec3(1,1,0.25);
 };
 
 class ILitObject : public Transform
@@ -41,18 +41,20 @@ public:
     virtual int GetToalVertices()=0;
     virtual GLenum GetPrimitiveType()=0;
     virtual void SetCustomUniforms() =0;
+    virtual void DrawStyle()=0;
     
     void Init();
     void Render(const float* VP , glm::vec3 camPos);
     void Destroy();
     ILitObject* ReturnLitObject(){return this;}
+    Material mat;
+    Light lit;
 protected:
     GLuint vaoID;
     GLuint vboVerticesID;
     GLSLShader shader;
     GLenum primType;
     int totalVertices , totalNormals;
-    Material mat;
     const std::string Mat_Ambient = "material.ambient";
     const std::string Mat_Diffuse = "material.diffuse";
     const std::string Mat_Specular = "material.specular";

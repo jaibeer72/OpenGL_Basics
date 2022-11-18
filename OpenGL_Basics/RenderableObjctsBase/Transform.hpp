@@ -50,7 +50,7 @@ public:
     
     friend std::ostream& operator <<(std::ostream& os, const glm::vec3& dt);
     
-    void Update();
+    void UpdateTransform();
     
     // model matrix
     glm::mat4 model;

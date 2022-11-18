@@ -22,9 +22,11 @@ void Application::run() {
         std::cout<< "Initalized----" << iter->first << std::endl;
     }
     glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
+    Time t;
     // reder loop
     while(!glfwWindowShouldClose(m_Window))
     {
+        t.GetDeltaTime();
         
         glm::mat4 V    = MainCamera.GetViewMatrix();
         glm::mat4 P     = MainCamera.GetProjectionMatrix();

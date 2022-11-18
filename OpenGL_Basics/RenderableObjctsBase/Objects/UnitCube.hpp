@@ -31,7 +31,8 @@ public:
     
     void FillNormalBuffer(GLfloat *pBuffer) override ;
     
-    int GetTotalNormal() override;    
+    int GetTotalNormal() override;
+    
     
     glm::vec3 color;
     

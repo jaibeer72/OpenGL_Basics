@@ -24,6 +24,11 @@ public:
     
     void SetCustomUniforms() override;
     
+    void DrawStyle() override {
+        glDrawArrays(primType,0,totalVertices);
+    }
+    
+    
 };
 
 #endif /* Lit_UnitCube_hpp */

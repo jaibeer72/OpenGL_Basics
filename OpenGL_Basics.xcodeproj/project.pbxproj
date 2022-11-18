@@ -16,6 +16,7 @@
 		EC2E370A291D7FA800C31DBD /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2E3708291D7FA800C31DBD /* Input.cpp */; };
 		EC2E370D291E5DB400C31DBD /* UnitCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2E370B291E5DB400C31DBD /* UnitCube.cpp */; };
 		EC2E3713291EAE5F00C31DBD /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2E3711291EAE5F00C31DBD /* Transform.cpp */; };
+		EC49CDFE2926E49800D771C6 /* Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC49CDFC2926E49800D771C6 /* Cylinder.cpp */; };
 		ECCCD2022913E5AF000D4BED /* libglfw.3.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = ECD16D8A290FE417009F5F6C /* libglfw.3.3.dylib */; };
 		ECCCD2092913EA78000D4BED /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCCD2072913EA78000D4BED /* Triangle.cpp */; };
 		ECD16D81290FE3C6009F5F6C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D80290FE3C6009F5F6C /* main.cpp */; };
@@ -75,6 +76,8 @@
 		EC2E3710291E5F7500C31DBD /* UnitCube.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = UnitCube.frag; sourceTree = "<group>"; };
 		EC2E3711291EAE5F00C31DBD /* Transform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Transform.cpp; sourceTree = "<group>"; };
 		EC2E3712291EAE5F00C31DBD /* Transform.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Transform.hpp; sourceTree = "<group>"; };
+		EC49CDFC2926E49800D771C6 /* Cylinder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Cylinder.cpp; sourceTree = "<group>"; };
+		EC49CDFD2926E49800D771C6 /* Cylinder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Cylinder.hpp; sourceTree = "<group>"; };
 		ECCCD2072913EA78000D4BED /* Triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
 		ECCCD2082913EA78000D4BED /* Triangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Triangle.hpp; sourceTree = "<group>"; };
 		ECD16D7D290FE3C6009F5F6C /* OpenGL_Basics */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGL_Basics; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -285,6 +288,8 @@
 		ECEA064129241E870055DD24 /* LitObjects */ = {
 			isa = PBXGroup;
 			children = (
+				EC49CDFC2926E49800D771C6 /* Cylinder.cpp */,
+				EC49CDFD2926E49800D771C6 /* Cylinder.hpp */,
 				ECEA06422924E7FB0055DD24 /* Lit_UnitCube.cpp */,
 				ECEA06432924E7FB0055DD24 /* Lit_UnitCube.hpp */,
 			);
@@ -387,6 +392,7 @@
 				ECEA064B29269D130055DD24 /* Time.cpp in Sources */,
 				ECEA064F2926B3100055DD24 /* ClockScene.cpp in Sources */,
 				ECCCD2092913EA78000D4BED /* Triangle.cpp in Sources */,
+				EC49CDFE2926E49800D771C6 /* Cylinder.cpp in Sources */,
 				ECEA06402922AEA00055DD24 /* ILight.cpp in Sources */,
 				EC2E36EE2913FCFC00C31DBD /* Application.cpp in Sources */,
 				ECD16D8D290FEC16009F5F6C /* glad.c in Sources */,

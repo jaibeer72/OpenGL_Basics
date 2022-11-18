@@ -18,7 +18,7 @@ Lit_UnitCube::Lit_UnitCube(glm::vec3 position , glm::vec3 S, glm::vec3 R) {
     SetPosition(position);
     SetScale(S.x,S.y,S.z);
     SetRotation(R.x, R.y, R.z);
-    Update(); 
+    UpdateTransform(); 
     
     mat.ambient = glm::vec3(1,0.35,1);
     mat.diffuse = glm::vec3(1,0.5,1);
@@ -64,7 +64,6 @@ Lit_UnitCube::Lit_UnitCube(glm::vec3 position , glm::vec3 S, glm::vec3 R) {
     shader.UnUse();
 
     GL_CHECK_ERRORS;
-    std::cout<<"\n x : "<<GetPosition().x<<"y : "<<GetPosition().y<<"z : "<<GetPosition().z;
 }
 
 void Lit_UnitCube::FillVertexNormals(std::vector<Vertex> &VertexNormals) { 
@@ -188,6 +187,7 @@ void Lit_UnitCube::SetCustomUniforms() {
     glUniform3fv(shader(Light_Ambient),1,glm::value_ptr(lambient));
     glUniform3fv(shader(Light_Diffuse),1,glm::value_ptr(ldiffuse));
     glUniform3fv(shader(Light_Specular),1,glm::value_ptr(lspecular));
+
     GL_CHECK_ERRORS;
     
     

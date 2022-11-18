@@ -37,13 +37,13 @@ void ILitObject::Render(const float *VP, glm::vec3 camPos) {
     shader.Use();
     glUniformMatrix4fv(shader("VP"), 1, GL_FALSE, VP);
     glUniform3fv(shader("viewPos"),1,glm::value_ptr(camPos));
-    
-    SetCustomUniforms();
     glUniformMatrix4fv(shader("vModel"),1,GL_FALSE,glm::value_ptr(model));
     
-    
+    SetCustomUniforms();
     glBindVertexArray(vaoID);
-    glDrawArrays(primType,0,totalVertices);
+    DrawStyle();
+   
+    //shader.PrintGLerror();
     shader.UnUse();
 }
 

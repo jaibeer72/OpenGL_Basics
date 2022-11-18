@@ -12,27 +12,27 @@
 Transform::Transform() {
     translation = Postion;
     speed = 1.0f; // 0.5 m/s
-    Update();
+    UpdateTransform();
 }
 
 void Transform::Walk(const float dt) {
     translation += (look*speed*dt);
-    Update();
+    UpdateTransform();
 }
 
 void Transform::Strafe(const float dt) {
     translation += (right*dt);
-    Update();
+    UpdateTransform();
 }
 
 void Transform::Lift(const float dt) {
     translation += (up*speed*dt);
-    Update();
+    UpdateTransform();
 }
 
 void Transform::SetTranslation(const glm::vec3 &t) {
     translation = t;
-    Update();
+    UpdateTransform();
 }
 
 glm::vec3 Transform::GetTranslation() const {
@@ -55,7 +55,7 @@ void Transform::Rotate(const float Yaw, const float Pitch, const float Roll) {
     yaw += glm::radians(Yaw);
     pitch += glm::radians(Pitch);
     roll += glm::radians(Roll);
-    Update();
+    UpdateTransform();
 }
 
 const glm::vec3 Transform::GetPosition() const {
@@ -66,7 +66,7 @@ const glm::vec3 Transform::GetRotation() const {
     return glm::vec3(yaw,pitch,roll);
 }
 
-void Transform::Update() {
+void Transform::UpdateTransform() {
     
     glm::mat4 R = glm::yawPitchRoll(yaw,pitch,roll);
     
@@ -92,7 +92,7 @@ void Transform::Scale(const float x, const float y, const float z) {
     m_scale.x += x;
     m_scale.y += y;
     m_scale.z += z;
-    Update();
+    UpdateTransform();
 }
 
 const glm::vec3 Transform::GetScale() const { 
