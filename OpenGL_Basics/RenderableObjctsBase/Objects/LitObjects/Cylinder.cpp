@@ -170,10 +170,10 @@ void Cylinder::DrawStyle() {
     int numsidevertices = numfanvertices * 2;
     int side_offset = definition * 2 + 2;
     
-    glDrawArrays(GL_TRIANGLE_FAN,0,numberOfvertices);
+    //glDrawArrays(GL_TRIANGLE_FAN,0,numberOfvertices);
     // Draw the top lid
     glDrawArrays(GL_TRIANGLE_FAN, 0,numfanvertices);
-    glDrawArrays(GL_TRIANGLE_FAN, (numfanvertices * sizeof(GLuint)),numfanvertices);
-    glDrawArrays(GL_TRIANGLE_STRIP, (numsidevertices * sizeof(GLuint)),side_offset);
+    glDrawArrays(GL_TRIANGLE_FAN, numfanvertices  ,numfanvertices);
+    glDrawArrays(GL_TRIANGLE_STRIP,side_offset,numsidevertices);
 }
 

@@ -47,12 +47,12 @@ void ClockScene::MessWithMaterials(ILitObject* obj, bool isIn)
 ClockScene::ClockScene() {
     glm::vec3 sec_scale,sec_pos,sec_rot;
     sec_pos = glm::vec3(1,13,0);
-    sec_scale = glm::vec3(0.1,6,0.1);
+    sec_scale = glm::vec3(0.01,6,0.1);
     sec_rot = glm::vec3(0,0,0);
-    
+
     glm::vec3 hour_scale = glm::vec3(0.1,4,0.1);
     glm::vec3 hour_pos = glm::vec3(1,12,0);
-    glm::vec3 min_scale = glm::vec3(0.01,6,0.1);
+    glm::vec3 min_scale = glm::vec3(0.1,6,0.1);
     
     
     
@@ -65,18 +65,22 @@ ClockScene::ClockScene() {
     
     // setting material and lights
     Material mat;
-    mat.ambient = glm::vec3();
-    mat.diffuse = glm::vec3();
-    mat.specular = glm::vec3();
-    mat.shininess = 50.0f;
+    mat.ambient = glm::vec3(1.0f, 0.5f, 0.31f);
+    mat.diffuse = glm::vec3(1.0f, 0.5f, 0.31f);
+    mat.specular = glm::vec3(0.5f, 0.5f, 0.5f);
+    mat.shininess = 32.0f;
     
     Light lit;
-    lit.position = glm::vec3(0,0,-2);
+    lit.position = glm::vec3(0,6,-2);
     lit.ambient = glm::vec3( 0.2f, 0.2f, 0.2f);
     lit.diffuse = glm::vec3(0.5f, 0.5f, 0.5f);
     lit.specular = glm::vec3( 1.0f, 1.0f, 1.0f);
     
     cylender->lit = lit;
+    cylender->mat = mat;
+    secArm->lit = lit;
+    minArm->lit = lit;
+    hourArm->lit = lit;
 
 }
 
