@@ -54,8 +54,6 @@ Cylinder::Cylinder()
     glUniform3fv(shader(Light_Ambient),1,glm::value_ptr(lit.ambient));
     glUniform3fv(shader(Light_Diffuse),1,glm::value_ptr(lit.diffuse));
     glUniform3fv(shader(Light_Specular),1,glm::value_ptr(lit.specular));
-    // Material uniform
-    GLenum err = glGetError();
             
     shader.UnUse();
 
