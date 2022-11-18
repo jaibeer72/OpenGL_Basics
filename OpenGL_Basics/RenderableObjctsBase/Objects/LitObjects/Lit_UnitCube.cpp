@@ -59,8 +59,6 @@ Lit_UnitCube::Lit_UnitCube(glm::vec3 position , glm::vec3 S, glm::vec3 R) {
     glUniform3fv(shader(Light_Diffuse),1,glm::value_ptr(ldiffuse));
     glUniform3fv(shader(Light_Specular),1,glm::value_ptr(lspecular));
     // Material uniform
-    GLenum err = glGetError();
-            
     shader.UnUse();
 
     GL_CHECK_ERRORS;

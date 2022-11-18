@@ -122,33 +122,47 @@ void ClockScene::Update(const float *VP, glm::vec3 camPos) {
     hourArm->UpdateTransform();
     hourArm->Lift(hourArm->GetScale().y/2);
     
-    if(Input::IsKeyDown(GLFW_KEY_A))
+    if(Input::IsKeyDown(GLFW_KEY_Q))
     {
         MessWithMaterials(cylender, true);
         MessWithMaterials(secArm, true);
         MessWithMaterials(minArm, true);
         MessWithMaterials(hourArm, true);
     }
-    if(Input::IsKeyDown(GLFW_KEY_S))
+    if(Input::IsKeyDown(GLFW_KEY_E))
     {
         MessWithMaterials(cylender, false);
         MessWithMaterials(secArm, false);
         MessWithMaterials(minArm, false);
         MessWithMaterials(hourArm, false);
     }
-    if(Input::IsKeyDown(GLFW_KEY_D))
+    if(Input::IsKeyDown(GLFW_KEY_LEFT))
     {
         MessWithLight(cylender, true);
         MessWithLight(secArm, true);
         MessWithLight(minArm, true);
         MessWithLight(hourArm, true);
     }
-    if(Input::IsKeyDown(GLFW_KEY_E))
+    if(Input::IsKeyDown(GLFW_KEY_RIGHT))
     {
         MessWithLight(cylender, false);
         MessWithLight(secArm, false);
         MessWithLight(minArm, false);
         MessWithLight(hourArm, false);
+    }
+    if(Input::IsKeyDown(GLFW_KEY_UP))
+    {
+        cylender->lit.specular+=0.1f;
+        secArm->lit.specular+=0.1f;
+        minArm->lit.specular+=0.1f;
+        hourArm->lit.specular+=0.1f;
+    }
+    if(Input::IsKeyDown(GLFW_KEY_DOWN))
+    {
+        cylender->lit.specular-=0.1f;
+        secArm->lit.specular-=0.1f;
+        minArm->lit.specular-=0.1f;
+        hourArm->lit.specular-=0.1f;
     }
     
 }

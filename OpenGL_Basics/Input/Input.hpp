@@ -39,6 +39,10 @@ private:
         {GLFW_KEY_D, false},
         {GLFW_KEY_Q, false},
         {GLFW_KEY_E,false},
+        {GLFW_KEY_RIGHT,false},
+        {GLFW_KEY_LEFT,false},
+        {GLFW_KEY_UP,false},
+        {GLFW_KEY_DOWN,false},
         {GLFW_KEY_ESCAPE,false}
     };
     // Mouse Movement

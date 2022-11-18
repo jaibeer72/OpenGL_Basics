@@ -48,9 +48,22 @@ void Application::run() {
         
         //std::cout<<"x :" << MainCamera.GetRotation().x<< "y : "<<MainCamera.GetRotation().y << "z : "<<MainCamera.GetRotation().z << std::endl;
         
+        // Camera movement
         if(Input::GetInstance().IsKeyDown(GLFW_KEY_W))
         {
             MainCamera.Walk(1.0f);
+        }
+        if(Input::GetInstance().IsKeyDown(GLFW_KEY_S))
+        {
+            MainCamera.Walk(-1.0f);
+        }
+        if(Input::GetInstance().IsKeyDown(GLFW_KEY_A))
+        {
+            MainCamera.Strafe(-1.0f);
+        }
+        if(Input::GetInstance().IsKeyDown(GLFW_KEY_D))
+        {
+            MainCamera.Strafe(1.0f);
         }
         
         if(Input::GetInstance().IsKeyDown(GLFW_KEY_ESCAPE))

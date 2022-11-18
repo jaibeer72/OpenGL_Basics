@@ -128,8 +128,9 @@ void Cylinder::FillVertexNormals(std::vector<Vertex> &VertexNormals){
         top++;
         bottom++;
     }
-    VertexNormals.resize(numberOfvertices);
-    for(int i = 0 ; i < numberOfvertices ; i++)
+    int size = (sizeof(pindices)/sizeof(GLuint));
+    VertexNormals.resize(size);
+    for(int i = 0 ; i < size ; i++)
     {
         Vertex v ;
         v.Position = vertices[pindices[i]];
@@ -143,11 +144,13 @@ int Cylinder::GetToalVertices()
     return numberOfvertices ;
 }
 
-GLenum Cylinder::GetPrimitiveType(){
+GLenum Cylinder::GetPrimitiveType()
+{
     return GL_TRIANGLE_FAN;
 }
 
-void Cylinder::SetCustomUniforms(){
+void Cylinder::SetCustomUniforms()
+{
     glUniform3fv(shader(Mat_Ambient),1,glm::value_ptr(mat.ambient));
     glUniform3fv(shader(Mat_Diffuse),1,glm::value_ptr(mat.diffuse));
     glUniform3fv(shader(Mat_Specular),1,glm::value_ptr(mat.specular));
@@ -159,8 +162,6 @@ void Cylinder::SetCustomUniforms(){
     glUniform3fv(shader(Light_Diffuse),1,glm::value_ptr(lit.diffuse));
     glUniform3fv(shader(Light_Specular),1,glm::value_ptr(lit.specular));
     GL_CHECK_ERRORS;
-    
-    
 }
 
 void Cylinder::DrawStyle() {
@@ -174,4 +175,3 @@ void Cylinder::DrawStyle() {
     glDrawArrays(GL_TRIANGLE_FAN, numfanvertices  ,numfanvertices);
     glDrawArrays(GL_TRIANGLE_STRIP,side_offset,numsidevertices);
 }
-

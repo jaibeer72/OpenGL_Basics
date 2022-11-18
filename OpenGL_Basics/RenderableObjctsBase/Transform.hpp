@@ -48,7 +48,7 @@ public:
     const glm::vec3 GetRotation() const;
     const glm::vec3 GetScale() const;
     
-    friend std::ostream& operator <<(std::ostream& os, const glm::vec3& dt);
+    friend std::ostream& operator <<(std::ostream& os, const Transform& dt);
     
     void UpdateTransform();
     
