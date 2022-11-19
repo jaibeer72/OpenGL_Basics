@@ -67,8 +67,8 @@
 		EC2E36FE291C319A00C31DBD /* FreeCamera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FreeCamera.hpp; sourceTree = "<group>"; };
 		EC2E3700291CF8DF00C31DBD /* Plane.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Plane.cpp; sourceTree = "<group>"; };
 		EC2E3701291CF8DF00C31DBD /* Plane.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Plane.hpp; sourceTree = "<group>"; };
-		EC2E3705291CFFBF00C31DBD /* checkeredPlane.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = checkeredPlane.vert; sourceTree = "<group>"; };
-		EC2E3706291CFFDC00C31DBD /* checkeredPlane.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = checkeredPlane.frag; sourceTree = "<group>"; };
+		EC2E3705291CFFBF00C31DBD /* checkeredPlane.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = checkeredPlane.vert; path = ../../../OpenGL_Basics/Shaders/ObjectShaders/TexturedPlane/checkeredPlane.vert; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC2E3706291CFFDC00C31DBD /* checkeredPlane.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = checkeredPlane.frag; path = ../../../OpenGL_Basics/Shaders/ObjectShaders/TexturedPlane/checkeredPlane.frag; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2E3708291D7FA800C31DBD /* Input.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
 		EC2E3709291D7FA800C31DBD /* Input.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Input.hpp; sourceTree = "<group>"; };
 		EC2E370B291E5DB400C31DBD /* UnitCube.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UnitCube.cpp; sourceTree = "<group>"; };

@@ -1,0 +1,12 @@
+## User settings
+xcuserdata/
+build/
+
+## Xcode 8 and earlier
+*.xcscmblueprint
+*.xccheckout
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride

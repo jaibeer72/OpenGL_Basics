@@ -39,7 +39,9 @@ void Application::run() {
         
         for (auto iter = begin; iter != end ; ++iter )
         {
+            std::cout<< "PreRend----" << iter->first << std::endl;
             iter->second->Render(glm::value_ptr(VP));
+            std::cout<< "PostRend----" << iter->first << std::endl;
         }
         
         clockScene->Update(glm::value_ptr(VP),MainCamera.GetPosition());
