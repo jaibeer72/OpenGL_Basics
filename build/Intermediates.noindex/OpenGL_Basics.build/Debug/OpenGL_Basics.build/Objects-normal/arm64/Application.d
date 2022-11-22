@@ -258,4 +258,9 @@ dependencies: \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../mat4x3.hpp \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/type_ptr.inl \
   /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/Transform.hpp \
-  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Input/Input.hpp
+  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Input/Input.hpp \
+  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Scenes/ClockScene.hpp \
+  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/Objects/LitObjects/Lit_UnitCube.hpp \
+  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/Lighting/ILight.hpp \
+  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/RenderableObjctsBase/Objects/LitObjects/Cylinder.hpp \
+  /Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Utils/Time.hpp

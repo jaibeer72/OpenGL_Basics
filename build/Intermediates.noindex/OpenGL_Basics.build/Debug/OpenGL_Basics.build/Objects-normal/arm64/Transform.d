@@ -156,4 +156,63 @@ dependencies: \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/matrix_transform.inl \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../geometric.hpp \
   /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../trigonometric.hpp \
-  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../matrix.hpp
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../matrix.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtx/euler_angles.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtx/../glm.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../fwd.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../exponential.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../common.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../packing.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../detail/func_packing.inl \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../detail/type_half.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../detail/type_half.inl \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../vector_relational.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../integer.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../detail/func_integer.inl \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtx/euler_angles.inl \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtx/compatibility.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtx/../gtc/quaternion.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../gtc/constants.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../gtc/matrix_transform.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../ext/vector_relational.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/vector_relational.inl \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../vector_relational.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../common.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../detail/type_float.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../ext/quaternion_common.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../ext/quaternion_geometric.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../exponential.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../ext/vector_relational.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/quaternion_geometric.inl \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/quaternion_common.inl \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../ext/quaternion_float.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../detail/type_quat.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../detail/../detail/type_mat3x3.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../detail/../detail/type_mat4x4.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../detail/../detail/type_vec3.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../detail/../detail/type_vec4.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../detail/../ext/vector_relational.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../detail/../ext/quaternion_relational.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/quaternion_relational.inl \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../detail/../gtc/constants.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../detail/../gtc/matrix_transform.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../detail/type_quat.inl \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../detail/../trigonometric.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/../detail/../ext/quaternion_geometric.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../ext/quaternion_float_precision.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../ext/quaternion_double.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../ext/quaternion_double_precision.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../ext/quaternion_relational.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../ext/quaternion_geometric.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../ext/quaternion_trigonometric.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/scalar_constants.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/vector_relational.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/quaternion_trigonometric.inl \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../ext/quaternion_transform.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/.././ext/quaternion_transform.inl \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../detail/type_mat3x3.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/../detail/type_mat4x4.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/quaternion.inl \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/epsilon.hpp \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtc/epsilon.inl \
+  /opt/homebrew/Cellar/glm/0.9.9.8/include/glm/gtx/compatibility.inl
