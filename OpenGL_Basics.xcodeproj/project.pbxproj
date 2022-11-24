@@ -26,6 +26,9 @@
 		ECD16D952911B05F009F5F6C /* RenderableObjectsBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D932911B05F009F5F6C /* RenderableObjectsBase.cpp */; };
 		ECD16D992912BD8B009F5F6C /* GLSLShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D972912BD8B009F5F6C /* GLSLShader.cpp */; };
 		ECD90B00292FA0BA0054F62A /* libassimp.5.2.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD90AFF292FA0BA0054F62A /* libassimp.5.2.4.dylib */; };
+		ECD90B04292FBD720054F62A /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD90B02292FBD720054F62A /* Model.cpp */; };
+		ECD90B07292FBE6F0054F62A /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD90B05292FBE6F0054F62A /* Mesh.cpp */; };
+		ECD90B0A292FC6050054F62A /* IMeshRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD90B08292FC6050054F62A /* IMeshRenderer.cpp */; };
 		ECEA06402922AEA00055DD24 /* ILight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECEA063E2922AEA00055DD24 /* ILight.cpp */; };
 		ECEA06442924E7FB0055DD24 /* Lit_UnitCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECEA06422924E7FB0055DD24 /* Lit_UnitCube.cpp */; };
 		ECEA064B29269D130055DD24 /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECEA064929269D130055DD24 /* Time.cpp */; };
@@ -94,6 +97,12 @@
 		ECD16D972912BD8B009F5F6C /* GLSLShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLSLShader.cpp; sourceTree = "<group>"; };
 		ECD16D982912BD8B009F5F6C /* GLSLShader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLSLShader.hpp; sourceTree = "<group>"; };
 		ECD90AFF292FA0BA0054F62A /* libassimp.5.2.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.5.2.4.dylib; path = ../../../../../../../../opt/homebrew/Cellar/assimp/5.2.5/lib/libassimp.5.2.4.dylib; sourceTree = "<group>"; };
+		ECD90B02292FBD720054F62A /* Model.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
+		ECD90B03292FBD720054F62A /* Model.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Model.hpp; sourceTree = "<group>"; };
+		ECD90B05292FBE6F0054F62A /* Mesh.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
+		ECD90B06292FBE6F0054F62A /* Mesh.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
+		ECD90B08292FC6050054F62A /* IMeshRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IMeshRenderer.cpp; sourceTree = "<group>"; };
+		ECD90B09292FC6050054F62A /* IMeshRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IMeshRenderer.hpp; sourceTree = "<group>"; };
 		ECEA063B2922A06C0055DD24 /* DirectionalLighting.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = DirectionalLighting.vert; sourceTree = "<group>"; };
 		ECEA063C2922A0CE0055DD24 /* DirectionalLighting.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = DirectionalLighting.frag; sourceTree = "<group>"; };
 		ECEA063E2922AEA00055DD24 /* ILight.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ILight.cpp; sourceTree = "<group>"; };
@@ -225,6 +234,7 @@
 		ECD16D7F290FE3C6009F5F6C /* OpenGL_Basics */ = {
 			isa = PBXGroup;
 			children = (
+				ECD90B01292FBD600054F62A /* Model */,
 				ECEA064C2926B2FC0055DD24 /* Scenes */,
 				ECEA064829269CF10055DD24 /* Utils */,
 				EC2E3707291D7F9900C31DBD /* Input */,
@@ -272,6 +282,19 @@
 			name = Shaders;
 			path = OpenGL_Basics/Shaders;
 			sourceTree = SOURCE_ROOT;
+		};
+		ECD90B01292FBD600054F62A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ECD90B02292FBD720054F62A /* Model.cpp */,
+				ECD90B03292FBD720054F62A /* Model.hpp */,
+				ECD90B05292FBE6F0054F62A /* Mesh.cpp */,
+				ECD90B06292FBE6F0054F62A /* Mesh.hpp */,
+				ECD90B08292FC6050054F62A /* IMeshRenderer.cpp */,
+				ECD90B09292FC6050054F62A /* IMeshRenderer.hpp */,
+			);
+			path = Model;
+			sourceTree = "<group>";
 		};
 		ECEA063A2922A0410055DD24 /* LightingShaders */ = {
 			isa = PBXGroup;
@@ -393,10 +416,13 @@
 				EC2E370D291E5DB400C31DBD /* UnitCube.cpp in Sources */,
 				EC2E36FF291C319A00C31DBD /* FreeCamera.cpp in Sources */,
 				ECD16D81290FE3C6009F5F6C /* main.cpp in Sources */,
+				ECD90B0A292FC6050054F62A /* IMeshRenderer.cpp in Sources */,
+				ECD90B07292FBE6F0054F62A /* Mesh.cpp in Sources */,
 				EC2E3702291CF8DF00C31DBD /* Plane.cpp in Sources */,
 				EC2E370A291D7FA800C31DBD /* Input.cpp in Sources */,
 				EC2E36FC291BEFCC00C31DBD /* FPlane.cpp in Sources */,
 				ECEA06442924E7FB0055DD24 /* Lit_UnitCube.cpp in Sources */,
+				ECD90B04292FBD720054F62A /* Model.cpp in Sources */,
 				EC2E3713291EAE5F00C31DBD /* Transform.cpp in Sources */,
 				ECEA064B29269D130055DD24 /* Time.cpp in Sources */,
 				ECEA064F2926B3100055DD24 /* ClockScene.cpp in Sources */,
