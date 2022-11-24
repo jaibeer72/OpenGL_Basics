@@ -25,6 +25,7 @@
 		ECD16D8D290FEC16009F5F6C /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D8C290FEC16009F5F6C /* glad.c */; };
 		ECD16D952911B05F009F5F6C /* RenderableObjectsBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D932911B05F009F5F6C /* RenderableObjectsBase.cpp */; };
 		ECD16D992912BD8B009F5F6C /* GLSLShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D972912BD8B009F5F6C /* GLSLShader.cpp */; };
+		ECD90B00292FA0BA0054F62A /* libassimp.5.2.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD90AFF292FA0BA0054F62A /* libassimp.5.2.4.dylib */; };
 		ECEA06402922AEA00055DD24 /* ILight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECEA063E2922AEA00055DD24 /* ILight.cpp */; };
 		ECEA06442924E7FB0055DD24 /* Lit_UnitCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECEA06422924E7FB0055DD24 /* Lit_UnitCube.cpp */; };
 		ECEA064B29269D130055DD24 /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECEA064929269D130055DD24 /* Time.cpp */; };
@@ -92,6 +93,7 @@
 		ECD16D942911B05F009F5F6C /* RenderableObjectsBase.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RenderableObjectsBase.hpp; sourceTree = "<group>"; };
 		ECD16D972912BD8B009F5F6C /* GLSLShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLSLShader.cpp; sourceTree = "<group>"; };
 		ECD16D982912BD8B009F5F6C /* GLSLShader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLSLShader.hpp; sourceTree = "<group>"; };
+		ECD90AFF292FA0BA0054F62A /* libassimp.5.2.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.5.2.4.dylib; path = ../../../../../../../../opt/homebrew/Cellar/assimp/5.2.5/lib/libassimp.5.2.4.dylib; sourceTree = "<group>"; };
 		ECEA063B2922A06C0055DD24 /* DirectionalLighting.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = DirectionalLighting.vert; sourceTree = "<group>"; };
 		ECEA063C2922A0CE0055DD24 /* DirectionalLighting.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = DirectionalLighting.frag; sourceTree = "<group>"; };
 		ECEA063E2922AEA00055DD24 /* ILight.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ILight.cpp; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD90B00292FA0BA0054F62A /* libassimp.5.2.4.dylib in Frameworks */,
 				ECD16D8B290FE417009F5F6C /* libglfw.3.3.dylib in Frameworks */,
 				EC2E36F02916D58C00C31DBD /* OpenGL.framework in Frameworks */,
 			);
@@ -237,6 +240,7 @@
 		ECD16D87290FE3F6009F5F6C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ECD90AFF292FA0BA0054F62A /* libassimp.5.2.4.dylib */,
 				ECD16D8A290FE417009F5F6C /* libglfw.3.3.dylib */,
 				ECD16D88290FE3F6009F5F6C /* OpenGL.framework */,
 			);
@@ -539,9 +543,17 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
+				HEADER_SEARCH_PATHS = (
+					./Externals/glad/include,
+					/opt/homebrew/Cellar/glfw/3.3.8/include,
+					/opt/homebrew/Cellar/glm/0.9.9.8/include,
+					/opt/homebrew/Cellar/assimp/5.2.5/include,
+					./Externals/stb,
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/homebrew/Cellar/glfw/3.3.8/lib,
+					/opt/homebrew/Cellar/assimp/5.2.5/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYSTEM_HEADER_SEARCH_PATHS = "";
@@ -555,9 +567,17 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
+				HEADER_SEARCH_PATHS = (
+					./Externals/glad/include,
+					/opt/homebrew/Cellar/glfw/3.3.8/include,
+					/opt/homebrew/Cellar/glm/0.9.9.8/include,
+					/opt/homebrew/Cellar/assimp/5.2.5/include,
+					./Externals/stb,
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/homebrew/Cellar/glfw/3.3.8/lib,
+					/opt/homebrew/Cellar/assimp/5.2.5/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYSTEM_HEADER_SEARCH_PATHS = "";
