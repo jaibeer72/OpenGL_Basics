@@ -12,5 +12,5 @@ uniform sampler2D textureMap;    //texture map
 void main()
 {
     //use the interpolated textrue coordinate to lookup the colour from the given texture map
-    vFragColor = texture(textureMap, vUV).rrrr;
+    vFragColor = texture(textureMap, vUV);
 }

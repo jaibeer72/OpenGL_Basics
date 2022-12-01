@@ -59,6 +59,7 @@ void IRenderableObject::IRenderableObject::Init() {
         glUnmapBuffer(GL_ELEMENT_ARRAY_BUFFER);
 
         glBindVertexArray(0);
+        glBindTexture(GL_TEXTURE_2D,0);
 }
 
 void IRenderableObject::IRenderableObject::Destroy() {

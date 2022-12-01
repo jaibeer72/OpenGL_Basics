@@ -14,7 +14,6 @@ void IMeshRendeer::Init() {
     
     for( Mesh m : MeshBuffer)
     {
-        
         // create buffers/arrays
         glGenVertexArrays(1, &vaoID);
         glGenBuffers(1, &vboVerticesID);
@@ -86,6 +85,9 @@ void IMeshRendeer::Render(const float *VP, glm::vec3 camPos) {
                 number = std::to_string(normalNr++); // transfer unsigned int to string
              else if(name == "texture_height")
                 number = std::to_string(heightNr++); // transfer unsigned int to string
+
+            // and finally bind the texture
+            glBindTexture(GL_TEXTURE_2D, m.Textures[i].id);
             SetCustomUniforms();
         }
         glBindVertexArray(vaoID);
