@@ -24,7 +24,6 @@ CTexturedPlane::CTexturedPlane(const int w, const int d)
         shader.AddUniform("textureMap");
         shader.AddUniform("vModel");
         glUniform1i(shader("textureMap"), 0);
-    shader.UnUse();
     
     //generate the checker texture
     for(int j=0;j<128;j++) {
@@ -60,6 +59,7 @@ CTexturedPlane::CTexturedPlane(const int w, const int d)
     
     SetPosition(glm::vec3(0,0,0)) ;
     UpdateTransform();
+    shader.UnUse();
 }
 
 
@@ -101,6 +101,7 @@ void CTexturedPlane::FillIndexBuffer(GLuint* pBuffer) {
 }
 
 void CTexturedPlane::SetCustomUniforms(){
+    glBindTexture(GL_TEXTURE_2D,checkerTextureID);
     
 }
 

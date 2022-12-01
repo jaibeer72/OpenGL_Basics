@@ -46,11 +46,11 @@ public:
     GLuint operator[](const std::string& attribute);
     GLuint operator()(const std::string& uniform);
     void DeleteShaderProgram();
-    void PrintGLerror(); 
+    void PrintGLerror();
+    GLuint  m_Program;
 
 private:
     enum ShaderType { VERTEX_SHADER, FRAGMENT_SHADER, GEOMETRY_SHADER };
-    GLuint  m_Program;
     int _totalShaders;
     GLuint _shaders[3];
     std::map<std::string, GLuint> _attributeList;

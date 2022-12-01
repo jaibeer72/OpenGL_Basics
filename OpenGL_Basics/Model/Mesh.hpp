@@ -9,7 +9,8 @@
 #ifndef Mesh_hpp
 #define Mesh_hpp
 
-#include "IMeshRenderer.hpp"
+#include "GLSLShader.hpp"
+#include "ILight.hpp"
 
 class Mesh
 {
@@ -19,5 +20,13 @@ public:
     std::vector<unsigned int> Indices;
     std::vector<Texture>      Textures;
     
+    Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures)
+        {
+            this->Vertices = vertices;
+            this->Indices = indices;
+            this->Textures = textures;
+
+        }
+
 };
 #endif /* Mesh_hpp */

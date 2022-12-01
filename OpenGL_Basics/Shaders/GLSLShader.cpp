@@ -100,7 +100,7 @@ void GLSLShader::Use() {
 
 void GLSLShader::UnUse() { 
     glUseProgram(0);
-    PrintGLerror();
+    //PrintGLerror();
     GL_CHECK_ERRORS;
 }
 

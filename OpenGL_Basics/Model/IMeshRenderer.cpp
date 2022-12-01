@@ -14,6 +14,7 @@ void IMeshRendeer::Init() {
     
     for( Mesh m : MeshBuffer)
     {
+        
         // create buffers/arrays
         glGenVertexArrays(1, &vaoID);
         glGenBuffers(1, &vboVerticesID);
@@ -52,27 +53,47 @@ void IMeshRendeer::Init() {
         // weights
         glEnableVertexAttribArray(6);
         glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, m_Weights));
+        
         glBindVertexArray(0);
         
     }
 }
 
 void IMeshRendeer::Render(const float *VP, glm::vec3 camPos) {
+    
+    shader.Use();
+    glUniformMatrix4fv(shader("VP"), 1, GL_FALSE, VP);
+    glUniform3fv(shader("viewPos"),1,glm::value_ptr(camPos));
+    glUniformMatrix4fv(shader("vModel"),1,GL_FALSE,glm::value_ptr(model));
     for(Mesh m : MeshBuffer)
     {
-        shader.Use();
-        glUniformMatrix4fv(shader("VP"), 1, GL_FALSE, VP);
-        glUniform3fv(shader("viewPos"),1,glm::value_ptr(camPos));
-        glUniformMatrix4fv(shader("vModel"),1,GL_FALSE,glm::value_ptr(model));
-        
-        SetCustomUniforms();
+        // for meshes
+        unsigned int diffuseNr  = 1;
+        unsigned int specularNr = 1;
+        unsigned int normalNr   = 1;
+        unsigned int heightNr   = 1;
+        for(unsigned int i = 0; i < m.Textures.size(); i++)
+        {
+            glActiveTexture(GL_TEXTURE0 +i ); // active proper texture unit before binding
+            // retrieve texture number (the N in diffuse_textureN)
+            std::string number;
+            std::string name = m.Textures[i].type;
+            if(name == "texture_diffuse")
+                number = std::to_string(diffuseNr++);
+            else if(name == "texture_specular")
+                number = std::to_string(specularNr++); // transfer unsigned int to string
+            else if(name == "texture_normal")
+                number = std::to_string(normalNr++); // transfer unsigned int to string
+             else if(name == "texture_height")
+                number = std::to_string(heightNr++); // transfer unsigned int to string
+            SetCustomUniforms();
+        }
         glBindVertexArray(vaoID);
         DrawStyle();
-        glDrawElements(primType, (int)m.Indices.size(), GL_UNSIGNED_INT, 0);
-        
+        glDrawElements(primType,  static_cast<unsigned int>(m.Indices.size()), GL_UNSIGNED_INT, 0);
         //shader.PrintGLerror();
-        shader.UnUse();
     }
+    shader.UnUse();
 }
 
 void IMeshRendeer::Destroy() { 

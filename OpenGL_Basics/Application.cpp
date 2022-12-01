@@ -33,18 +33,18 @@ void Application::run() {
         glm::mat4 VP    = P*V;
         
 
-        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        //glClearColor(1,1,1,1);
         
         
         for (auto iter = begin; iter != end ; ++iter )
         {
-            std::cout<< "PreRend----" << iter->first << std::endl;
             iter->second->Render(glm::value_ptr(VP));
-            std::cout<< "PostRend----" << iter->first << std::endl;
         }
         
         clockScene->Update(glm::value_ptr(VP),MainCamera.GetPosition());
+        
+        MDscene->Update(glm::value_ptr(VP), MainCamera.GetPosition());
         
         MainCamera.Rotate(Input::GetInstance().GetmousePos().x, Input::GetInstance().GetmousePos().y,0);
         
@@ -169,5 +169,8 @@ void Application::init() {
     
     clockScene = new ClockScene();
     clockScene->Initialize();
+    
+    MDscene = new ModelDancingScene();
+    MDscene->Initialize();
     
 }

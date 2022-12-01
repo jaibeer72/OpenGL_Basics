@@ -34,8 +34,6 @@ Lit_UnitCube::Lit_UnitCube(glm::vec3 position , glm::vec3 S, glm::vec3 R) {
     shader.AddUniform("VP");
     
     shader.AddUniform("vModel");
-    
-    
     shader.AddUniform("viewPos");
     
     shader.AddUniform(Mat_Ambient);
