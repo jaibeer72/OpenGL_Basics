@@ -22,14 +22,14 @@ void ILitObject::Init() {
     glBindVertexArray(vaoID);
     
     glBindBuffer(GL_ARRAY_BUFFER, vboVerticesID);
-    glBufferData(GL_ARRAY_BUFFER, objectVertexNormals.size() *  sizeof(Vertex), &objectVertexNormals[0], GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, objectVertexNormals.size() *  sizeof(VertexLit), &objectVertexNormals[0], GL_STATIC_DRAW);
     
     
-    glVertexAttribPointer(shader["vVertex"], 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+    glVertexAttribPointer(shader["vVertex"], 3, GL_FLOAT, GL_FALSE, sizeof(VertexLit), 0);
     glEnableVertexAttribArray(shader["vVertex"]);
     
     glEnableVertexAttribArray(shader["vNormal"]);
-    glVertexAttribPointer(shader["vNormal"], 3, GL_FLOAT, GL_FALSE,sizeof(Vertex), (const GLvoid*)(offsetof(Vertex, Normal)));
+    glVertexAttribPointer(shader["vNormal"], 3, GL_FLOAT, GL_FALSE,sizeof(VertexLit), (const GLvoid*)(offsetof(VertexLit, Normal)));
     
 }
 

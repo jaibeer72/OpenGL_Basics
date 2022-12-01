@@ -15,6 +15,7 @@
 // input system
 #include "Input.hpp"
 #include "ClockScene.hpp"
+#include "Model.hpp"
 
 class Application {
     
@@ -38,6 +39,10 @@ public:
     void run();
     
     ClockScene* clockScene;
+    
+    GLSLShader ourShader;
+    Model* ourModel;
+    
 };
 
 #endif /* Application_hpp */

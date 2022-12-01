@@ -16,7 +16,7 @@ class Lit_UnitCube : public ILitObject
 public:
     Lit_UnitCube(glm::vec3 position , glm::vec3 S, glm::vec3 R);
     
-    void FillVertexNormals(std::vector<Vertex> &VertexNormals) override;
+    void FillVertexNormals(std::vector<VertexLit> &VertexNormals) override;
     
     int GetToalVertices() override;
     

@@ -64,7 +64,7 @@ Lit_UnitCube::Lit_UnitCube(glm::vec3 position , glm::vec3 S, glm::vec3 R) {
     GL_CHECK_ERRORS;
 }
 
-void Lit_UnitCube::FillVertexNormals(std::vector<Vertex> &VertexNormals) { 
+void Lit_UnitCube::FillVertexNormals(std::vector<VertexLit> &VertexNormals) { 
     
     glm::vec3 pos[] = {
         {-0.5f, -0.5f, -0.5f},
@@ -158,7 +158,7 @@ void Lit_UnitCube::FillVertexNormals(std::vector<Vertex> &VertexNormals) {
     
     for(int i = 0 ; i < 36 ; i++)
     {
-        Vertex v ;
+        VertexLit v ;
         v.Position = pos[i];
         v.Normal = nor[i];
         VertexNormals[i]=v;

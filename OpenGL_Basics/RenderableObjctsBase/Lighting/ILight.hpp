@@ -12,9 +12,23 @@
 #include "GLSLShader.hpp"
 #include "Transform.hpp"
 
+#define MAX_BONE_INFLUENCE 4
 
-struct Vertex{
-    glm::vec3 Position, Normal;
+struct VertexLit {
+    // position
+    glm::vec3 Position;
+    // normal
+    glm::vec3 Normal;
+    // texCoords
+    glm::vec2 TexCoords;
+    // tangent
+    glm::vec3 Tangent;
+    // bitangent
+    glm::vec3 Bitangent;
+    //bone indexes which will influence this vertex
+    int m_BoneIDs[MAX_BONE_INFLUENCE];
+    //weights from each bone
+    float m_Weights[MAX_BONE_INFLUENCE];
 };
 
 struct Material
@@ -36,8 +50,8 @@ class ILitObject : public Transform
 {
 public:
     ILitObject();
-    std::vector<Vertex> objectVertexNormals;
-    virtual void FillVertexNormals(std::vector<Vertex> & VertexNormals) = 0;
+    std::vector<VertexLit> objectVertexNormals;
+    virtual void FillVertexNormals(std::vector<VertexLit> & VertexNormals) = 0;
     virtual int GetToalVertices()=0;
     virtual GLenum GetPrimitiveType()=0;
     virtual void SetCustomUniforms() =0;

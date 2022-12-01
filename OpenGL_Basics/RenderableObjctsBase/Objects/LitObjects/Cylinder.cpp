@@ -60,7 +60,7 @@ Cylinder::Cylinder()
     GL_CHECK_ERRORS;
 }
 
-void Cylinder::FillVertexNormals(std::vector<Vertex> &VertexNormals){
+void Cylinder::FillVertexNormals(std::vector<VertexLit> &VertexNormals){
     glm::vec3 vertices[402];
     glm::vec3 normals[402];
     
@@ -132,7 +132,7 @@ void Cylinder::FillVertexNormals(std::vector<Vertex> &VertexNormals){
     VertexNormals.resize(size);
     for(int i = 0 ; i < size ; i++)
     {
-        Vertex v ;
+        VertexLit v ;
         v.Position = vertices[pindices[i]];
         v.Normal = normals[pindices[i]];
         VertexNormals[i]=v;

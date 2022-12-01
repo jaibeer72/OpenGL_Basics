@@ -4,7 +4,7 @@
 //
 //  Created by Jaibeer Dugal on 03/11/2022.
 //
-
+#define STB_IMAGE_IMPLEMENTATION
 #include "Application.hpp"
 
 
@@ -49,6 +49,16 @@ void Application::run() {
         MainCamera.Rotate(Input::GetInstance().GetmousePos().x, Input::GetInstance().GetmousePos().y,0);
         
         //std::cout<<"x :" << MainCamera.GetRotation().x<< "y : "<<MainCamera.GetRotation().y << "z : "<<MainCamera.GetRotation().z << std::endl;
+        GL_CHECK_ERRORS;
+        ourShader.Use();
+        ourShader.setMat4("projection", P);
+        ourShader.setMat4("view", V);
+        GL_CHECK_ERRORS;
+        
+
+              ourShader.setMat4("model", ourModel->model);
+              ourModel->Draw(ourShader);
+        ourShader.UnUse();
         
         // Camera movement
         if(Input::GetInstance().IsKeyDown(GLFW_KEY_W))
@@ -100,6 +110,8 @@ void Application::initWindow(int width, int height) {
         
         throw std::runtime_error("GLFW init failed");
     }
+    
+    
     glfwMakeContextCurrent(m_Window);
     Input::GetInstance().setKeyCallback(m_Window);
     Input::GetInstance().setMouseCallback(m_Window);
@@ -116,6 +128,14 @@ void Application::initWindow(int width, int height) {
     // configure global opengl state
      // -----------------------------
      glEnable(GL_DEPTH_TEST);
+    
+    // model loading
+    ourShader.LoadFromFile(GL_VERTEX_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/model_loading.vert");
+    ourShader.LoadFromFile(GL_FRAGMENT_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/model_loading.frag");
+    ourShader.CreateAndLinkProgram();
+    
+    ourModel = new Model("/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/assets/Capoeira.dae");
+    
 }
 
 
@@ -169,5 +189,8 @@ void Application::init() {
     
     clockScene = new ClockScene();
     clockScene->Initialize();
+    
+    // tell stb_image.h to flip loaded texture's on the y-axis (before loading model).
+        stbi_set_flip_vertically_on_load(true);
     
 }

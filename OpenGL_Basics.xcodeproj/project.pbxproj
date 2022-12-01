@@ -18,6 +18,8 @@
 		EC2E3713291EAE5F00C31DBD /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2E3711291EAE5F00C31DBD /* Transform.cpp */; };
 		EC49CDFE2926E49800D771C6 /* Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC49CDFC2926E49800D771C6 /* Cylinder.cpp */; };
 		EC49CE012927F0FC00D771C6 /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC49CDFF2927F0FC00D771C6 /* Sphere.cpp */; };
+		EC84D6422938E69700F93ADE /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC84D6402938E69700F93ADE /* Model.cpp */; };
+		EC84D6452938E6C200F93ADE /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC84D6432938E6C200F93ADE /* Mesh.cpp */; };
 		ECCCD2022913E5AF000D4BED /* libglfw.3.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = ECD16D8A290FE417009F5F6C /* libglfw.3.3.dylib */; };
 		ECCCD2092913EA78000D4BED /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCCD2072913EA78000D4BED /* Triangle.cpp */; };
 		ECD16D81290FE3C6009F5F6C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D80290FE3C6009F5F6C /* main.cpp */; };
@@ -82,6 +84,14 @@
 		EC49CDFD2926E49800D771C6 /* Cylinder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Cylinder.hpp; sourceTree = "<group>"; };
 		EC49CDFF2927F0FC00D771C6 /* Sphere.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
 		EC49CE002927F0FC00D771C6 /* Sphere.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Sphere.hpp; sourceTree = "<group>"; };
+		EC84D6402938E69700F93ADE /* Model.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
+		EC84D6412938E69700F93ADE /* Model.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Model.hpp; sourceTree = "<group>"; };
+		EC84D6432938E6C200F93ADE /* Mesh.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
+		EC84D6442938E6C200F93ADE /* Mesh.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
+		EC84D6462938EE3100F93ADE /* model_loading.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = model_loading.vert; sourceTree = "<group>"; };
+		EC84D6472938EE5600F93ADE /* model_loading.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = model_loading.frag; sourceTree = "<group>"; };
+		EC84D64A2938EF6D00F93ADE /* textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = textures; sourceTree = "<group>"; };
+		EC84D64B2938EF6D00F93ADE /* Capoeira.dae */ = {isa = PBXFileReference; lastKnownFileType = text.xml.dae; path = Capoeira.dae; sourceTree = "<group>"; };
 		ECCCD2072913EA78000D4BED /* Triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
 		ECCCD2082913EA78000D4BED /* Triangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Triangle.hpp; sourceTree = "<group>"; };
 		ECD16D7D290FE3C6009F5F6C /* OpenGL_Basics */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGL_Basics; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +200,26 @@
 			path = UnitCube;
 			sourceTree = "<group>";
 		};
+		EC84D6492938EF5D00F93ADE /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				EC84D64B2938EF6D00F93ADE /* Capoeira.dae */,
+				EC84D64A2938EF6D00F93ADE /* textures */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		ECA54B8D2938E50F001CBEB5 /* ModelLoading */ = {
+			isa = PBXGroup;
+			children = (
+				EC84D6402938E69700F93ADE /* Model.cpp */,
+				EC84D6412938E69700F93ADE /* Model.hpp */,
+				EC84D6432938E6C200F93ADE /* Mesh.cpp */,
+				EC84D6442938E6C200F93ADE /* Mesh.hpp */,
+			);
+			path = ModelLoading;
+			sourceTree = "<group>";
+		};
 		ECCCD2062913EA62000D4BED /* Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +255,8 @@
 		ECD16D7F290FE3C6009F5F6C /* OpenGL_Basics */ = {
 			isa = PBXGroup;
 			children = (
+				EC84D6492938EF5D00F93ADE /* assets */,
+				ECA54B8D2938E50F001CBEB5 /* ModelLoading */,
 				ECEA064C2926B2FC0055DD24 /* Scenes */,
 				ECEA064829269CF10055DD24 /* Utils */,
 				EC2E3707291D7F9900C31DBD /* Input */,
@@ -268,6 +300,8 @@
 				EC2E36F12917CDBD00C31DBD /* ObjectShaders */,
 				ECD16D972912BD8B009F5F6C /* GLSLShader.cpp */,
 				ECD16D982912BD8B009F5F6C /* GLSLShader.hpp */,
+				EC84D6462938EE3100F93ADE /* model_loading.vert */,
+				EC84D6472938EE5600F93ADE /* model_loading.frag */,
 			);
 			name = Shaders;
 			path = OpenGL_Basics/Shaders;
@@ -393,10 +427,12 @@
 				EC2E370D291E5DB400C31DBD /* UnitCube.cpp in Sources */,
 				EC2E36FF291C319A00C31DBD /* FreeCamera.cpp in Sources */,
 				ECD16D81290FE3C6009F5F6C /* main.cpp in Sources */,
+				EC84D6452938E6C200F93ADE /* Mesh.cpp in Sources */,
 				EC2E3702291CF8DF00C31DBD /* Plane.cpp in Sources */,
 				EC2E370A291D7FA800C31DBD /* Input.cpp in Sources */,
 				EC2E36FC291BEFCC00C31DBD /* FPlane.cpp in Sources */,
 				ECEA06442924E7FB0055DD24 /* Lit_UnitCube.cpp in Sources */,
+				EC84D6422938E69700F93ADE /* Model.cpp in Sources */,
 				EC2E3713291EAE5F00C31DBD /* Transform.cpp in Sources */,
 				ECEA064B29269D130055DD24 /* Time.cpp in Sources */,
 				ECEA064F2926B3100055DD24 /* ClockScene.cpp in Sources */,
@@ -454,7 +490,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -518,7 +554,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
