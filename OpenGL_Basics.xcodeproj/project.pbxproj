@@ -20,6 +20,11 @@
 		EC49CE012927F0FC00D771C6 /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC49CDFF2927F0FC00D771C6 /* Sphere.cpp */; };
 		EC84D6422938E69700F93ADE /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC84D6402938E69700F93ADE /* Model.cpp */; };
 		EC84D6452938E6C200F93ADE /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC84D6432938E6C200F93ADE /* Mesh.cpp */; };
+		EC84D64F2938F8F700F93ADE /* Animator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC84D64D2938F8F700F93ADE /* Animator.cpp */; };
+		EC84D6522938F93600F93ADE /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC84D6502938F93600F93ADE /* Animation.cpp */; };
+		EC84D6552938F96C00F93ADE /* Bone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC84D6532938F96C00F93ADE /* Bone.cpp */; };
+		EC84D6582938F9A500F93ADE /* AssimpGLMHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC84D6562938F9A500F93ADE /* AssimpGLMHelpers.cpp */; };
+		EC84D65B2938FA2D00F93ADE /* Animation_Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC84D6592938FA2D00F93ADE /* Animation_Data.cpp */; };
 		ECCCD2022913E5AF000D4BED /* libglfw.3.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = ECD16D8A290FE417009F5F6C /* libglfw.3.3.dylib */; };
 		ECCCD2092913EA78000D4BED /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCCD2072913EA78000D4BED /* Triangle.cpp */; };
 		ECD16D81290FE3C6009F5F6C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D80290FE3C6009F5F6C /* main.cpp */; };
@@ -92,6 +97,16 @@
 		EC84D6472938EE5600F93ADE /* model_loading.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = model_loading.frag; sourceTree = "<group>"; };
 		EC84D64A2938EF6D00F93ADE /* textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = textures; sourceTree = "<group>"; };
 		EC84D64B2938EF6D00F93ADE /* Capoeira.dae */ = {isa = PBXFileReference; lastKnownFileType = text.xml.dae; path = Capoeira.dae; sourceTree = "<group>"; };
+		EC84D64D2938F8F700F93ADE /* Animator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Animator.cpp; sourceTree = "<group>"; };
+		EC84D64E2938F8F700F93ADE /* Animator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Animator.hpp; sourceTree = "<group>"; };
+		EC84D6502938F93600F93ADE /* Animation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Animation.cpp; sourceTree = "<group>"; };
+		EC84D6512938F93600F93ADE /* Animation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Animation.hpp; sourceTree = "<group>"; };
+		EC84D6532938F96C00F93ADE /* Bone.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bone.cpp; sourceTree = "<group>"; };
+		EC84D6542938F96C00F93ADE /* Bone.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Bone.hpp; sourceTree = "<group>"; };
+		EC84D6562938F9A500F93ADE /* AssimpGLMHelpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AssimpGLMHelpers.cpp; sourceTree = "<group>"; };
+		EC84D6572938F9A500F93ADE /* AssimpGLMHelpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AssimpGLMHelpers.hpp; sourceTree = "<group>"; };
+		EC84D6592938FA2D00F93ADE /* Animation_Data.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Animation_Data.cpp; sourceTree = "<group>"; };
+		EC84D65A2938FA2D00F93ADE /* Animation_Data.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Animation_Data.hpp; sourceTree = "<group>"; };
 		ECCCD2072913EA78000D4BED /* Triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
 		ECCCD2082913EA78000D4BED /* Triangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Triangle.hpp; sourceTree = "<group>"; };
 		ECD16D7D290FE3C6009F5F6C /* OpenGL_Basics */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGL_Basics; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,6 +224,21 @@
 			path = assets;
 			sourceTree = "<group>";
 		};
+		EC84D64C2938F8DB00F93ADE /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				EC84D64D2938F8F700F93ADE /* Animator.cpp */,
+				EC84D64E2938F8F700F93ADE /* Animator.hpp */,
+				EC84D6502938F93600F93ADE /* Animation.cpp */,
+				EC84D6512938F93600F93ADE /* Animation.hpp */,
+				EC84D6532938F96C00F93ADE /* Bone.cpp */,
+				EC84D6542938F96C00F93ADE /* Bone.hpp */,
+				EC84D6592938FA2D00F93ADE /* Animation_Data.cpp */,
+				EC84D65A2938FA2D00F93ADE /* Animation_Data.hpp */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		ECA54B8D2938E50F001CBEB5 /* ModelLoading */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +285,7 @@
 		ECD16D7F290FE3C6009F5F6C /* OpenGL_Basics */ = {
 			isa = PBXGroup;
 			children = (
+				EC84D64C2938F8DB00F93ADE /* Animation */,
 				EC84D6492938EF5D00F93ADE /* assets */,
 				ECA54B8D2938E50F001CBEB5 /* ModelLoading */,
 				ECEA064C2926B2FC0055DD24 /* Scenes */,
@@ -353,6 +384,8 @@
 			children = (
 				ECEA064929269D130055DD24 /* Time.cpp */,
 				ECEA064A29269D130055DD24 /* Time.hpp */,
+				EC84D6562938F9A500F93ADE /* AssimpGLMHelpers.cpp */,
+				EC84D6572938F9A500F93ADE /* AssimpGLMHelpers.hpp */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -426,9 +459,12 @@
 			files = (
 				EC2E370D291E5DB400C31DBD /* UnitCube.cpp in Sources */,
 				EC2E36FF291C319A00C31DBD /* FreeCamera.cpp in Sources */,
+				EC84D65B2938FA2D00F93ADE /* Animation_Data.cpp in Sources */,
+				EC84D64F2938F8F700F93ADE /* Animator.cpp in Sources */,
 				ECD16D81290FE3C6009F5F6C /* main.cpp in Sources */,
 				EC84D6452938E6C200F93ADE /* Mesh.cpp in Sources */,
 				EC2E3702291CF8DF00C31DBD /* Plane.cpp in Sources */,
+				EC84D6582938F9A500F93ADE /* AssimpGLMHelpers.cpp in Sources */,
 				EC2E370A291D7FA800C31DBD /* Input.cpp in Sources */,
 				EC2E36FC291BEFCC00C31DBD /* FPlane.cpp in Sources */,
 				ECEA06442924E7FB0055DD24 /* Lit_UnitCube.cpp in Sources */,
@@ -444,7 +480,9 @@
 				ECD16D8D290FEC16009F5F6C /* glad.c in Sources */,
 				EC2E36F8291BC5D500C31DBD /* ICamera.cpp in Sources */,
 				ECD16D952911B05F009F5F6C /* RenderableObjectsBase.cpp in Sources */,
+				EC84D6552938F96C00F93ADE /* Bone.cpp in Sources */,
 				ECD16D992912BD8B009F5F6C /* GLSLShader.cpp in Sources */,
+				EC84D6522938F93600F93ADE /* Animation.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

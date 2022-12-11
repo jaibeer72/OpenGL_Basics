@@ -17,6 +17,8 @@
 #include "ClockScene.hpp"
 #include "Model.hpp"
 
+#include "Animator.hpp"
+
 class Application {
     
     GLFWwindow* m_Window;
@@ -41,6 +43,8 @@ public:
     ClockScene* clockScene;
     
     GLSLShader ourShader;
+    Animation* danceAnimation;
+    Animator* animator;
     Model* ourModel;
     
 };

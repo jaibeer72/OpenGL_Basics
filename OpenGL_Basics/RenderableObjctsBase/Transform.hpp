@@ -15,7 +15,7 @@
 class Transform
 {
     float yaw, pitch, roll;
-    glm::vec3 Postion = glm::vec3(1.0f,2.0f,5.0f);
+    glm::vec3 Postion = glm::vec3(0.0f,0.0f,0.0f);
     glm::vec3 m_scale = glm::vec3(1.0f,1.0f,1.0f);
     glm::vec3 translation;
     

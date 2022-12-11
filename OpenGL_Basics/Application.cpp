@@ -7,6 +7,9 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "Application.hpp"
 
+// timing
+float deltaTime = 0.0f;
+float lastFrame = 0.0f;
 
 Application::Application(const char *AppName, int Width, int Height): width(Width), height(Height)
 {
@@ -27,6 +30,9 @@ void Application::run() {
     while(!glfwWindowShouldClose(m_Window))
     {
         t.GetDeltaTime();
+        // per-frame time logic
+        // --------------------
+
         
         glm::mat4 V    = MainCamera.GetViewMatrix();
         glm::mat4 P     = MainCamera.GetProjectionMatrix();
@@ -39,14 +45,17 @@ void Application::run() {
         
         for (auto iter = begin; iter != end ; ++iter )
         {
-            std::cout<< "PreRend----" << iter->first << std::endl;
             iter->second->Render(glm::value_ptr(VP));
-            std::cout<< "PostRend----" << iter->first << std::endl;
         }
         
         clockScene->Update(glm::value_ptr(VP),MainCamera.GetPosition());
         
         MainCamera.Rotate(Input::GetInstance().GetmousePos().x, Input::GetInstance().GetmousePos().y,0);
+        
+        float currentFrame = glfwGetTime();
+                deltaTime = currentFrame - lastFrame;
+                lastFrame = currentFrame;
+        animator->UpdateAnimation(deltaTime);
         
         //std::cout<<"x :" << MainCamera.GetRotation().x<< "y : "<<MainCamera.GetRotation().y << "z : "<<MainCamera.GetRotation().z << std::endl;
         GL_CHECK_ERRORS;
@@ -55,9 +64,12 @@ void Application::run() {
         ourShader.setMat4("view", V);
         GL_CHECK_ERRORS;
         
+        auto transforms = animator->GetFinalBoneMatrices();
+        for (int i = 0; i < transforms.size(); ++i)
+            ourShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
 
-              ourShader.setMat4("model", ourModel->model);
-              ourModel->Draw(ourShader);
+        ourShader.setMat4("model", ourModel->model);
+        ourModel->Draw(ourShader);
         ourShader.UnUse();
         
         // Camera movement
@@ -136,6 +148,10 @@ void Application::initWindow(int width, int height) {
     
     ourModel = new Model("/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/assets/Capoeira.dae");
     
+    danceAnimation = new Animation("/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/assets/Capoeira.dae",ourModel);
+    animator = new Animator(danceAnimation);
+
+    
 }
 
 
@@ -191,6 +207,6 @@ void Application::init() {
     clockScene->Initialize();
     
     // tell stb_image.h to flip loaded texture's on the y-axis (before loading model).
-        stbi_set_flip_vertically_on_load(true);
+    stbi_set_flip_vertically_on_load(true);
     
 }

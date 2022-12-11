@@ -20,8 +20,8 @@ public:
     static double GetDeltaTime();
     std::tm* GetCurrentTime();
 private:
-    inline static double currentFrame , lastFrame;
-    inline static double deltatime ;
+    inline static double currentFrame =0 , lastFrame =0;
+    inline static double deltatime =0 ;
     time_t rawtime;
 };
 
