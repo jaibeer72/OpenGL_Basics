@@ -35,8 +35,8 @@ CTexturedPlane::CTexturedPlane(const int w, const int d)
     
     //generate texture object
     glGenTextures(1, &checkerTextureID);
-    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, checkerTextureID);
+
     //set texture parameters
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
@@ -58,6 +58,8 @@ CTexturedPlane::CTexturedPlane(const int w, const int d)
     //generate mipmaps
     glGenerateMipmap(GL_TEXTURE_2D);
     
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, checkerTextureID);
     
     SetPosition(glm::vec3(0,0,0)) ;
     UpdateTransform();

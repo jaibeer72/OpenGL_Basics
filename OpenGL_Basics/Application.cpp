@@ -135,11 +135,13 @@ void Application::initWindow(int width, int height) {
         std::cout << "Failed to initialize GLAD" << std::endl;
         throw std::runtime_error("Glad failed to load");
     }
+    //enable depth testing and culling
+    glEnable(GL_DEPTH_TEST);
+    //glEnable(GL_CULL_FACE);
     
     std::cout<<"\n" <<glGetString(GL_VERSION);
     // configure global opengl state
      // -----------------------------
-     glEnable(GL_DEPTH_TEST);
     
     // model loading
     ourShader.LoadFromFile(GL_VERTEX_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/model_loading.vert");
@@ -208,5 +210,6 @@ void Application::init() {
     
     // tell stb_image.h to flip loaded texture's on the y-axis (before loading model).
     stbi_set_flip_vertically_on_load(true);
+    
     
 }

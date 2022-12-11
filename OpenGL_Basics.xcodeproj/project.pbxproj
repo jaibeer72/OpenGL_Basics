@@ -27,6 +27,8 @@
 		EC84D65B2938FA2D00F93ADE /* Animation_Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC84D6592938FA2D00F93ADE /* Animation_Data.cpp */; };
 		ECCCD2022913E5AF000D4BED /* libglfw.3.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = ECD16D8A290FE417009F5F6C /* libglfw.3.3.dylib */; };
 		ECCCD2092913EA78000D4BED /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCCD2072913EA78000D4BED /* Triangle.cpp */; };
+		ECD16339294605950092C0AF /* TexLoading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16337294605950092C0AF /* TexLoading.cpp */; };
+		ECD1633C294606300092C0AF /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD1633A294606300092C0AF /* Skybox.cpp */; };
 		ECD16D81290FE3C6009F5F6C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D80290FE3C6009F5F6C /* main.cpp */; };
 		ECD16D8B290FE417009F5F6C /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD16D8A290FE417009F5F6C /* libglfw.3.3.dylib */; };
 		ECD16D8D290FEC16009F5F6C /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D8C290FEC16009F5F6C /* glad.c */; };
@@ -109,6 +111,19 @@
 		EC84D65A2938FA2D00F93ADE /* Animation_Data.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Animation_Data.hpp; sourceTree = "<group>"; };
 		ECCCD2072913EA78000D4BED /* Triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
 		ECCCD2082913EA78000D4BED /* Triangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Triangle.hpp; sourceTree = "<group>"; };
+		ECD16337294605950092C0AF /* TexLoading.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TexLoading.cpp; sourceTree = "<group>"; };
+		ECD16338294605950092C0AF /* TexLoading.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TexLoading.hpp; sourceTree = "<group>"; };
+		ECD1633A294606300092C0AF /* Skybox.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Skybox.cpp; sourceTree = "<group>"; };
+		ECD1633B294606300092C0AF /* Skybox.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Skybox.hpp; sourceTree = "<group>"; };
+		ECD1633E2946286B0092C0AF /* skybox.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = skybox.vert; sourceTree = "<group>"; };
+		ECD1633F2946288C0092C0AF /* skybox.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = skybox.frag; sourceTree = "<group>"; };
+		ECD1634029462BFC0092C0AF /* cubemap_night */ = {isa = PBXFileReference; lastKnownFileType = folder; path = cubemap_night; sourceTree = "<group>"; };
+		ECD16342294643020092C0AF /* l_negy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = l_negy.jpg; sourceTree = "<group>"; };
+		ECD16343294643020092C0AF /* l_posy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = l_posy.jpg; sourceTree = "<group>"; };
+		ECD16344294643020092C0AF /* l_posx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = l_posx.jpg; sourceTree = "<group>"; };
+		ECD16345294643020092C0AF /* l_posz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = l_posz.jpg; sourceTree = "<group>"; };
+		ECD16346294643020092C0AF /* l_negx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = l_negx.jpg; sourceTree = "<group>"; };
+		ECD16347294643020092C0AF /* l_negz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = l_negz.jpg; sourceTree = "<group>"; };
 		ECD16D7D290FE3C6009F5F6C /* OpenGL_Basics */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGL_Basics; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD16D80290FE3C6009F5F6C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		ECD16D88290FE3F6009F5F6C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -218,6 +233,7 @@
 		EC84D6492938EF5D00F93ADE /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				ECD16335294604FC0092C0AF /* Skybox */,
 				EC84D64B2938EF6D00F93ADE /* Capoeira.dae */,
 				EC84D64A2938EF6D00F93ADE /* textures */,
 			);
@@ -260,8 +276,41 @@
 				EC2E3701291CF8DF00C31DBD /* Plane.hpp */,
 				EC2E370B291E5DB400C31DBD /* UnitCube.cpp */,
 				EC2E370C291E5DB400C31DBD /* UnitCube.hpp */,
+				ECD1633A294606300092C0AF /* Skybox.cpp */,
+				ECD1633B294606300092C0AF /* Skybox.hpp */,
 			);
 			path = Objects;
+			sourceTree = "<group>";
+		};
+		ECD16335294604FC0092C0AF /* Skybox */ = {
+			isa = PBXGroup;
+			children = (
+				ECD16341294642E70092C0AF /* leanOpenGLSkyBox */,
+				ECD1634029462BFC0092C0AF /* cubemap_night */,
+			);
+			path = Skybox;
+			sourceTree = "<group>";
+		};
+		ECD1633D294628580092C0AF /* Skybox */ = {
+			isa = PBXGroup;
+			children = (
+				ECD1633E2946286B0092C0AF /* skybox.vert */,
+				ECD1633F2946288C0092C0AF /* skybox.frag */,
+			);
+			path = Skybox;
+			sourceTree = "<group>";
+		};
+		ECD16341294642E70092C0AF /* leanOpenGLSkyBox */ = {
+			isa = PBXGroup;
+			children = (
+				ECD16347294643020092C0AF /* l_negz.jpg */,
+				ECD16342294643020092C0AF /* l_negy.jpg */,
+				ECD16345294643020092C0AF /* l_posz.jpg */,
+				ECD16346294643020092C0AF /* l_negx.jpg */,
+				ECD16344294643020092C0AF /* l_posx.jpg */,
+				ECD16343294643020092C0AF /* l_posy.jpg */,
+			);
+			path = leanOpenGLSkyBox;
 			sourceTree = "<group>";
 		};
 		ECD16D74290FE3C6009F5F6C = {
@@ -327,6 +376,7 @@
 		ECD16D962912BD6B009F5F6C /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				ECD1633D294628580092C0AF /* Skybox */,
 				ECEA063A2922A0410055DD24 /* LightingShaders */,
 				EC2E36F12917CDBD00C31DBD /* ObjectShaders */,
 				ECD16D972912BD8B009F5F6C /* GLSLShader.cpp */,
@@ -386,6 +436,8 @@
 				ECEA064A29269D130055DD24 /* Time.hpp */,
 				EC84D6562938F9A500F93ADE /* AssimpGLMHelpers.cpp */,
 				EC84D6572938F9A500F93ADE /* AssimpGLMHelpers.hpp */,
+				ECD16337294605950092C0AF /* TexLoading.cpp */,
+				ECD16338294605950092C0AF /* TexLoading.hpp */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -466,6 +518,7 @@
 				EC2E3702291CF8DF00C31DBD /* Plane.cpp in Sources */,
 				EC84D6582938F9A500F93ADE /* AssimpGLMHelpers.cpp in Sources */,
 				EC2E370A291D7FA800C31DBD /* Input.cpp in Sources */,
+				ECD16339294605950092C0AF /* TexLoading.cpp in Sources */,
 				EC2E36FC291BEFCC00C31DBD /* FPlane.cpp in Sources */,
 				ECEA06442924E7FB0055DD24 /* Lit_UnitCube.cpp in Sources */,
 				EC84D6422938E69700F93ADE /* Model.cpp in Sources */,
@@ -479,6 +532,7 @@
 				EC49CE012927F0FC00D771C6 /* Sphere.cpp in Sources */,
 				ECD16D8D290FEC16009F5F6C /* glad.c in Sources */,
 				EC2E36F8291BC5D500C31DBD /* ICamera.cpp in Sources */,
+				ECD1633C294606300092C0AF /* Skybox.cpp in Sources */,
 				ECD16D952911B05F009F5F6C /* RenderableObjectsBase.cpp in Sources */,
 				EC84D6552938F96C00F93ADE /* Bone.cpp in Sources */,
 				ECD16D992912BD8B009F5F6C /* GLSLShader.cpp in Sources */,
