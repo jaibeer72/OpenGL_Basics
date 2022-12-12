@@ -16,6 +16,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include "GLSLShader.hpp"
+#include "ILight.hpp"
 
 #include <string>
 #include <vector>
@@ -96,14 +97,14 @@ public:
             glBindTexture(GL_TEXTURE_2D, textures[i].id);
             GL_CHECK_ERRORS; 
         }
+        glActiveTexture(GL_TEXTURE2);
+        glBindTexture(GL_TEXTURE_2D, ILitObject::depthMap);
         
         // draw mesh
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(indices.size()), GL_UNSIGNED_INT, 0);
         glBindVertexArray(0);
 
-        // always good practice to set everything back to defaults once configured.
-        glActiveTexture(GL_TEXTURE0);
     }
 
 private:

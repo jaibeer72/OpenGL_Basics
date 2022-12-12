@@ -63,10 +63,11 @@ public:
     ILitObject* ReturnLitObject(){return this;}
     Material mat;
     Light lit;
+    GLSLShader shader;
+    inline static unsigned int depthMap;
 protected:
     GLuint vaoID;
     GLuint vboVerticesID;
-    GLSLShader shader;
     GLenum primType;
     int totalVertices , totalNormals;
     const std::string Mat_Ambient = "material.ambient";

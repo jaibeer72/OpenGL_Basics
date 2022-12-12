@@ -6,6 +6,7 @@
 //
 #define STB_IMAGE_IMPLEMENTATION
 #include "Application.hpp"
+#include "appCongif.h"
 
 // timing
 float deltaTime = 0.0f;
@@ -26,21 +27,31 @@ void Application::run() {
     }
     glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
     Time t;
+    
     // reder loop
     while(!glfwWindowShouldClose(m_Window))
     {
+        int l_width,l_height;
+        glfwGetWindowSize(m_Window, &l_width, &l_height);
+        AppConfig::Width = l_width;
+        AppConfig::Height = l_height;
         t.GetDeltaTime();
         // per-frame time logic
         // --------------------
-
+        
+        glClearColor(0.1f, 0.0f, 0.1f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        
+        m_scene->update(deltaTime, &MainCamera);
         
         glm::mat4 V    = MainCamera.GetViewMatrix();
         glm::mat4 P     = MainCamera.GetProjectionMatrix();
         glm::mat4 VP    = P*V;
         
-
-        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        float currentFrame = glfwGetTime();
+                deltaTime = currentFrame - lastFrame;
+                lastFrame = currentFrame;
+    
         
         
         for (auto iter = begin; iter != end ; ++iter )
@@ -48,52 +59,17 @@ void Application::run() {
             iter->second->Render(glm::value_ptr(VP));
         }
         
-        clockScene->Update(glm::value_ptr(VP),MainCamera.GetPosition());
+        //clockScene->Update(glm::value_ptr(VP),MainCamera.GetPosition());
         
-        MainCamera.Rotate(Input::GetInstance().GetmousePos().x, Input::GetInstance().GetmousePos().y,0);
-        
-        float currentFrame = glfwGetTime();
-                deltaTime = currentFrame - lastFrame;
-                lastFrame = currentFrame;
-        animator->UpdateAnimation(deltaTime);
         
         //std::cout<<"x :" << MainCamera.GetRotation().x<< "y : "<<MainCamera.GetRotation().y << "z : "<<MainCamera.GetRotation().z << std::endl;
-        GL_CHECK_ERRORS;
-        ourShader.Use();
-        ourShader.setMat4("projection", P);
-        ourShader.setMat4("view", V);
-        GL_CHECK_ERRORS;
-        
-        auto transforms = animator->GetFinalBoneMatrices();
-        for (int i = 0; i < transforms.size(); ++i)
-            ourShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
 
-        ourShader.setMat4("model", ourModel->model);
-        ourModel->Draw(ourShader);
-        ourShader.UnUse();
-        
-        // Camera movement
-        if(Input::GetInstance().IsKeyDown(GLFW_KEY_W))
-        {
-            MainCamera.Walk(1.0f);
-        }
-        if(Input::GetInstance().IsKeyDown(GLFW_KEY_S))
-        {
-            MainCamera.Walk(-1.0f);
-        }
-        if(Input::GetInstance().IsKeyDown(GLFW_KEY_A))
-        {
-            MainCamera.Strafe(-1.0f);
-        }
-        if(Input::GetInstance().IsKeyDown(GLFW_KEY_D))
-        {
-            MainCamera.Strafe(1.0f);
-        }
         
         if(Input::GetInstance().IsKeyDown(GLFW_KEY_ESCAPE))
         {
             glfwSetWindowShouldClose(m_Window, true);
         }
+    
         
         glfwSwapBuffers(m_Window);
         glfwPollEvents();
@@ -135,24 +111,12 @@ void Application::initWindow(int width, int height) {
         std::cout << "Failed to initialize GLAD" << std::endl;
         throw std::runtime_error("Glad failed to load");
     }
-    //enable depth testing and culling
-    glEnable(GL_DEPTH_TEST);
-    //glEnable(GL_CULL_FACE);
     
     std::cout<<"\n" <<glGetString(GL_VERSION);
     // configure global opengl state
      // -----------------------------
-    
-    // model loading
-    ourShader.LoadFromFile(GL_VERTEX_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/model_loading.vert");
-    ourShader.LoadFromFile(GL_FRAGMENT_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/model_loading.frag");
-    ourShader.CreateAndLinkProgram();
-    
-    ourModel = new Model("/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/assets/Capoeira.dae");
-    
-    danceAnimation = new Animation("/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/assets/Capoeira.dae",ourModel);
-    animator = new Animator(danceAnimation);
-
+     glEnable(GL_DEPTH_TEST);
+     //glEnable(GL_CULL_FACE);
     
 }
 
@@ -165,12 +129,13 @@ void Application::cleanup() {
 // This has to always be static hence it works
 void Application::framebuffer_size_callback(GLFWwindow *window, int width, int height) {
    
+    std::cout<<width;
     glViewport(0, 0, width, height);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
+//    glMatrixMode(GL_PROJECTION);
+//    glLoadIdentity();
     
     //setup the camera projection matrix
-    MainCamera.SetupProjection(45, (GLfloat)width/height);
+    MainCamera.SetupProjection(glm::radians(45.0f), (GLfloat)width/height);
     
 }
 
@@ -192,24 +157,26 @@ void Application::SetRenderPool(std::map<std::string, std::unique_ptr<IRenderabl
 void Application::init() {
     //setup camera
     //setup the camera position and look direction
+
+    
+    initWindow(width, height);
     
     glm::vec3 p = glm::vec3(1);
     MainCamera.SetPosition(p);
-    
-    
-    initWindow(width, height);
     
     //rotate the camera for proper orientation
     MainCamera.Rotate(0.0f, 0.0f, 0.0f);
     
     //setup the camera projection matrix
-    MainCamera.SetupProjection(45, (GLfloat)width/height);
+    MainCamera.SetupProjection(glm::radians(45.0f), (GLfloat)width/height);
     
-    clockScene = new ClockScene();
-    clockScene->Initialize();
+//    clockScene = new ClockScene();
+//    clockScene->Initialize();
+    
+    m_scene = new ShadowPassInScene();
+    m_scene->Init();
     
     // tell stb_image.h to flip loaded texture's on the y-axis (before loading model).
     stbi_set_flip_vertically_on_load(true);
-    
     
 }

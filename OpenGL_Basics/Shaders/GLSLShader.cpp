@@ -110,6 +110,7 @@ void GLSLShader::AddAttribute(const std::string &attribute, GLuint location) {
 
 void GLSLShader::AddUniform(const std::string &uniform) { 
     _uniformLocationList[uniform] = glGetUniformLocation(m_Program, uniform.c_str());
+    PrintGLerror();
     GL_CHECK_ERRORS;
 }
 

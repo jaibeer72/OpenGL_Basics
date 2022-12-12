@@ -18,6 +18,7 @@
 #include "Model.hpp"
 
 #include "Animator.hpp"
+#include "ShadowPassFinalSubmission.hpp"
 
 class Application {
     
@@ -31,7 +32,7 @@ public:
     const char* appName = "Application Name";
     int width;
     int height;
-    inline static CFreeCamera MainCamera;
+
     
     Application(const char* AppName, int Width, int Height);
     
@@ -40,12 +41,9 @@ public:
     void init();
     void run();
     
-    ClockScene* clockScene;
-    
-    GLSLShader ourShader;
-    Animation* danceAnimation;
-    Animator* animator;
-    Model* ourModel;
+    inline static CFreeCamera MainCamera;
+    //ClockScene* clockScene;
+    ShadowPassInScene* m_scene;
     
 };
 

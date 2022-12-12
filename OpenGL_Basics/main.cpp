@@ -12,11 +12,14 @@
 #include "UnitCube.hpp"
 #include "Skybox.hpp"
 
+#include "appCongif.h"
+
+
 int main(int argc, const char * argv[])
 {
     const char* appname = "trial name";
 
-    Application* app = new Application(appname,1280,960);
+    Application* app = new Application(appname,AppConfig::Width,AppConfig::Height);
     
     app->init();
     
@@ -24,8 +27,8 @@ int main(int argc, const char * argv[])
     
     
     //renderableObjectsMap->insert({"triangle", std::unique_ptr<IRenderableObject>(new Triangle())});
-    renderableObjectsMap->insert({"textured Plane", std::unique_ptr<IRenderableObject>(new CTexturedPlane(500,500))});
-    renderableObjectsMap->insert({"SkyBox", std::unique_ptr<IRenderableObject>(new Skybox("/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/assets/Skybox/leanOpenGLSkyBox/l"))});
+    //renderableObjectsMap->insert({"textured Plane", std::unique_ptr<IRenderableObject>(new CTexturedPlane(500,500))});
+    //renderableObjectsMap->insert({"SkyBox", std::unique_ptr<IRenderableObject>(new Skybox("/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/assets/Skybox/leanOpenGLSkyBox/l"))});
     //renderableObjectsMap->insert({"cube", std::unique_ptr<IRenderableObject>(new UnitCube())});
     
     

@@ -29,6 +29,9 @@
 		ECCCD2092913EA78000D4BED /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECCCD2072913EA78000D4BED /* Triangle.cpp */; };
 		ECD16339294605950092C0AF /* TexLoading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16337294605950092C0AF /* TexLoading.cpp */; };
 		ECD1633C294606300092C0AF /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD1633A294606300092C0AF /* Skybox.cpp */; };
+		ECD1634A29464D280092C0AF /* FinalSubmissionBaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD1634829464D280092C0AF /* FinalSubmissionBaseScene.cpp */; };
+		ECD1635029464F5E0092C0AF /* ShadowPassFinalSubmission.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD1634E29464F5E0092C0AF /* ShadowPassFinalSubmission.cpp */; };
+		ECD163542947538E0092C0AF /* LitPlane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD163522947538E0092C0AF /* LitPlane.cpp */; };
 		ECD16D81290FE3C6009F5F6C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D80290FE3C6009F5F6C /* main.cpp */; };
 		ECD16D8B290FE417009F5F6C /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD16D8A290FE417009F5F6C /* libglfw.3.3.dylib */; };
 		ECD16D8D290FEC16009F5F6C /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = ECD16D8C290FEC16009F5F6C /* glad.c */; };
@@ -124,6 +127,17 @@
 		ECD16345294643020092C0AF /* l_posz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = l_posz.jpg; sourceTree = "<group>"; };
 		ECD16346294643020092C0AF /* l_negx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = l_negx.jpg; sourceTree = "<group>"; };
 		ECD16347294643020092C0AF /* l_negz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = l_negz.jpg; sourceTree = "<group>"; };
+		ECD1634829464D280092C0AF /* FinalSubmissionBaseScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FinalSubmissionBaseScene.cpp; sourceTree = "<group>"; };
+		ECD1634929464D280092C0AF /* FinalSubmissionBaseScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FinalSubmissionBaseScene.hpp; sourceTree = "<group>"; };
+		ECD1634C29464D670092C0AF /* shadowMapping.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shadowMapping.vert; sourceTree = "<group>"; };
+		ECD1634D29464D8C0092C0AF /* shadowMapping.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shadowMapping.frag; sourceTree = "<group>"; };
+		ECD1634E29464F5E0092C0AF /* ShadowPassFinalSubmission.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ShadowPassFinalSubmission.cpp; sourceTree = "<group>"; };
+		ECD1634F29464F5E0092C0AF /* ShadowPassFinalSubmission.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShadowPassFinalSubmission.hpp; sourceTree = "<group>"; };
+		ECD1635129465D580092C0AF /* appCongif.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = appCongif.h; sourceTree = "<group>"; };
+		ECD163522947538E0092C0AF /* LitPlane.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LitPlane.cpp; sourceTree = "<group>"; };
+		ECD163532947538E0092C0AF /* LitPlane.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LitPlane.hpp; sourceTree = "<group>"; };
+		ECD16356294759DA0092C0AF /* LitTexPlane.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = LitTexPlane.vert; sourceTree = "<group>"; };
+		ECD16357294759FA0092C0AF /* LitTexPlane.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = LitTexPlane.frag; sourceTree = "<group>"; };
 		ECD16D7D290FE3C6009F5F6C /* OpenGL_Basics */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGL_Basics; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD16D80290FE3C6009F5F6C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		ECD16D88290FE3F6009F5F6C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -313,6 +327,24 @@
 			path = leanOpenGLSkyBox;
 			sourceTree = "<group>";
 		};
+		ECD1634B29464D4C0092C0AF /* ShadowMapping */ = {
+			isa = PBXGroup;
+			children = (
+				ECD1634C29464D670092C0AF /* shadowMapping.vert */,
+				ECD1634D29464D8C0092C0AF /* shadowMapping.frag */,
+			);
+			path = ShadowMapping;
+			sourceTree = "<group>";
+		};
+		ECD16355294759BF0092C0AF /* Lit_Plane */ = {
+			isa = PBXGroup;
+			children = (
+				ECD16356294759DA0092C0AF /* LitTexPlane.vert */,
+				ECD16357294759FA0092C0AF /* LitTexPlane.frag */,
+			);
+			path = Lit_Plane;
+			sourceTree = "<group>";
+		};
 		ECD16D74290FE3C6009F5F6C = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +377,7 @@
 				ECD16D80290FE3C6009F5F6C /* main.cpp */,
 				EC2E36EC2913FCFC00C31DBD /* Application.cpp */,
 				EC2E36ED2913FCFC00C31DBD /* Application.hpp */,
+				ECD1635129465D580092C0AF /* appCongif.h */,
 			);
 			path = OpenGL_Basics;
 			sourceTree = "<group>";
@@ -376,6 +409,7 @@
 		ECD16D962912BD6B009F5F6C /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				ECD1634B29464D4C0092C0AF /* ShadowMapping */,
 				ECD1633D294628580092C0AF /* Skybox */,
 				ECEA063A2922A0410055DD24 /* LightingShaders */,
 				EC2E36F12917CDBD00C31DBD /* ObjectShaders */,
@@ -391,6 +425,7 @@
 		ECEA063A2922A0410055DD24 /* LightingShaders */ = {
 			isa = PBXGroup;
 			children = (
+				ECD16355294759BF0092C0AF /* Lit_Plane */,
 				ECEA06452924FFA70055DD24 /* Lit_Cube */,
 				ECEA063B2922A06C0055DD24 /* DirectionalLighting.vert */,
 				ECEA063C2922A0CE0055DD24 /* DirectionalLighting.frag */,
@@ -416,6 +451,8 @@
 				ECEA06432924E7FB0055DD24 /* Lit_UnitCube.hpp */,
 				EC49CDFF2927F0FC00D771C6 /* Sphere.cpp */,
 				EC49CE002927F0FC00D771C6 /* Sphere.hpp */,
+				ECD163522947538E0092C0AF /* LitPlane.cpp */,
+				ECD163532947538E0092C0AF /* LitPlane.hpp */,
 			);
 			path = LitObjects;
 			sourceTree = "<group>";
@@ -447,6 +484,10 @@
 			children = (
 				ECEA064D2926B3100055DD24 /* ClockScene.cpp */,
 				ECEA064E2926B3100055DD24 /* ClockScene.hpp */,
+				ECD1634829464D280092C0AF /* FinalSubmissionBaseScene.cpp */,
+				ECD1634929464D280092C0AF /* FinalSubmissionBaseScene.hpp */,
+				ECD1634E29464F5E0092C0AF /* ShadowPassFinalSubmission.cpp */,
+				ECD1634F29464F5E0092C0AF /* ShadowPassFinalSubmission.hpp */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -514,6 +555,7 @@
 				EC84D65B2938FA2D00F93ADE /* Animation_Data.cpp in Sources */,
 				EC84D64F2938F8F700F93ADE /* Animator.cpp in Sources */,
 				ECD16D81290FE3C6009F5F6C /* main.cpp in Sources */,
+				ECD1635029464F5E0092C0AF /* ShadowPassFinalSubmission.cpp in Sources */,
 				EC84D6452938E6C200F93ADE /* Mesh.cpp in Sources */,
 				EC2E3702291CF8DF00C31DBD /* Plane.cpp in Sources */,
 				EC84D6582938F9A500F93ADE /* AssimpGLMHelpers.cpp in Sources */,
@@ -528,6 +570,7 @@
 				ECCCD2092913EA78000D4BED /* Triangle.cpp in Sources */,
 				EC49CDFE2926E49800D771C6 /* Cylinder.cpp in Sources */,
 				ECEA06402922AEA00055DD24 /* ILight.cpp in Sources */,
+				ECD163542947538E0092C0AF /* LitPlane.cpp in Sources */,
 				EC2E36EE2913FCFC00C31DBD /* Application.cpp in Sources */,
 				EC49CE012927F0FC00D771C6 /* Sphere.cpp in Sources */,
 				ECD16D8D290FEC16009F5F6C /* glad.c in Sources */,
@@ -536,6 +579,7 @@
 				ECD16D952911B05F009F5F6C /* RenderableObjectsBase.cpp in Sources */,
 				EC84D6552938F96C00F93ADE /* Bone.cpp in Sources */,
 				ECD16D992912BD8B009F5F6C /* GLSLShader.cpp in Sources */,
+				ECD1634A29464D280092C0AF /* FinalSubmissionBaseScene.cpp in Sources */,
 				EC84D6522938F93600F93ADE /* Animation.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
