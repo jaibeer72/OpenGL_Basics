@@ -116,7 +116,7 @@ void Application::initWindow(int width, int height) {
     // configure global opengl state
      // -----------------------------
      glEnable(GL_DEPTH_TEST);
-     //glEnable(GL_CULL_FACE);
+     glEnable(GL_CULL_FACE);
     
 }
 

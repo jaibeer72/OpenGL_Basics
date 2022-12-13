@@ -46,8 +46,8 @@
             filePath = "OpenGL_Basics/Application.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "Application::initWindow(width, height)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "OpenGL_Basics/Application.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "Application::initWindow(width, height)"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "OpenGL_Basics/Application.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "Application::initWindow(width, height)"
             landmarkType = "7">
          </BreakpointContent>
@@ -318,8 +318,8 @@
             filePath = "OpenGL_Basics/RenderableObjctsBase/Objects/LitObjects/Lit_UnitCube.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "Lit_UnitCube::FillVertexNormals(VertexNormals)"
             landmarkType = "7">
          </BreakpointContent>
@@ -334,8 +334,8 @@
             filePath = "OpenGL_Basics/RenderableObjctsBase/Objects/LitObjects/Lit_UnitCube.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "Lit_UnitCube::FillVertexNormals(VertexNormals)"
             landmarkType = "7">
          </BreakpointContent>
@@ -350,8 +350,8 @@
             filePath = "OpenGL_Basics/RenderableObjctsBase/Objects/LitObjects/Lit_UnitCube.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "Lit_UnitCube::FillVertexNormals(VertexNormals)"
             landmarkType = "7">
          </BreakpointContent>
@@ -446,8 +446,8 @@
             filePath = "OpenGL_Basics/RenderableObjctsBase/Objects/LitObjects/Lit_UnitCube.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "Lit_UnitCube::Lit_UnitCube(position, S, R)"
             landmarkType = "7">
          </BreakpointContent>
@@ -462,25 +462,9 @@
             filePath = "OpenGL_Basics/Application.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "Application::initWindow(width, height)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "810CA239-4C16-40EF-8E16-C64CA51C293D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OpenGL_Basics/RenderableObjctsBase/Objects/LitObjects/Lit_UnitCube.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "Lit_UnitCube::Lit_UnitCube(position, S, R)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -647,38 +631,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1E5779E7-0F2F-41EB-877D-D8C8CCB934AA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OpenGL_Basics/Scenes/ShadowPassFinalSubmission.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "ShadowPassInScene::Init()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "53FA17D3-63D4-4C2E-B3A5-1F59529F38C4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OpenGL_Basics/Scenes/ShadowPassFinalSubmission.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "ShadowPassInScene::update(dt, mainCam)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "ED01776A-8410-4B86-ACD9-D32ED881C1B4"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -686,8 +638,8 @@
             filePath = "OpenGL_Basics/Scenes/FinalSubmissionBaseScene.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "FinalSubmissionBase::update(dt, mainCamera)"
             landmarkType = "7">
          </BreakpointContent>
@@ -718,8 +670,8 @@
             filePath = "OpenGL_Basics/Application.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "Application::initWindow(width, height)"
             landmarkType = "7">
          </BreakpointContent>
@@ -750,8 +702,8 @@
             filePath = "OpenGL_Basics/Scenes/FinalSubmissionBaseScene.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "FinalSubmissionBase::update(dt, mainCamera)"
             landmarkType = "7">
          </BreakpointContent>
@@ -798,10 +750,8 @@
             filePath = "OpenGL_Basics/Scenes/ShadowPassFinalSubmission.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "ShadowPassInScene::renderScene(shader, mainCam)"
-            landmarkType = "7">
+            startingLineNumber = "172"
+            endingLineNumber = "172">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -862,8 +812,8 @@
             filePath = "OpenGL_Basics/Scenes/ShadowPassFinalSubmission.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "ShadowPassInScene::Init()"
             landmarkType = "7">
          </BreakpointContent>
@@ -878,8 +828,8 @@
             filePath = "OpenGL_Basics/Scenes/ShadowPassFinalSubmission.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "ShadowPassInScene::renderScene(shader, mainCam)"
             landmarkType = "7">
          </BreakpointContent>

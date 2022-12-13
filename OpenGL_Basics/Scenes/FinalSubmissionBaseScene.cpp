@@ -18,15 +18,21 @@ void FinalSubmissionBase::Init() {
     {
         ourModel[i] = new Model("/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/assets/Capoeira.dae");
         
-        danceAnimation[i] = new Animation("/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/assets/Capoeira.dae",ourModel[i]);
+        danceAnimation[0] = new Animation("/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/assets/Capoeira.dae",ourModel[i]);
+        danceAnimation[1] = new Animation("/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/assets/Rumba Dancing.dae",ourModel[i]);        danceAnimation[2] = new Animation("/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/assets/Rumba Dancing.dae",ourModel[i]);
         animator[i] = new Animator(danceAnimation[i]);
     }
     ourModel[1]->SetPosition(glm::vec3(2,0,0));
     ourModel[1]->UpdateTransform();
     ourModel[2]->SetPosition(glm::vec3(-2,0,0));
     ourModel[2]->UpdateTransform();
-    m_skybox = new Skybox("/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/assets/Skybox/leanOpenGLSkyBox/l");
+    m_skybox = new Skybox("/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/assets/Skybox/leanOpenGLSkyBox/l",".jpg");
     m_skybox->Init();
+    m_indoor = new Skybox("/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/assets/StudioCubeMap/S");
+    m_indoor->Init();
+    m_indoor->SetScale(10 , 10, 10);
+    m_indoor->UpdateTransform();
+    m_indoor->Rotate(0, 180, 0);
     
     plane = new LitTexPlane(10,10);
     plane->Init();
@@ -35,7 +41,11 @@ void FinalSubmissionBase::Init() {
     plane2 = new LitTexPlane(10,10);
     plane2->Init();
     plane2->SetPosition(glm::vec3(0,5,0));
+    plane2->Rotate(180, 0, 0);
     plane2->UpdateTransform();
+    
+    cube = new Lit_UnitCube(glm::vec3(1,1,1),glm::vec3(1,1,1),glm::vec3(1,1,1));
+    cube->Init();
 
 }
 
@@ -48,8 +58,10 @@ void FinalSubmissionBase::update(float dt,CFreeCamera* mainCamera) {
     mainCamera->Rotate(Input::GetInstance().GetmousePos().x, Input::GetInstance().GetmousePos().y,0);
     
     m_skybox->Render(glm::value_ptr(VP));
+    m_indoor->Render(glm::value_ptr(VP));
     plane->Render(glm::value_ptr(VP),mainCamera->GetPosition());
     plane2->Render(glm::value_ptr(VP),mainCamera->GetPosition());
+    cube->Render(glm::value_ptr(VP),mainCamera->GetPosition());
     
     GL_CHECK_ERRORS;
     ourShader.Use();

@@ -13,7 +13,7 @@
 class Skybox: public IRenderableObject
 {
 public:
-    Skybox(std::string skyBoxPath);
+    Skybox(std::string skyBoxPath,const std::string & extention = ".png");
     
     int GetTotalVertices() override;
     

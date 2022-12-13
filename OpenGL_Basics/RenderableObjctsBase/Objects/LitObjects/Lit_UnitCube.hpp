@@ -27,7 +27,7 @@ public:
     void DrawStyle() override {
         glDrawArrays(primType,0,totalVertices);
     }
-    
+    unsigned int texID;
     
 };
 

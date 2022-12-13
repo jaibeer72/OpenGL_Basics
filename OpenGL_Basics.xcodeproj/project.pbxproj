@@ -138,6 +138,13 @@
 		ECD163532947538E0092C0AF /* LitPlane.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LitPlane.hpp; sourceTree = "<group>"; };
 		ECD16356294759DA0092C0AF /* LitTexPlane.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = LitTexPlane.vert; sourceTree = "<group>"; };
 		ECD16357294759FA0092C0AF /* LitTexPlane.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = LitTexPlane.frag; sourceTree = "<group>"; };
+		ECD163582948B4660092C0AF /* Rumba Dancing.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = "Rumba Dancing.dae"; sourceTree = "<group>"; };
+		ECD1635A2948B7850092C0AF /* S_negz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = S_negz.png; sourceTree = "<group>"; };
+		ECD1635B2948B7860092C0AF /* S_negy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = S_negy.png; sourceTree = "<group>"; };
+		ECD1635C2948B7860092C0AF /* S_posy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = S_posy.png; sourceTree = "<group>"; };
+		ECD1635D2948B7860092C0AF /* S_posz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = S_posz.png; sourceTree = "<group>"; };
+		ECD1635E2948B7860092C0AF /* S_negx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = S_negx.png; sourceTree = "<group>"; };
+		ECD1635F2948B7860092C0AF /* S_posx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = S_posx.png; sourceTree = "<group>"; };
 		ECD16D7D290FE3C6009F5F6C /* OpenGL_Basics */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGL_Basics; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD16D80290FE3C6009F5F6C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		ECD16D88290FE3F6009F5F6C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -247,6 +254,8 @@
 		EC84D6492938EF5D00F93ADE /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				ECD163592948B7390092C0AF /* StudioCubeMap */,
+				ECD163582948B4660092C0AF /* Rumba Dancing.dae */,
 				ECD16335294604FC0092C0AF /* Skybox */,
 				EC84D64B2938EF6D00F93ADE /* Capoeira.dae */,
 				EC84D64A2938EF6D00F93ADE /* textures */,
@@ -343,6 +352,19 @@
 				ECD16357294759FA0092C0AF /* LitTexPlane.frag */,
 			);
 			path = Lit_Plane;
+			sourceTree = "<group>";
+		};
+		ECD163592948B7390092C0AF /* StudioCubeMap */ = {
+			isa = PBXGroup;
+			children = (
+				ECD1635E2948B7860092C0AF /* S_negx.png */,
+				ECD1635B2948B7860092C0AF /* S_negy.png */,
+				ECD1635A2948B7850092C0AF /* S_negz.png */,
+				ECD1635F2948B7860092C0AF /* S_posx.png */,
+				ECD1635C2948B7860092C0AF /* S_posy.png */,
+				ECD1635D2948B7860092C0AF /* S_posz.png */,
+			);
+			path = StudioCubeMap;
 			sourceTree = "<group>";
 		};
 		ECD16D74290FE3C6009F5F6C = {

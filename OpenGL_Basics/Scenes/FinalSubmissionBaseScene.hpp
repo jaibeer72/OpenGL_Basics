@@ -20,6 +20,7 @@
 // Object to render
 #include "Skybox.hpp"
 #include "LitPlane.hpp"
+#include "Lit_UnitCube.hpp"
 
 class FinalSubmissionBase
 {
@@ -28,12 +29,14 @@ public:
     void update(float dt,CFreeCamera* mainCamera);
     
     Skybox* m_skybox;
+    Skybox* m_indoor;
     GLSLShader ourShader;
     Animation* danceAnimation[3];
     Animator* animator[3];
     Model* ourModel[3];
     LitTexPlane* plane;
     LitTexPlane* plane2;
+    Lit_UnitCube* cube;
 };
 
 #endif /* FinalSubmissionBaseScene_hpp */

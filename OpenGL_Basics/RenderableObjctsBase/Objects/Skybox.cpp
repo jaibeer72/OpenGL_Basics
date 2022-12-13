@@ -9,7 +9,7 @@
 #include "TexLoading.hpp"
 
 
-Skybox::Skybox(std::string skyBoxPath) { 
+Skybox::Skybox(std::string skyBoxPath,const std::string & extention) {
     //generate the cube object
     shader.LoadFromFile(GL_VERTEX_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/Skybox/skybox.vert");
     shader.LoadFromFile(GL_FRAGMENT_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/Skybox/skybox.frag");
@@ -25,7 +25,7 @@ Skybox::Skybox(std::string skyBoxPath) {
         glUniform1i(shader("cubeMap"),0);
     shader.UnUse();
     
-    texID = TexLoading::loadCubeMap(skyBoxPath,".jpg");
+    texID = TexLoading::loadCubeMap(skyBoxPath,extention);
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_CUBE_MAP, texID);
