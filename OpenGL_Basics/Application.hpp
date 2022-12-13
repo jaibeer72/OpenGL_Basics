@@ -15,6 +15,10 @@
 // input system
 #include "Input.hpp"
 #include "ClockScene.hpp"
+#include "Model.hpp"
+
+#include "Animator.hpp"
+#include "ShadowPassFinalSubmission.hpp"
 
 class Application {
     
@@ -28,7 +32,7 @@ public:
     const char* appName = "Application Name";
     int width;
     int height;
-    inline static CFreeCamera MainCamera;
+
     
     Application(const char* AppName, int Width, int Height);
     
@@ -37,7 +41,10 @@ public:
     void init();
     void run();
     
-    ClockScene* clockScene;
+    inline static CFreeCamera MainCamera;
+    //ClockScene* clockScene;
+    ShadowPassInScene* m_scene;
+    
 };
 
 #endif /* Application_hpp */

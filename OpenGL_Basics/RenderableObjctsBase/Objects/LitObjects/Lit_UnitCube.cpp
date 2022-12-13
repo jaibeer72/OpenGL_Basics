@@ -7,6 +7,7 @@
 
 
 #include "Lit_UnitCube.hpp"
+#include "TexLoading.hpp"
 
 glm::vec3 lPos = glm::vec3(5, 5, 5);
 glm::vec3 lambient = glm::vec3(1.0,1.0,0.0);
@@ -25,46 +26,32 @@ Lit_UnitCube::Lit_UnitCube(glm::vec3 position , glm::vec3 S, glm::vec3 R) {
     mat.specular = glm::vec3(1,1,1);
     mat.shininess = 35.0f;
     
-    shader.LoadFromFile(GL_VERTEX_SHADER, "../../../OpenGL_Basics/Shaders/LightingShaders/Lit_Cube/Lit_Cube.vert");
-    shader.LoadFromFile(GL_FRAGMENT_SHADER, "../../../OpenGL_Basics/Shaders/LightingShaders/Lit_Cube/Lit_Cube.frag");
+    shader.LoadFromFile(GL_VERTEX_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/LightingShaders/Lit_Plane/LitTexPlane.vert");
+    shader.LoadFromFile(GL_FRAGMENT_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/LightingShaders/Lit_Plane/LitTexPlane.frag");
     shader.CreateAndLinkProgram();
     shader.Use();
-    shader.AddAttribute("vVertex", 0);
-    shader.AddAttribute("vNormal", 1);
-    shader.AddUniform("VP");
+        shader.AddAttribute("vVertex",0);
+        shader.AddAttribute("vNormal", 1);
+        shader.AddAttribute("vTexCoords", 2);
+        shader.AddUniform("VP");
+        shader.AddUniform("diffuseTexture");
+        shader.AddUniform("vModel");
+        shader.AddUniform("viewPos");
+        glUniform1i(shader("diffuseTexture"), 0);
     
-    shader.AddUniform("vModel");
-    
-    
-    shader.AddUniform("viewPos");
-    
-    shader.AddUniform(Mat_Ambient);
-    shader.AddUniform(Mat_Diffuse);
-    shader.AddUniform(Mat_Specular);
-    shader.AddUniform(Mat_Shininess);
+    //generate texture object
+    texID = TexLoading::loadTexture("/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/assets/Skybox/cubemap_night/night_posx.png");
     
     
-    shader.AddUniform(Light_Position);
-    shader.AddUniform(Light_Ambient);
-    shader.AddUniform(Light_Diffuse);
-    shader.AddUniform(Light_Specular);
-
-    glUniform3fv(shader(Mat_Ambient),1,glm::value_ptr(mat.ambient));
-    glUniform3fv(shader(Mat_Diffuse),1,glm::value_ptr(mat.diffuse));
-    glUniform3fv(shader(Mat_Specular),1,glm::value_ptr(mat.specular));
-    glUniform1f(shader(Mat_Shininess),mat.shininess);
-    
-    glUniform3fv(shader(Light_Position),1,glm::value_ptr(lPos));
-    glUniform3fv(shader(Light_Ambient),1,glm::value_ptr(lambient));
-    glUniform3fv(shader(Light_Diffuse),1,glm::value_ptr(ldiffuse));
-    glUniform3fv(shader(Light_Specular),1,glm::value_ptr(lspecular));
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, texID);
     // Material uniform
     shader.UnUse();
 
     GL_CHECK_ERRORS;
 }
 
-void Lit_UnitCube::FillVertexNormals(std::vector<Vertex> &VertexNormals) { 
+void Lit_UnitCube::FillVertexNormals(std::vector<VertexLit> &VertexNormals) { 
     
     glm::vec3 pos[] = {
         {-0.5f, -0.5f, -0.5f},
@@ -139,28 +126,30 @@ void Lit_UnitCube::FillVertexNormals(std::vector<Vertex> &VertexNormals) {
         {1.0f,  0.0f,  0.0f},
         {1.0f,  0.0f,  0.0f},
         
-        {0.0f, -1.0f,  0.0f},
-        {0.0f, -1.0f,  0.0f},
-        {0.0f, -1.0f,  0.0f},
-        {0.0f, -1.0f,  0.0f},
-        {0.0f, -1.0f,  0.0f},
-        {0.0f, -1.0f,  0.0f},
+        {0.0f,  1.0f,  0.0f},
+        {0.0f,  1.0f,  0.0f},
+        {0.0f,  1.0f,  0.0f},
+        {0.0f,  1.0f,  0.0f},
+        {0.0f,  1.0f,  0.0f},
+        {0.0f,  1.0f,  0.0f},
         
-        {0.0f,  1.0f,  0.0f},
-        {0.0f,  1.0f,  0.0f},
-        {0.0f,  1.0f,  0.0f},
-        {0.0f,  1.0f,  0.0f},
-        {0.0f,  1.0f,  0.0f},
-        {0.0f,  1.0f,  0.0f}
+        {0.0f, -1.0f,  0.0f},
+        {0.0f, -1.0f,  0.0f},
+        {0.0f, -1.0f,  0.0f},
+        {0.0f, -1.0f,  0.0f},
+        {0.0f, -1.0f,  0.0f},
+        {0.0f, -1.0f,  0.0f}
+        
     };
     
     VertexNormals.resize(36);
     
     for(int i = 0 ; i < 36 ; i++)
     {
-        Vertex v ;
+        VertexLit v ;
         v.Position = pos[i];
         v.Normal = nor[i];
+        v.TexCoords= glm::vec2(pos[i].x,pos[i].y);
         VertexNormals[i]=v;
     }
     
@@ -174,17 +163,12 @@ GLenum Lit_UnitCube::GetPrimitiveType() {
     return GL_TRIANGLES;
 }
 
-void Lit_UnitCube::SetCustomUniforms() { 
-    glUniform3fv(shader(Mat_Ambient),1,glm::value_ptr(mat.ambient));
-    glUniform3fv(shader(Mat_Diffuse),1,glm::value_ptr(mat.diffuse));
-    glUniform3fv(shader(Mat_Specular),1,glm::value_ptr(mat.specular));
-    glUniform1f(shader(Mat_Shininess),mat.shininess);
-
+void Lit_UnitCube::SetCustomUniforms() {
     
-    glUniform3fv(shader(Light_Position),1,glm::value_ptr(lPos));
-    glUniform3fv(shader(Light_Ambient),1,glm::value_ptr(lambient));
-    glUniform3fv(shader(Light_Diffuse),1,glm::value_ptr(ldiffuse));
-    glUniform3fv(shader(Light_Specular),1,glm::value_ptr(lspecular));
+    glActiveTexture(GL_TEXTURE0);
+   glBindTexture(GL_TEXTURE_2D, texID);
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, depthMap);
 
     GL_CHECK_ERRORS;
     

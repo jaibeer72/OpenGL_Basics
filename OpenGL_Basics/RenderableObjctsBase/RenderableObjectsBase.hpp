@@ -33,13 +33,14 @@ public:
     virtual void SetCustomUniforms() = 0;
     void Init();
     void Destroy();
+    GLSLShader shader;
 
 protected:
     GLuint vaoID;
     GLuint vboVerticesID;
     GLuint vboIndicesID;
     
-    GLSLShader shader;
+    
     GLenum primType;
     int totalVertices, totalIndices , totalNormals;
 };

@@ -22,6 +22,7 @@ void IRenderableObject::IRenderableObject::Render(const float *VP) {
     SetCustomUniforms();
     glBindVertexArray(vaoID);
     glDrawElements(primType, totalIndices, GL_UNSIGNED_INT, 0);
+    glBindVertexArray(0);
     shader.UnUse();
 }
 

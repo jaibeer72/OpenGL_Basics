@@ -100,7 +100,6 @@ void GLSLShader::Use() {
 
 void GLSLShader::UnUse() { 
     glUseProgram(0);
-    PrintGLerror();
     GL_CHECK_ERRORS;
 }
 
@@ -111,6 +110,7 @@ void GLSLShader::AddAttribute(const std::string &attribute, GLuint location) {
 
 void GLSLShader::AddUniform(const std::string &uniform) { 
     _uniformLocationList[uniform] = glGetUniformLocation(m_Program, uniform.c_str());
+    PrintGLerror();
     GL_CHECK_ERRORS;
 }
 

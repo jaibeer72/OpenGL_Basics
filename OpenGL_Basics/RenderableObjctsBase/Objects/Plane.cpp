@@ -15,11 +15,12 @@ CTexturedPlane::CTexturedPlane(const int w, const int d)
     depth = d;
     
     //setup shader
-    shader.LoadFromFile(GL_VERTEX_SHADER, "../../../OpenGL_Basics/Shaders/ObjectShaders/TexturedPlane/checkeredPlane.vert");
-    shader.LoadFromFile(GL_FRAGMENT_SHADER, "../../../OpenGL_Basics/Shaders/ObjectShaders/TexturedPlane/checkeredPlane.frag");
+    shader.LoadFromFile(GL_VERTEX_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/LightingShaders/Lit_Plane/LitTexPlane.vert");
+    shader.LoadFromFile(GL_FRAGMENT_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/LightingShaders/Lit_Plane/LitTexPlane.frag");
     shader.CreateAndLinkProgram();
     shader.Use();
         shader.AddAttribute("vVertex",0);
+        shader.AddAttribute("vNormal", 1);
         shader.AddUniform("VP");
         shader.AddUniform("textureMap");
         shader.AddUniform("vModel");
@@ -35,8 +36,8 @@ CTexturedPlane::CTexturedPlane(const int w, const int d)
     
     //generate texture object
     glGenTextures(1, &checkerTextureID);
-    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, checkerTextureID);
+
     //set texture parameters
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
@@ -57,6 +58,9 @@ CTexturedPlane::CTexturedPlane(const int w, const int d)
 
     //generate mipmaps
     glGenerateMipmap(GL_TEXTURE_2D);
+    
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, checkerTextureID);
     
     SetPosition(glm::vec3(0,0,0)) ;
     UpdateTransform();
@@ -101,6 +105,7 @@ void CTexturedPlane::FillIndexBuffer(GLuint* pBuffer) {
 }
 
 void CTexturedPlane::SetCustomUniforms(){
+    glBindTexture(GL_TEXTURE_2D, checkerTextureID);
     
 }
 

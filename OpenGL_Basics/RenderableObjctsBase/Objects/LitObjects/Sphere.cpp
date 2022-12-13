@@ -8,7 +8,7 @@
 #include "Sphere.hpp"
 
 
-void Sphere::FillVertexNormals(std::vector<Vertex> &VertexNormals) { 
+void Sphere::FillVertexNormals(std::vector<VertexLit> &VertexNormals) { 
 
 }
 

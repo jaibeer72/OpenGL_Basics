@@ -14,7 +14,7 @@ class Sphere: public ILitObject
 public:
     Sphere(float radius, unsigned int slices, unsigned int stacks);
     
-    void FillVertexNormals(std::vector<Vertex> &VertexNormals) override;
+    void FillVertexNormals(std::vector<VertexLit> &VertexNormals) override;
     
     int GetToalVertices() override;
     

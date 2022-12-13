@@ -15,7 +15,7 @@ class Cylinder : public ILitObject {
 public:
     Cylinder();
     
-    void FillVertexNormals(std::vector<Vertex> &VertexNormals) override;
+    void FillVertexNormals(std::vector<VertexLit> &VertexNormals) override;
     
     int GetToalVertices() override;
     
