@@ -14,7 +14,7 @@ LitTexPlane::LitTexPlane(const int w, const int d) {
     depth = d;
     
     //setup shader
-    shader.LoadFromFile(GL_VERTEX_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/LightingShaders/Lit_Plane/LitTexPlane.vert");
+    shader.LoadFromFile(GL_VERTEX_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/LightingShaders/Lit_Plane/LitTexPlane.");
     shader.LoadFromFile(GL_FRAGMENT_SHADER, "/Users/jaibeerdugal/Documents/simpleCpp/SimpleerCpp/HelloOpenGl/OpenGl_Basics/OpenGL_Basics/OpenGL_Basics/Shaders/LightingShaders/Lit_Plane/LitTexPlane.frag");
     shader.CreateAndLinkProgram();
     shader.Use();

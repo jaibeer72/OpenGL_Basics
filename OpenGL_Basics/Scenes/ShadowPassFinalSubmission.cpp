@@ -140,7 +140,7 @@ void ShadowPassInScene::renderScene(GLSLShader &shader,CFreeCamera* mainCam) {
     
     temp = plane->shader;
     plane->shader = m_shadowpassShader;
-    plane->Render(glm::value_ptr(cVP),mainCam->GetPosition());
+    plane->Render(glm::value_ptr(lightSpaceMatrix),mainCam->GetPosition());
     plane->shader = temp;
     
     // applying shadow stuff to plane texture for next render
@@ -152,7 +152,7 @@ void ShadowPassInScene::renderScene(GLSLShader &shader,CFreeCamera* mainCam) {
     
     temp = plane2->shader;
     plane2->shader = m_shadowpassShader;
-    plane2->Render(glm::value_ptr(cVP),mainCam->GetPosition());
+    plane2->Render(glm::value_ptr(lightView),mainCam->GetPosition());
     plane2->shader = temp;
     
     // applying shadow stuff to plane texture for next render
