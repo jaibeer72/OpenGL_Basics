@@ -560,7 +560,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "Skybox::Skybox(skyBoxPath)"
+            landmarkName = "Skybox::Skybox(skyBoxPath, extention)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -592,7 +592,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
             endingLineNumber = "19"
-            landmarkName = "Skybox::Skybox(skyBoxPath)"
+            landmarkName = "Skybox::Skybox(skyBoxPath, extention)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -624,7 +624,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "14"
             endingLineNumber = "14"
-            landmarkName = "Skybox::Skybox(skyBoxPath)"
+            landmarkName = "Skybox::Skybox(skyBoxPath, extention)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -831,6 +831,22 @@
             startingLineNumber = "163"
             endingLineNumber = "163"
             landmarkName = "ShadowPassInScene::renderScene(shader, mainCam)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4F9BDC90-438B-4351-9021-FCCE6810DF82"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenGL_Basics/RenderableObjctsBase/Objects/LitObjects/LitPlane.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "LitTexPlane::LitTexPlane(w, d)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
